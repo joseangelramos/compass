@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "lgDHtccQQoQkHtVgMx2VSO",
+    "name" : "ABCIncApiServiceConnector",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "JVxYi0Nmumf6S3w-gt-1161110-2025-03-06T16:24:03.057Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-06T21:31:45.489Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,143 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>JVxYi0Nmumf6S3w-gt-1161110-2025-03-06T16:24:03.057Z::svc.xml</types1:EntryId>
+      <types1:Name>ABCIncApiServiceConnector</types1:Name>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-06T16:24:03Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-06T21:29:48Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-06T21:31:01Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ABCIncApiServiceConnector/ABCIncApiServiceConnector_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="ABCIncApiServiceConnector"
+                            label=""
+                            name="ABCIncApiServiceConnector"
+                            uuid="c2a5012a-ac74-43de-8f72-eb8c1ef23f15">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="client_id"
+                                    masked="true"
+                                    name="client_id"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    label="client_secret"
+                                    masked="true"
+                                    name="client_secret"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Get Token"
+                       maxRedirects="100"
+                       name="Get Token"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://dmp-us.informaticacloud.com/authz-service/oauth/token"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id={$client_id}&amp;amp;client_secret={$client_secret}&amp;amp;grant_type=client_credentials</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="responseauthtoken"
+                            property="access_token"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Customers Search"
+                       maxRedirects="100"
+                       name="Customers Search"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="offset"
+                                required="true"
+                                testWith="0"
+                                type="int"/>
+                     <parameter description=""
+                                label=""
+                                name="fetch"
+                                required="true"
+                                testWith="5"
+                                type="int"/>
+                     <parameter description=""
+                                label=""
+                                name="authtoken"
+                                nogen="true"
+                                required="true"
+                                testWith="eyJraWQiOiI5NUliMExIS01GaWV3eGZHczFtenEyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlYTJUTHpCcHJBUmtXVWFFZ05xQ3FaIiwiYXVkIjoiQVBJQyIsIm9yZ19pZCI6IjVHS3c3R0t1VXhkZTk1a2gyU1lpNEUiLCJzY29wZSI6WyJleGVjdXRlIl0sImFkZGl0aW9uYWxfY2xhaW0iOiJld29nSUNKMWMyVnlUbUZ0WlNJZ09pQWlhbTl5WVcxdmMxOU1RVlJCVFY5RFlYSnNiM05mZEhOd2IyUmZVMDhpTEFvZ0lDSnRZVzVoWjJWa1FYQnBjeUlnT2lCYklGMHNDaUFnSW1Gc2JGSmxjMjkxY21ObGN5SWdPaUIwY25WbENuMD0iLCJpc3MiOiJodHRwczovL2RtcC11cy5pbmZvcm1hdGljYWNsb3VkLmNvbS9hdXRoei1zZXJ2aWNlIiwiZXhwIjoxNzQxMzgyNjA5LCJjbGllbnRfbmFtZSI6ImFiY2luY19jbGllbnQiLCJpYXQiOjE3NDEyOTYyMDksImp0aSI6Ii1fTGpIVGZBanNBZWRKYVJWN2IxWW85Vk5GSSIsImNsaWVudF9pZCI6ImVhMlRMekJwckFSa1dVYUVnTnFDcVoifQ.Jb8Y4pMWF3GPBj9AS9-04tysHolL8rlbtAc1FcsuIKVsKiPDf6C57hNEii2VuSm-v9uFuKAo1fcQPt1T7Jvxo4GHMQVQlGHZTvzNNQScAUsQnXZiUFpFZMsF0Qs9xLPGVC_bot1kUNhHpkyegYvcuqCxxx4CJNqod7HPRxnsCm0qeS2ydg8A4QykFyvQXsLArM6Qhz3W5XU3rYVgfCWyXrnNwDy0Vm7kLWZ6PmjUk82F13bZOBU6DUeXx_toNwonjYe-p0cGnpl1sDB_1LhODQ-GtPGAaW_4VHrwmB-vhw9LLQ0WLv8KmBNmE6q1GqbTZr0gLzA1pERPTe4qe_XxEA"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw1-gw.dmp-us.informaticacloud.com/5gkw7gkuuxde95kh2syi4e.com/abcincapi/v1/customers"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{'Bearer '||$authtoken}</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="customersearchresult"
+                            type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>lgDHtccQQoQkHtVgMx2VSO</types1:GUID>
+      <types1:DisplayName>ABCIncApiServiceConnector</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T21:31:45.326Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
