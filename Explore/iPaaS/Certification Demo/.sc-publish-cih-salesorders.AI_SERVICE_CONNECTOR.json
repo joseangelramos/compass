@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "aD116gGzRsafEtu2RJl7yH",
+    "name" : "sc-publish-cih-salesorders",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "beIXycotFgpKi9z-gt-5861414-2024-12-26T22:38:29.027Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "REST interface to publish data to a Cloud Integration Hub publication.",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-06T16:08:21.354Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,72 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>nW7eLyCnNZPD4AR-gt-2220974-2024-12-16T19:57:48.218Z::conn.xml</types1:EntryId>
+      <types1:Name>SnowflakeConnetionPresalesWorkshop</types1:Name>
+      <types1:ParentFlowIds>2lxbdypKwKBqRi9-gt-15802-2024-12-18T02:37:05.861Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>Snowflake connection Warehouse APJ_PRESALES_WORKSHOP</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-16T19:57:48Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-06T07:06:13Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-06T07:06:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/SnowflakeConnetionPresalesWorkshop/SnowflakeConnetionPresalesWorkshop.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="SnowflakeConnetionPresalesWorkshop"
+                     label="SnowflakeConnetionPresalesWorkshop"
+                     name="SnowflakeConnetionPresalesWorkshop">
+            <description>Snowflake connection Warehouse APJ_PRESALES_WORKSHOP</description>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <agent>idmc08-latam-carlos-primary.infacloud.eu</agent>
+            <attributes>
+               <attribute encrypted="false"
+                          name="driver"
+                          value="net.snowflake.client.jdbc.SnowflakeDriver"/>
+               <attribute encrypted="false"
+                          name="jdbcUrl"
+                          value="jdbc:snowflake://informaticapartner.snowflakecomputing.com/?role=SYSADMIN&amp;warehouse=APJ_PRESALES_WORKSHOP&amp;db=APJ_PRESALES_WORKSHOP&amp;schema=ACME_RETAIL_STG&amp;CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX=TRUE"/>
+               <attribute encrypted="false" name="username" value="vinm"/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false" name="schema" value="ACME_RETAIL_STG"/>
+               <attribute encrypted="false" name="includeTables" value=""/>
+               <attribute encrypted="false" name="excludeTables" value=""/>
+               <attribute encrypted="false" name="checkSqlInjection" value="true"/>
+               <attribute encrypted="false" name="initialSize" value="5"/>
+               <attribute encrypted="false" name="maxActive" value="10"/>
+               <attribute encrypted="false" name="minIdle" value="1"/>
+               <attribute encrypted="false" name="maxIdle" value="5"/>
+               <attribute encrypted="false" name="maxWait" value=""/>
+               <attribute encrypted="false" name="defaultTransactionIsolation" value=""/>
+               <attribute encrypted="false" name="minEvictableIdleTimeMillis" value=""/>
+               <attribute encrypted="false" name="numTestsPerEvictionRun" value=""/>
+               <attribute encrypted="false" name="testOnBorrow" value="false"/>
+               <attribute encrypted="false" name="testOnReturn" value="false"/>
+               <attribute encrypted="false" name="testWhileIdle" value="false"/>
+               <attribute encrypted="false" name="validationQuery" value=""/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="true"
+                               connectorPath="project:/rt.connector/SnowflakeDatabase/SnowflakeDatabase_svcDef.xml"
+                               guid="7gmpEmYKsDwhjd9Xg9UK2M"
+                               name="SnowflakeDatabase"
+                               plugin="DAS"
+                               supportsConnectionTest="true"
+                               uuid="3f3dc97b-d07a-4269-8a6a-900069ff9941">
+               <description>queries to snowflake database</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>9S7EVPEnQiegEofph87xe4</types1:GUID>
+      <types1:DisplayName>SnowflakeConnetionPresalesWorkshop</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.346Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

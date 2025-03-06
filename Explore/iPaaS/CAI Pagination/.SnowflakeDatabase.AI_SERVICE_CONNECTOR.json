@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "7gmpEmYKsDwhjd9Xg9UK2M",
+    "name" : "SnowflakeDatabase",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "0fPuYZ06NYcmYsG-gt-83987-2024-12-18T16:53:39.98Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "queries to snowflake database",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-06T16:08:21.351Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

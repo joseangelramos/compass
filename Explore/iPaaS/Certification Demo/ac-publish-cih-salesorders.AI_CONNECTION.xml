@@ -1,0 +1,46 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>9vSyIRJi4tciSrZ-gt-470787-2024-12-27T01:36:40.971Z::conn.xml</types1:EntryId>
+      <types1:Name>ac-publish-cih-salesorders</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-27T01:36:41Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2024-12-27T01:51:22Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="ac-publish-cih-salesorders"
+                     label="ac-publish-cih-salesorders"
+                     name="ac-publish-cih-salesorders">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="hostName"
+                          value="usw1-cih.dmp-us.informaticacloud.com:443"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/sc_publish_cih_salesorders/sc_publish_cih_salesorders_svcDef.xml"
+                               guid="aD116gGzRsafEtu2RJl7yH"
+                               name="sc-publish-cih-salesorders"
+                               supportsConnectionTest="false"
+                               uuid="05b58f32-9121-4abb-b77d-510e428e97f8">
+               <description>REST interface to publish data to a Cloud Integration Hub publication.</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>0RSASqaUU1ag6WkFZIT7sX</types1:GUID>
+      <types1:DisplayName>ac-publish-cih-salesorders</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.407Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "3MChaMzuLwdktoy039bp88",
+    "name" : "ac-Stibo",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "DlUxQ2Tp5OjG4ab-gt-5864788-2024-12-27T02:13:19.471Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-06T16:08:21.356Z",
+  "objectRefs" : [ {
+    "id" : "0CaVmvNodOLgIzi576jrcY",
+    "name" : "sc-Stibo",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "bfUryzfYtjCtbds-gt-439322-2024-12-25T23:55:10.029Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Certification Demo"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

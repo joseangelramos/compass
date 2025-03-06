@@ -1,0 +1,197 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>H72yIYmWR7hsAVR-gt-5864936-2024-12-27T02:24:29.547Z::pd.xml</types1:EntryId>
+      <types1:Name>ProcessSalesOrders</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-27T02:24:30Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-01-06T17:31:29Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-01-06T17:31:53Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.ProcessSalesOrders/ProcessSalesOrders.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="2QfIPmALZeydZjLPRqUKae"
+                  displayName="ProcessSalesOrders"
+                  name="ProcessSalesOrders"
+                  overrideAPIName="false"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="idata" required="true" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:poSalesOrderInput</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">kizZthpzR6kiAW1185EUKW</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="response" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="gbb7879f8-4806-4ba8-b0c9-9af295654933">
+               <start id="a2df9ac20-37f9-4aa4-b80c-302eb2d04001">
+                  <link id="w566010ea-cb78-462e-85b3-c85d9a5c8336"
+                        targetId="a12QfIPmALZeydZjLPRqUKae-Service0fed0184-b8e5-41a6-a10c-0acaf4246a62"/>
+               </start>
+               <eventContainer id="a12QfIPmALZeydZjLPRqUKae-Service0fed0184-b8e5-41a6-a10c-0acaf4246a62">
+                  <service id="kc6f73bf0-28e0-4f77-977c-107fcec593c3">
+                     <title>Get Product Stibo</title>
+                     <serviceName>ac-Stibo:Get Products</serviceName>
+                     <serviceInput>
+                        <parameter name="product" source="formula">
+                           <expression language="XQuery">$input.idata.productId</expression>
+                        </parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="e51296f51-d103-4441-a7f3-a3597c3f221a">
+                     <assignment id="a12QfIPmALZeydZjLPRqUKae-Assignment19f01211-6f41-4c78-81af-93030dfdda1a">
+                        <title>Assignment Product Name</title>
+                        <operation source="formula" to="output.response">
+                           <expression language="XQuery">$output.out_material//name</expression>
+                        </operation>
+                        <link id="j51e7a06c-75ce-471c-abf4-2c067ad564be"
+                              targetId="a12QfIPmALZeydZjLPRqUKae-Service848f1878-ba19-4395-9531-e66e07058af9"/>
+                     </assignment>
+                     <eventContainer id="a12QfIPmALZeydZjLPRqUKae-Service848f1878-ba19-4395-9531-e66e07058af9">
+                        <service id="d4d83ee1f-2eac-4729-a904-51c317879b62">
+                           <title>Publish Sales Order Request</title>
+                           <serviceName>ac-publish-cih-salesorders-final:publish</serviceName>
+                           <serviceGUID>0JvfEv32kE2k0U32kRgNuS</serviceGUID>
+                           <serviceInput>
+                              <parameter name="salesOrderId" source="formula">
+                                 <expression language="XQuery">$input.idata.salesOrderId</expression>
+                              </parameter>
+                              <parameter name="salesOrderNumber" source="formula">
+                                 <expression language="XQuery">$input.idata.salesOrderNumber</expression>
+                              </parameter>
+                              <parameter name="productId" source="formula">
+                                 <expression language="XQuery">$input.idata.productId</expression>
+                              </parameter>
+                              <parameter name="productDesc" source="constant">{$output.response}</parameter>
+                              <parameter name="lineTotal" source="constant">1.0</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="r646165a3-d5e6-43c8-a068-bff8e3007542">
+                           <assignment id="a12QfIPmALZeydZjLPRqUKae-Assignment353b2fcb-9db2-4e47-81fd-7d909597d546">
+                              <title>Assignment to response</title>
+                              <operation source="formula" to="output.response">
+                                 <expression language="XQuery">"RESPONSE STATUS:" || $output.response[1]/responseStatus ||", ROWS PROCEEDED:" || $output.response[1]/statsRowsProceeded ||", SUCCESS ROWS:" || $output.response[1]/statsSuccessRows</expression>
+                              </operation>
+                              <link id="i0330c697-89e6-4b52-8e59-60a59a50983a"
+                                    targetId="a12QfIPmALZeydZjLPRqUKae-Endc2ab2164-136b-45d8-b1ff-3074d6eab1b0"/>
+                           </assignment>
+                           <end id="a12QfIPmALZeydZjLPRqUKae-Endc2ab2164-136b-45d8-b1ff-3074d6eab1b0">
+                              <title> End Success</title>
+                           </end>
+                        </flow>
+                        <flow id="if1eee167-9acb-4681-b064-37920457325e">
+                           <link id="k545287de-914b-4768-bd9c-9da6a4acdd7c"
+                                 targetId="a12QfIPmALZeydZjLPRqUKae-Service848f1878-ba19-4395-9531-e66e07058af9"
+                                 type="containerLink"/>
+                        </flow>
+                        <link id="tde0100a2-e77a-4645-8026-a96e27557448"
+                              targetId="r646165a3-d5e6-43c8-a068-bff8e3007542"
+                              type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo"
+                                  id="sd8a0ee06-71e9-4bcc-833e-e6e33d8a87f5"
+                                  interrupting="true">
+                              <link id="lfc5a0a81-f745-499c-950e-374e070c5911"
+                                    targetId="if1eee167-9acb-4681-b064-37920457325e"
+                                    type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <link id="yc47bba65-fdcd-4bd4-b883-28a6a4e6bb2c"
+                           targetId="a12QfIPmALZeydZjLPRqUKae-Service0fed0184-b8e5-41a6-a10c-0acaf4246a62"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="n63cb183f-4716-48bd-b9b1-8a7006227213">
+                     <link id="s831aeaa1-eb9d-4949-a465-403fc52be0a5"
+                           targetId="a12QfIPmALZeydZjLPRqUKae-Service0fed0184-b8e5-41a6-a10c-0acaf4246a62"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="zd3874528-cd3c-4c21-ab64-657bdf65b92d"
+                        targetId="e51296f51-d103-4441-a7f3-a3597c3f221a"
+                        type="containerLink"/>
+                  <link id="z3b0f6e99-7587-49ce-8f15-5bd1b114f060"
+                        targetId="a12QfIPmALZeydZjLPRqUKae-Assignmentc37e0ccf-12db-41d9-ba4b-a7ebd4e958dd"/>
+                  <events>
+                     <catch faultField="faultInfo"
+                            id="zf027b697-e0a6-419b-9a48-954fbf6d9f4f"
+                            interrupting="true">
+                        <link id="z50923fae-5955-4b37-9d80-b5cde169ee6a"
+                              targetId="n63cb183f-4716-48bd-b9b1-8a7006227213"
+                              type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <assignment id="a12QfIPmALZeydZjLPRqUKae-Assignmentc37e0ccf-12db-41d9-ba4b-a7ebd4e958dd">
+                  <title> Assignment to Response</title>
+                  <operation source="formula" to="output.response">
+                     <expression language="XQuery">"Service Failed. Please Retry! " || "Reason:" || $output.faultInfo[1]/reason</expression>
+                  </operation>
+                  <link id="l83e4131a-9ab7-4ab2-af4e-b76bfa301329"
+                        targetId="a12QfIPmALZeydZjLPRqUKae-end-ufa4340c8-4173-48c3-b3ae-c5848a7dc740"/>
+               </assignment>
+               <end id="a12QfIPmALZeydZjLPRqUKae-end-ufa4340c8-4173-48c3-b3ae-c5848a7dc740">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>4a90a725-7f07-4353-9fb9-991b421f4d94</ns1:Id>
+               <ns1:Name>Test Product PT-103584</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2024-12-27T03:00:27Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-12-30T20:27:02Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "idata": {
+        "salesOrderId": "11",
+        "salesOrderNumber": "PO987",
+        "productId": "PT-103584"
+    }
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>2QfIPmALZeydZjLPRqUKae</types1:GUID>
+      <types1:DisplayName>ProcessSalesOrders</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.325Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,342 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>0fPuYZ06NYcmYsG-gt-83987-2024-12-18T16:53:39.98Z::svc.xml</types1:EntryId>
+      <types1:Name>SnowflakeDatabase</types1:Name>
+      <types1:ParentFlowIds>nW7eLyCnNZPD4AR-gt-2220974-2024-12-16T19:57:48.218Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>queries to snowflake database</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-18T16:53:40Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-06T06:27:52Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-06T06:02:19Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SnowflakeDatabase/SnowflakeDatabase_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="true"
+                            debug="false"
+                            displayName="SnowflakeDatabase"
+                            label=""
+                            name="SnowflakeDatabase"
+                            plugin="DAS"
+                            uuid="3f3dc97b-d07a-4269-8a6a-900069ff9941">
+            <description>queries to snowflake database</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="The fully qualified Java class name of the JDBC driver."
+                                    label="JDBC Driver"
+                                    masked="false"
+                                    name="driver"
+                                    required="true"
+                                    testWith="net.snowflake.client.jdbc.SnowflakeDriver"
+                                    type="string"/>
+               <connectionAttribute description="The JDBC connection URL to connect to the database."
+                                    label="JDBC Connection URL"
+                                    masked="false"
+                                    name="jdbcUrl"
+                                    required="true"
+                                    testWith="jdbc:snowflake://informaticapartner.snowflakecomputing.com/?role=SYSADMIN&amp;warehouse=APJ_PRESALES_WORKSHOP&amp;db=APJ_PRESALES_WORKSHOP&amp;schema=ACME_RETAIL_STG&amp;CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX=TRUE"
+                                    type="string"/>
+               <connectionAttribute description="The user name to log in to the database."
+                                    label="User Name"
+                                    masked="false"
+                                    name="username"
+                                    required="true"
+                                    testWith="vinm"
+                                    type="string"/>
+               <connectionAttribute description="The password to log in to the database."
+                                    label="Password"
+                                    masked="true"
+                                    name="password"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description="Enter the name of the schema that contains the tables to be included or excluded in the query response."
+                                    label="Schema"
+                                    masked="false"
+                                    name="schema"
+                                    required="false"
+                                    testWith="ACME_RETAIL_STG"
+                                    type="string"/>
+               <connectionAttribute description="Enter the names of the tables that need to be included in the query response. Use a comma to separate multiple table names. You can use ‘.*’ for pattern matching."
+                                    label="Include Tables"
+                                    masked="false"
+                                    name="includeTables"
+                                    required="false"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description="Enter the names of tables that need to be excluded from the query response. Use a comma to separate multiple table names. You can use ‘.*’ for pattern matching. The values specified in the Exclude Tables field take precedence."
+                                    label="Exclude Tables:"
+                                    masked="false"
+                                    name="excludeTables"
+                                    required="false"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description="Check input parameters to prevent an SQL injection attack."
+                                    group="Advanced"
+                                    label="Check SQL Injection:"
+                                    masked="false"
+                                    name="checkSqlInjection"
+                                    required="false"
+                                    testWith="false"
+                                    type="boolean"/>
+               <connectionAttribute description="The number of connections created when the pool is started."
+                                    group="Advanced"
+                                    label="Initial Connection Pool Size:"
+                                    masked="false"
+                                    name="initialSize"
+                                    required="false"
+                                    testWith="5"
+                                    type="number"/>
+               <connectionAttribute description="The maximum number of active connections that can be allocated from the pool simultaneously.(-1 = unlimited)"
+                                    group="Advanced"
+                                    label="Max Active Connections:"
+                                    masked="false"
+                                    name="maxActive"
+                                    required="false"
+                                    testWith="10"
+                                    type="number"/>
+               <connectionAttribute description="The minimum number of connections that can remain idle in the pool without additional connections being created.(0 disables pooling)"
+                                    group="Advanced"
+                                    label="Min Idle Connections:"
+                                    masked="false"
+                                    name="minIdle"
+                                    required="false"
+                                    testWith="1"
+                                    type="number"/>
+               <connectionAttribute description="The maximum number of connections that can remain idle in the pool without additional connections being released.(-1 = unlimited)"
+                                    group="Advanced"
+                                    label="Max Idle Connections:"
+                                    masked="false"
+                                    name="maxIdle"
+                                    required="false"
+                                    testWith="5"
+                                    type="number"/>
+               <connectionAttribute description="The maximum number of milliseconds that the pool waits for a connection if there are none available.(-1 = wait indefinitely)"
+                                    group="Advanced"
+                                    label="Max Wait (ms):"
+                                    masked="false"
+                                    name="maxWait"
+                                    required="false"
+                                    testWith=""
+                                    type="number"/>
+               <connectionAttribute description="The default state of connections created by this pool, which is one of the following:    0 - NONE;    1 - READ_UNCOMMITTED;    2 - READ_COMMITTED;    4 - REPEATABLE_READ;    8 - SERIALIZABLE"
+                                    group="Advanced"
+                                    label="Default Transaction Isolation Level:"
+                                    masked="false"
+                                    name="defaultTransactionIsolation"
+                                    required="false"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description="The minimum amount of time an connection may sit idle in the pool before it is evicted."
+                                    group="Advanced"
+                                    label="Min Evictable Idle Time (ms):"
+                                    masked="false"
+                                    name="minEvictableIdleTimeMillis"
+                                    required="false"
+                                    testWith=""
+                                    type="number"/>
+               <connectionAttribute description="The number of objects to test during each eviction run."
+                                    group="Advanced"
+                                    label="Number of Objects per Eviction Run:"
+                                    masked="false"
+                                    name="numTestsPerEvictionRun"
+                                    required="false"
+                                    testWith=""
+                                    type="number"/>
+               <connectionAttribute description="Test the validity of objects before borrowing them from the pool."
+                                    group="Advanced"
+                                    label="Test on Borrow:"
+                                    masked="false"
+                                    name="testOnBorrow"
+                                    required="false"
+                                    testWith="false"
+                                    type="boolean"/>
+               <connectionAttribute description="Test the validity of borrowed objects before returning them to the pool."
+                                    group="Advanced"
+                                    label="Test on Return:"
+                                    masked="false"
+                                    name="testOnReturn"
+                                    required="false"
+                                    testWith="false"
+                                    type="boolean"/>
+               <connectionAttribute description="Test the validity of idle objects."
+                                    group="Advanced"
+                                    label="Test while Idle:"
+                                    masked="false"
+                                    name="testWhileIdle"
+                                    required="false"
+                                    testWith="false"
+                                    type="boolean"/>
+               <connectionAttribute description="A valid SQL SELECT statement query that validates connections from the pool before returning them to the caller."
+                                    group="Advanced"
+                                    label="SQL Validation Query:"
+                                    masked="false"
+                                    name="validationQuery"
+                                    required="false"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <dasActions>
+               <action category=""
+                       label="SELECT WITH FILTER PAGINATED"
+                       name="SELECT WITH FILTER PAGINATED">
+                  <description>query including constrains the maximum number of rows returned by a statement, including filter conditions
+limit -&gt; The number of rows returned
+offset -&gt; The row number after which the limited/fetched rows are returned. Must be a non-negative integer constant.</description>
+                  <input>
+                     <parameter description="Table Name"
+                                label="Table Name"
+                                name="tableName"
+                                required="true"
+                                testWith="CUSTOMER"
+                                type="string"/>
+                     <parameter description="SQL Where conditions"
+                                label="Filter"
+                                name="filter"
+                                required="true"
+                                testWith="CONSUMER LIKE 'Other'"
+                                type="string"/>
+                     <parameter description=""
+                                label="Limit"
+                                name="limit"
+                                required="true"
+                                testWith="2"
+                                type="int"/>
+                     <parameter description=""
+                                label="Offset"
+                                name="offset"
+                                required="true"
+                                testWith="0"
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <sqlStatement columnCase="lowercase"
+                                   maxRows="1000"
+                                   statementId="SELEC WITH FILTER PAGINATED">
+                        <statement>SELECT * FROM {$tableName} WHERE {$filter} LIMIT {$limit} OFFSET {$offset}</statement>
+                     </sqlStatement>
+                  </binding>
+                  <output>
+                     <field description="" name="rows" type="objectlist">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                        <xquery>{//row}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       label="RECORD COUNT WITH FILTER"
+                       name="RECORD COUNT WITH FILTER">
+                  <description>get number of records from table including filter conditions</description>
+                  <input>
+                     <parameter description="Table Name"
+                                label="Table Name"
+                                name="tableName"
+                                required="true"
+                                testWith="CUSTOMER"
+                                type="string"/>
+                     <parameter description="SQL Where conditions"
+                                label="Filter"
+                                name="filter"
+                                required="true"
+                                testWith="CONSUMER LIKE 'Other'"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <sqlStatement columnCase="lowercase"
+                                   maxRows="1"
+                                   statementId="Snowflake COUNT with filter conditions">
+                        <statement>SELECT COUNT(*) FROM {$tableName} WHERE {$filter}</statement>
+                     </sqlStatement>
+                  </binding>
+                  <output>
+                     <field description="total of records"
+                            name="count"
+                            property="count"
+                            type="int"/>
+                  </output>
+               </action>
+               <action category="" label="SELECT PAGINATED" name="SELECT PAGINATED">
+                  <description>query including constrains the maximum number of rows returned by a statement
+
+limit -&gt; The number of rows returned
+offset -&gt; The row number after which the limited/fetched rows are returned. Must be a non-negative integer constant.</description>
+                  <input>
+                     <parameter description="Table Name"
+                                label="Table Name"
+                                name="tableName"
+                                required="true"
+                                testWith="Customer"
+                                type="string"/>
+                     <parameter description="Limit"
+                                label="Limit"
+                                name="limit"
+                                required="true"
+                                testWith="10"
+                                type="int"/>
+                     <parameter description="Integer"
+                                label="Offset"
+                                name="offset"
+                                required="true"
+                                testWith="0"
+                                type="int"/>
+                  </input>
+                  <binding>
+                     <sqlStatement columnCase="lowercase"
+                                   maxRows="1000"
+                                   statementId="SELECT PAGINATED">
+                        <statement>SELECT * FROM {$tableName} LIMIT {$limit} OFFSET {$offset}</statement>
+                     </sqlStatement>
+                  </binding>
+                  <output>
+                     <field description="" name="rows" type="objectlist">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                        <xquery>{//row}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category="" label="RECORD COUNT " name="RECORD COUNT ">
+                  <description>get number of records from table</description>
+                  <input>
+                     <parameter description="Table Name"
+                                label="Table Name"
+                                name="tableName"
+                                required="true"
+                                testWith="CUSTOMER"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <sqlStatement columnCase="lowercase" maxRows="1" statementId="Snowflake COUNT">
+                        <statement>SELECT COUNT(*) FROM {$tableName}</statement>
+                     </sqlStatement>
+                  </binding>
+                  <output>
+                     <field description="total of records"
+                            name="count"
+                            property="count"
+                            type="int"/>
+                  </output>
+               </action>
+            </dasActions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>7gmpEmYKsDwhjd9Xg9UK2M</types1:GUID>
+      <types1:DisplayName>SnowflakeDatabase</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.242Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

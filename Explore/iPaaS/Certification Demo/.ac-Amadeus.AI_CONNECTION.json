@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "72hB8DpvaIueP3UgGXLZkz",
+    "name" : "ac-Amadeus",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "MUvIw8jIw8jIw8j-gt-5836291-2024-12-26T03:53:25.622Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-06T16:08:21.353Z",
+  "objectRefs" : [ {
+    "id" : "iLooaCxV7eyf6buf05wXy9",
+    "name" : "sc-Amadeus",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "PhvgeDXJqEhynzY-gt-5835730-2024-12-26T03:20:56.64Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Certification Demo"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

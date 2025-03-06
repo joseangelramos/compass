@@ -1,0 +1,167 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>PhvgeDXJqEhynzY-gt-5835730-2024-12-26T03:20:56.64Z::svc.xml</types1:EntryId>
+      <types1:Name>sc-Amadeus</types1:Name>
+      <types1:ParentFlowIds>MUvIw8jIw8jIw8j-gt-5836291-2024-12-26T03:53:25.622Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-26T03:20:57Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2024-12-27T01:58:02Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2024-12-27T01:59:33Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/sc_Amadeus/sc_Amadeus_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="sc-Amadeus"
+                            label=""
+                            name="sc-Amadeus"
+                            uuid="c2a5012a-ac74-43de-8f72-eb8c1ef23f15">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="client_id"
+                                    masked="true"
+                                    name="client_id"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    label="client_secret"
+                                    masked="true"
+                                    name="client_secret"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Get Token"
+                       maxRedirects="100"
+                       name="Get Token"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="&#xA;https://test.api.amadeus.com/v1/security/oauth2/token"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/x-www-form-urlencoded</header>
+                        </httpHeaders>
+                        <body>client_id={$client_id}&amp;amp;client_secret={$client_secret}&amp;amp;grant_type=client_credentials</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="responseauthtoken"
+                            property="access_token"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Flight Search"
+                       maxRedirects="100"
+                       name="Flight Search"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="originLocationCode"
+                                required="true"
+                                testWith="SYD"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="destinationLocationCode"
+                                required="true"
+                                testWith="BKK"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="departureDate"
+                                required="true"
+                                testWith="2025-01-01"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="returnDate"
+                                required="true"
+                                testWith="2025-01-10"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="adults"
+                                required="true"
+                                testWith="2"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="max"
+                                required="true"
+                                testWith="5"
+                                type="string"/>
+                     <parameter description=""
+                                label=""
+                                name="authtoken"
+                                nogen="true"
+                                required="true"
+                                testWith="ld1fPGmfK5VrGZliPoFeNpFE4mjm"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="&#xA;https://test.api.amadeus.com/v2/shopping/flight-offers"
+                                        verb="GET">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Authorization">{'Bearer '||$authtoken}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="flightsearchresult"
+                            type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>iLooaCxV7eyf6buf05wXy9</types1:GUID>
+      <types1:DisplayName>sc-Amadeus</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.106Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

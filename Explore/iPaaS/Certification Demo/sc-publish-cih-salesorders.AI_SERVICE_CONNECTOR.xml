@@ -1,0 +1,191 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>beIXycotFgpKi9z-gt-5861414-2024-12-26T22:38:29.027Z::svc.xml</types1:EntryId>
+      <types1:Name>sc-publish-cih-salesorders</types1:Name>
+      <types1:ParentFlowIds>9vSyIRJi4tciSrZ-gt-470787-2024-12-27T01:36:40.971Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>REST interface to publish data to a Cloud Integration Hub publication.</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-26T22:38:29Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2024-12-27T01:15:28Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="sc-publish-cih-salesorders"
+                            label=""
+                            name="sc-publish-cih-salesorders"
+                            uuid="05b58f32-9121-4abb-b77d-510e428e97f8">
+            <description>REST interface to publish data to a Cloud Integration Hub publication.</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="Host Name"
+                                    label="hostName"
+                                    masked="false"
+                                    name="hostName"
+                                    required="true"
+                                    testWith="usw1-cih.dmp-us.informaticacloud.com:443"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Data published on this endpoint will be submitted to the named Cloud Integration Hub publication."
+                       maxRedirects="100"
+                       name="publish"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Data published on this endpoint will be submitted to the named Cloud Integration Hub publication. The input body contains the data to publish.</description>
+                  <input>
+                     <parameter description="Publication data body."
+                                label="body"
+                                name="body"
+                                required="true"
+                                testWith="{&#xA;    &#34;SalesOrderHeader&#34;: [&#xA;        {&#xA;            &#34;SALESORDERID&#34;: 7,&#xA;            &#34;SALESORDERNUMBER&#34;: &#34;SO75125&#34;&#xA;        }&#xA;    ]&#xA;}"
+                                type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">PublicationData</option>
+                           <option name="guid">PublicationData</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/dih-pub-repo-service/api/v1/publications/Pub_ERP_SalesOrders_API/data"
+                                        verb="POST">
+                        <authentication>
+                           <username>joramos_LATAM_Carlos_tspod_SO</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json;charset=utf-8</header>
+                           <header name="Accept">application/json;charset=utf-8</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Publication job request accepted. See response details."
+                            entireResponse="true"
+                            name="response"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">response</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="response">
+                  <description/>
+                  <detail>
+                     <field name="exception" nullable="true" required="false" type="string"/>
+                     <field name="responseExtraMessage"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="eventID" nullable="true" required="false" type="int"/>
+                     <field name="responseType"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                     <field name="statsSuccessRows"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                     <field name="responseStatus"
+                            nullable="true"
+                            required="true"
+                            type="picklist">
+                        <options>
+                           <option name="values">[{"value":"SUCCESS","label":"SUCCESS"},{"value":"FAIL","label":"FAIL"}]</option>
+                        </options>
+                     </field>
+                     <field name="statsRowsProceeded"
+                            nullable="true"
+                            required="false"
+                            type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="SalesOrderHeader">
+                  <description/>
+                  <detail>
+                     <field name="SALESORDERID" nullable="true" required="false" type="int"/>
+                     <field name="SALESORDERNUMBER"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PublicationData">
+                  <description>Publish data info</description>
+                  <detail>
+                     <field name="SalesOrderHeader"
+                            nullable="true"
+                            required="true"
+                            type="objectlist">
+                        <options>
+                           <option name="referenceTo">SalesOrderHeader</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="string">
+                  <detail>
+                     <field name="string" nullable="true" required="false" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="boolean">
+                  <detail>
+                     <field name="boolean" nullable="true" required="false" type="boolean"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="double">
+                  <detail>
+                     <field name="double" nullable="true" required="false" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="integer">
+                  <detail>
+                     <field name="integer" nullable="true" required="false" type="int"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>aD116gGzRsafEtu2RJl7yH</types1:GUID>
+      <types1:DisplayName>sc-publish-cih-salesorders</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.182Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

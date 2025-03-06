@@ -1,0 +1,48 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>f5i4rswVYx8R8Wr-gt-555589-2024-12-30T22:21:15.095Z::conn.xml</types1:EntryId>
+      <types1:Name>ac-publish-cih-salesorders-final</types1:Name>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-30T22:21:15Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-01-06T17:06:41Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-01-06T17:07:02Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/ac-publish-cih-salesorders-final/ac-publish-cih-salesorders-final.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="ac-publish-cih-salesorders-final"
+                     label="ac-publish-cih-salesorders-final"
+                     name="ac-publish-cih-salesorders-final">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="hostName"
+                          value="usw1-cih.dmp-us.informaticacloud.com:443"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/sc_publish_cih_salesorders_final/sc_publish_cih_salesorders_final_svcDef.xml"
+                               name="sc-publish-cih-salesorders-final"
+                               supportsConnectionTest="false"
+                               uuid="05b58f32-9121-4abb-b77d-510e428e97f8">
+               <description>REST interface to publish data to a Cloud Integration Hub publication.</description>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>0JvfEv32kE2k0U32kRgNuS</types1:GUID>
+      <types1:DisplayName>ac-publish-cih-salesorders-final</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.222Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

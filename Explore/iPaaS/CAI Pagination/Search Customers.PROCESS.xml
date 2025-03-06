@@ -1,0 +1,137 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>2lxbdypKwKBqRi9-gt-15802-2024-12-18T02:37:05.861Z::pd.xml</types1:EntryId>
+      <types1:Name>customers</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description>List customers
+The list capability of clients can support pagination</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2024-12-18T02:37:06Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-06T07:14:16Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-06T07:14:25Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.customers/customers.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="6Ijmg06b2qeblv9DOFFf2N"
+                  displayName="Search Customers"
+                  name="customers"
+                  overrideAPIName="true"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description>List customers
+The list capability of clients can support pagination</description>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="starting record"
+                          name="offset"
+                          required="true"
+                          type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description="page size" name="fetch" required="true" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="pageItems" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="totalRecords" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="vd95d9059-21a4-4f91-89c1-cc8a40269587">
+               <start id="p730afd3c-f93c-4e5b-8a62-f505f85861b4">
+                  <link id="fd270dea0-99fc-4320-b5fa-77d737d7a8ab"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Serviceef4815c3-9864-45c6-92e9-c4b55ed7e421"/>
+               </start>
+               <service id="a16Ijmg06b2qeblv9DOFFf2N-Serviceef4815c3-9864-45c6-92e9-c4b55ed7e421">
+                  <title>SELECT CUSTOMERS PAGINATED</title>
+                  <serviceName>SnowflakeConnetionPresalesWorkshop:SELECT PAGINATED</serviceName>
+                  <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                  <serviceInput>
+                     <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                     <parameter name="limit" source="field">input.fetch</parameter>
+                     <parameter name="offset" source="field">input.offset</parameter>
+                  </serviceInput>
+                  <link id="h9ec13716-b761-49ba-93c6-1376c28c0c0e"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e"/>
+               </service>
+               <service id="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e">
+                  <title>CUSTOMERS COUNT</title>
+                  <serviceName>SnowflakeConnetionPresalesWorkshop:RECORD COUNT </serviceName>
+                  <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                  <serviceInput>
+                     <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                  </serviceInput>
+                  <link id="xe1f724a1-cc48-48cc-8072-7574718ddb6b"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Assignment789803c5-e88f-4823-a67c-8777b6a3e084"/>
+               </service>
+               <assignment id="a16Ijmg06b2qeblv9DOFFf2N-Assignment789803c5-e88f-4823-a67c-8777b6a3e084">
+                  <title>Assignment to response</title>
+                  <operation source="field" to="output.totalRecords">output.count</operation>
+                  <operation source="formula" to="output.pageItems">
+                     <expression language="XQuery">$output.rows</expression>
+                  </operation>
+                  <link id="x43d2b96c-1896-46b2-8bf2-f618ca4940db"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-end-j54d87150-6001-4b41-b1ad-2c7a08a84eb2"/>
+               </assignment>
+               <end id="a16Ijmg06b2qeblv9DOFFf2N-end-j54d87150-6001-4b41-b1ad-2c7a08a84eb2">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>a9cea9d1-285a-45fa-999a-29a11527c7c9</ns1:Id>
+               <ns1:Name>prueba uno</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2024-12-18T03:48:09Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2024-12-19T00:39:13Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+    "offset": "1",
+    "limit": "5"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>6Ijmg06b2qeblv9DOFFf2N</types1:GUID>
+      <types1:DisplayName>Search Customers</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-06T16:08:20.718Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
