@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "4L0daQ56MJ1h9zv1qFNSU1",
+    "name" : "Customer Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-07T02:02:56.483Z",
+  "objectRefs" : [ {
+    "id" : "8btWD0tMBJ0fAJfYY0vCG3",
+    "name" : "ABCIncApiServiceConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "CJhtghGZ5i4rswV-gt-1179211-2025-03-06T21:48:25.464Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connection to ABC Inc Api Rest",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CAI Pagination"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,192 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml</types1:EntryId>
+      <types1:Name>Customer_Process</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-06T21:34:12Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-07T02:00:02Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-07T02:00:08Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Customer_Process/Customer_Process.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="4L0daQ56MJ1h9zv1qFNSU1"
+                  displayName="Customer Process"
+                  name="Customer_Process"
+                  overrideAPIName="false"
+                  processNamespace="urn:screenflow:process:">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="offset_InputParam"
+                          required="true"
+                          type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="fetch_InputParam"
+                          required="true"
+                          type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="client_idInputParam"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="client_secret_InputParam"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="response" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tempPagesNumber" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">1</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="ya9b57cc9-a15a-4f7b-b510-106a1542eb23">
+               <start id="oa5eb9e74-efa0-445d-aeb7-4b063cecf2ad">
+                  <link id="rf24c8045-b200-4cda-a0e0-e9e3585fb9b0"
+                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822"/>
+               </start>
+               <service id="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822">
+                  <title>ABC Inc API Token</title>
+                  <serviceName>ABCIncApiServiceConnection:Get Token</serviceName>
+                  <serviceGUID>8btWD0tMBJ0fAJfYY0vCG3</serviceGUID>
+                  <serviceInput>
+                     <parameter name="client_id" source="field">input.client_idInputParam</parameter>
+                     <parameter name="client_secret" source="field">input.client_secret_InputParam</parameter>
+                  </serviceInput>
+                  <link id="x038f41bf-f477-4f02-b5d9-9e60b7924300"
+                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e"/>
+               </service>
+               <service id="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e">
+                  <title>ABC Inc API Get Customers</title>
+                  <serviceName>ABCIncApiServiceConnection:Customers Search</serviceName>
+                  <serviceGUID>8btWD0tMBJ0fAJfYY0vCG3</serviceGUID>
+                  <serviceInput>
+                     <parameter name="offset" source="field">input.offset_InputParam</parameter>
+                     <parameter name="fetch" source="field">input.fetch_InputParam</parameter>
+                     <parameter name="authtoken" source="field">output.responseauthtoken</parameter>
+                  </serviceInput>
+                  <link id="v0b7e8e2c-950f-4d36-b16b-6fc61fa26a4c"
+                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek"/>
+               </service>
+               <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek">
+                  <title>Assignment  to Pages Number</title>
+                  <operation source="formula" to="temp.tempPagesNumber">
+                     <expression language="XQuery">fn:floor( $output.customersearchresult//totalRecords div $input.fetch_InputParam)</expression>
+                  </operation>
+                  <link id="qe6812c22-b2cb-4896-850a-2b9f4988372a"
+                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
+               </assignment>
+               <container id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1" type="exclusive">
+                  <title>Page Counter</title>
+                  <flow id="ld9e2949f-a14b-4f27-be83-69860b3e3084">
+                     <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnk1">
+                        <title>Assignments</title>
+                        <operation source="constant" to="temp.tempPagesNumber">{$temp.tempPagesNumber} -1</operation>
+                        <link id="o34b4ac62-9408-4c45-86b2-cf7dbf2979f0"
+                              targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gngf"/>
+                     </assignment>
+                     <jumpTo id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gngf">
+                        <link id="f86aaaba9-b47c-406e-b887-33e81405fdc0"
+                              targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="dd2a06141-84b7-43d8-830d-895a4db4bb2c">
+                     <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment22576c0e-ab87-475d-823d-1b75f1ec945f">
+                        <title>Assignment Response</title>
+                        <operation source="field" to="output.response">temp.tempPagesNumber</operation>
+                     </assignment>
+                     <link id="vd33bdbe5-a1ab-402d-8655-bf3e37194750"
+                           targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="n96c19532-a5d8-4e34-81ac-4cca63fef761"
+                        targetId="ld9e2949f-a14b-4f27-be83-69860b3e3084"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="equals">
+                           <arg name="left">{$temp.tempPagesNumber}</arg>
+                           <arg name="right">{9}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="ca456a9a8-026a-4562-a042-14648828ebaf"
+                        targetId="dd2a06141-84b7-43d8-830d-895a4db4bb2c"
+                        type="containerLink"/>
+                  <link id="kb9859383-ed5e-47d8-9995-adf4516bddd7"
+                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-c"/>
+               </container>
+               <end id="a14L0daQ56MJ1h9zv1qFNSU1-c">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>3815e3ae-e434-4d64-abf7-8563614fe4df</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2025-03-06T21:34:12Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-03-06T21:34:12Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>4L0daQ56MJ1h9zv1qFNSU1</types1:GUID>
+      <types1:DisplayName>Customer Process</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-07T02:02:56.326Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
