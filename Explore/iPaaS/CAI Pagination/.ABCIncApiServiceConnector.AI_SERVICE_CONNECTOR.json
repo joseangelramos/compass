@@ -13,14 +13,14 @@
       },
       "contextAttributes" : null,
       "additionalInfo" : {
-        "description" : "",
+        "description" : "Service Connector to ABC Inc API Rest",
         "contentType" : "application/json; charset=utf-8",
         "documentState" : "VALID"
       }
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-06T21:31:45.489Z",
+  "updateTime" : "2025-03-07T00:52:26.202Z",
   "objectRefs" : [ ],
   "readableFileExtension" : null,
   "readableFilePresent" : false

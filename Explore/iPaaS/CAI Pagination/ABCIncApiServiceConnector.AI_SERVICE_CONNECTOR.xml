@@ -3,8 +3,9 @@
    <types1:Item>
       <types1:EntryId>JVxYi0Nmumf6S3w-gt-1161110-2025-03-06T16:24:03.057Z::svc.xml</types1:EntryId>
       <types1:Name>ABCIncApiServiceConnector</types1:Name>
+      <types1:ParentFlowIds>CJhtghGZ5i4rswV-gt-1179211-2025-03-06T21:48:25.464Z::conn.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
-      <types1:Description/>
+      <types1:Description>Service Connector to ABC Inc API Rest</types1:Description>
       <types1:AppliesTo/>
       <types1:Tags/>
       <types1:VersionLabel>1.0</types1:VersionLabel>
@@ -13,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-06T16:24:03Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-06T21:29:48Z</types1:ModificationDate>
-      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:ModificationDate>2025-03-07T00:44:58Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-06T21:31:01Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-07T00:42:37Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connector/ABCIncApiServiceConnector/ABCIncApiServiceConnector_svcDef.xml</types1:PublishedContributionId>
       <types1:Entry>
          <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
@@ -26,24 +27,9 @@
                             label=""
                             name="ABCIncApiServiceConnector"
                             uuid="c2a5012a-ac74-43de-8f72-eb8c1ef23f15">
-            <description/>
+            <description>Service Connector to ABC Inc API Rest</description>
             <tags/>
-            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
-               <connectionAttribute description=""
-                                    label="client_id"
-                                    masked="true"
-                                    name="client_id"
-                                    required="true"
-                                    testWith=""
-                                    type="string"/>
-               <connectionAttribute description=""
-                                    label="client_secret"
-                                    masked="true"
-                                    name="client_secret"
-                                    required="true"
-                                    testWith=""
-                                    type="string"/>
-            </connectionAttributes>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
             <actions>
                <action category=""
                        failOnError="true"
@@ -54,7 +40,20 @@
                        preemptiveAuth="true"
                        responseEncoding="">
                   <description/>
-                  <input/>
+                  <input>
+                     <parameter description=""
+                                label="OAuth 2.0 Client ID"
+                                name="client_id"
+                                required="true"
+                                testWith="ea2TLzBprARkWUaEgNqCqZ"
+                                type="string"/>
+                     <parameter description=""
+                                label="OAuth 2.0 Client Secret"
+                                name="client_secret"
+                                required="true"
+                                testWith="IPmpLRzoo"
+                                type="string"/>
+                  </input>
                   <binding>
                      <restSimpleBinding multiUsing="semicolonSeparated"
                                         url="https://dmp-us.informaticacloud.com/authz-service/oauth/token"
@@ -139,5 +138,5 @@
       <types1:GUID>lgDHtccQQoQkHtVgMx2VSO</types1:GUID>
       <types1:DisplayName>ABCIncApiServiceConnector</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-06T21:31:45.326Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-07T00:52:26.019Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
