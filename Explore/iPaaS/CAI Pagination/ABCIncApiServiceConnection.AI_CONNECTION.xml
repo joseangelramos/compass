@@ -1,0 +1,45 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>CJhtghGZ5i4rswV-gt-1179211-2025-03-06T21:48:25.464Z::conn.xml</types1:EntryId>
+      <types1:Name>ABCIncApiServiceConnection</types1:Name>
+      <types1:ParentFlowIds>wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description>Connection to ABC Inc Api Rest</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-06T21:48:25Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-07T00:45:23Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-07T00:43:27Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/ABCIncApiServiceConnection/ABCIncApiServiceConnection.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="ABCIncApiServiceConnection"
+                     label="ABCIncApiServiceConnection"
+                     name="ABCIncApiServiceConnection">
+            <description>Connection to ABC Inc Api Rest</description>
+            <tags/>
+            <agent/>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/ABCIncApiServiceConnector/ABCIncApiServiceConnector_svcDef.xml"
+                               guid="lgDHtccQQoQkHtVgMx2VSO"
+                               name="ABCIncApiServiceConnector"
+                               supportsConnectionTest="false"
+                               uuid="c2a5012a-ac74-43de-8f72-eb8c1ef23f15">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>8btWD0tMBJ0fAJfYY0vCG3</types1:GUID>
+      <types1:DisplayName>ABCIncApiServiceConnection</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-07T00:47:17.048Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
