@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T18:21:52Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-07T21:42:22Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-08T03:44:53Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-07T22:14:18Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_B_SubProcess/Consumer_B_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -60,12 +60,14 @@
                </rest>
             </deployment>
             <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="kd7347e15-ff25-4571-ad30-01f6b138fb71">
-               <start id="a53383ac9-5518-4b84-97ad-fedb40b39097">
-                  <link id="hb5e5e06a-27eb-4bca-b34d-abc78795d3a4"
+            <flow id="d87a3a8b6-f77f-4f3b-9727-60aa94116763">
+               <start id="v1c64ac64-6ddf-4185-9a13-e718a062981c">
+                  <link id="wac8c51d3-1a79-4e8d-a2aa-8a304393e7fa"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246"/>
                </start>
                <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246">
@@ -73,17 +75,22 @@
                   <operation source="formula" to="output.responseConsumerB">
                      <expression language="XQuery">list:count ($input.consumerBList)</expression>
                   </operation>
-                  <link id="j8be36e0e-e3f6-4c33-953a-294d343f1a55"
-                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-end-s964332aa-fb68-4da6-b878-b0bce7271e7d"/>
+                  <link id="e949caa07-bccc-4d99-aa1b-352eafa0847f"
+                        targetId="Throwf2316e53-2f7a-425e-81b6-de7067affa8f"/>
                </assignment>
-               <end id="a1aNbfAH72Y28gY8vqfzwWCM-end-s964332aa-fb68-4da6-b878-b0bce7271e7d">
-                  <title>End</title>
-               </end>
+               <throw id="Throwf2316e53-2f7a-425e-81b6-de7067affa8f">
+                  <title>Throw 1</title>
+                  <throwInput>
+                     <parameter name="code" source="constant" updatable="true">101</parameter>
+                     <parameter name="detail" source="constant" updatable="true">Error Processing Customers B</parameter>
+                     <parameter name="reason" source="constant" updatable="true">Not Implemented Yet</parameter>
+                  </throwInput>
+               </throw>
             </flow>
          </process>
       </types1:Entry>
       <types1:GUID>aNbfAH72Y28gY8vqfzwWCM</types1:GUID>
       <types1:DisplayName>Consumer B SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-07T22:26:01.43Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-08T19:45:02.417Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

@@ -13,10 +13,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-06T21:34:12Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-07T22:07:35Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-08T19:42:16Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-07T22:14:18Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Customer_Process/Customer_Process.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -80,11 +80,12 @@
                      <option name="initialvalue">200</option>
                   </options>
                </field>
-               <field description="" name="error" type="reference">
+               <field description="" name="summary" type="objectlist">
                   <options>
                      <option name="required">false</option>
                      <option name="referenceTo">$po:$any</option>
                      <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
                   </options>
                </field>
                <field description="" name="processId" type="string">
@@ -147,6 +148,34 @@
                      <option hide="true" name="multiSelect">true</option>
                   </options>
                </field>
+               <field description="" name="tempSuccessResponseList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempEmptyList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempErrorResponseList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
             </tempFields>
             <notes/>
             <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
@@ -158,9 +187,9 @@
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="k9eb00293-481c-4d35-9220-f7bc2c302b9a">
-               <start id="sd8bd685f-1277-4b27-856f-1da127398147">
-                  <link id="w97bd55d1-e013-4ce3-b709-27cb351da2e6"
+            <flow id="uba66386e-9719-4fe7-a514-530245c44a6f">
+               <start id="a83d2631c-d0cd-4165-ae82-a4a06e9ce9ea">
+                  <link id="x395465bd-b2ad-4a37-92e9-0d0dfed88dba"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822"/>
                </start>
                <service id="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822">
@@ -171,7 +200,7 @@
                      <parameter name="client_id" source="field">input.client_idInputParam</parameter>
                      <parameter name="client_secret" source="field">input.client_secret_InputParam</parameter>
                   </serviceInput>
-                  <link id="ec3a7b4ee-8e4d-4e75-b28f-0f82248bf3eb"
+                  <link id="rcf0c72a5-57af-409b-bb7f-f69883be2507"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e"/>
                </service>
                <service id="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e">
@@ -183,7 +212,7 @@
                      <parameter name="fetch" source="field">input.fetch_InputParam</parameter>
                      <parameter name="authtoken" source="field">output.responseauthtoken</parameter>
                   </serviceInput>
-                  <link id="q021a3df0-e8ad-4d69-bf55-37d6016b76a4"
+                  <link id="e6292851c-0536-4355-80b1-aa1051a6544c"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignment52a20790-5430-4722-9914-8359e000c2b4"/>
                </service>
                <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment52a20790-5430-4722-9914-8359e000c2b4">
@@ -191,153 +220,399 @@
                   <operation source="formula" to="temp.tempCustomerList">
                      <expression language="XQuery">list:list($output.customersearchresult//pageItems)</expression>
                   </operation>
-                  <link id="c2406aba4-769a-43f1-8f94-610bd2fa8843"
-                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek"/>
-               </assignment>
-               <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek">
-                  <title>Get Pages Number</title>
-                  <operation source="formula" to="temp.tempPagesNumber">
-                     <expression language="XQuery">fn:ceiling( ($output.customersearchresult//totalRecords - $input.offset_InputParam) div $input.fetch_InputParam)</expression>
-                  </operation>
-                  <link id="c183b3186-2943-42ce-9210-4e8cf6a5c5b7"
+                  <link id="vece62f4e-f771-4e2a-ab8d-c3feaaff929d"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
                </assignment>
                <container id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1" type="exclusive">
                   <title>index Customer</title>
-                  <flow id="c23d2c6af-ebd5-4ca6-bcee-365d7e20bf88">
+                  <flow id="c784f22d1-c41e-4af2-98c8-cd553d9b7335">
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                 type="parallel">
-                        <title>Consumer Dispatching</title>
-                        <flow id="hb44e6eaa-a72f-45a9-a91b-4fc25dca3663">
-                           <subflow id="Subprocessa74d086a-95bd-4069-a724-a4a61f031217">
-                              <title>Consumer A SubProcess</title>
-                              <subflowGUID>80z4FnditAPhkRzQTdZiUX</subflowGUID>
-                              <subflowPath>Consumer_A_SubProcess</subflowPath>
-                              <appliesTo/>
-                              <runForEach>false</runForEach>
-                              <input>
-                                 <parameter name="consumerAList" source="field" updatable="true">temp.tempConsumerAList</parameter>
-                              </input>
-                              <outputDef>
-                                 <field description="" name="responseConsumerA" type="string">
-                                    <options>
-                                       <option name="required">false</option>
-                                    </options>
-                                 </field>
-                              </outputDef>
-                           </subflow>
-                           <link id="a4099dedf-e2ca-464d-ae80-e49fa05a93c6"
+                        <title>Consumer Dispatcher</title>
+                        <flow id="h7676c345-a7fd-4f8f-a0f6-22d683745383">
+                           <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217">
+                              <subflow id="ofb923113-b9cc-4280-bd6f-e0402c3730e0">
+                                 <title>Consumer A SubProcess</title>
+                                 <subflowGUID>80z4FnditAPhkRzQTdZiUX</subflowGUID>
+                                 <subflowPath>Consumer_A_SubProcess</subflowPath>
+                                 <appliesTo/>
+                                 <runForEach>false</runForEach>
+                                 <input>
+                                    <parameter name="consumerAList" source="field" updatable="true">temp.tempConsumerAList</parameter>
+                                 </input>
+                                 <outputDef>
+                                    <field description="" name="responseConsumerA" type="string">
+                                       <options>
+                                          <option name="required">false</option>
+                                       </options>
+                                    </field>
+                                 </outputDef>
+                              </subflow>
+                              <flow id="ecab25d6c-78dc-4923-9055-5e9f3576f843">
+                                 <link id="da9ccbec1-dff2-494b-883e-ae32d1255595"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="g4d79a3ed-0b01-4acd-b2e9-e69c0216cf55">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ab2ebea-b10e-4885-b5c8-30d98dceecb8">
+                                    <title>Add Response Error Consumer A</title>
+                                    <operation source="formula" to="temp.tempErrorResponseList">
+                                       <expression language="XQuery">  let $custPartIds := &lt;test&gt;&lt;Customers&gt;{
+    for $customer in $temp.tempConsumerAList
+         return fn:concat ($customer/party_id/text(),",")   
+}&lt;/Customers&gt;&lt;/test&gt;
+
+let $a:='{
+    "error": {
+        "ConsumerA_List": "'||$custPartIds||'",
+        "FaultInfoCode": "'||$output.faultInfoConsumerA[1]/code||'",
+        "FaultInfoDetail": "'||$output.faultInfoConsumerA[1]/detail||'",
+        "FaultInfoReason": "'||$output.faultInfoConsumerA[1]/reason||'"
+    }
+}'
+
+return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="f420ea00c-1104-440c-b32f-f9e9679cb944"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="o9004447a-1d99-4e77-b20a-961a02bbde42"
+                                    targetId="ecab25d6c-78dc-4923-9055-5e9f3576f843"
+                                    type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfoConsumerA"
+                                        id="u7bdb2b29-7e2d-4731-b29f-dfdaa3df64d9"
+                                        interrupting="true">
+                                    <link id="nd3cc3986-ac45-4122-81e2-fb33e4ebbd08"
+                                          targetId="g4d79a3ed-0b01-4acd-b2e9-e69c0216cf55"
+                                          type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="zdb3ee228-cee8-4d48-8a0a-f39af9cbecc9"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="vaf5dd03c-583c-4360-8e85-c706bb64a577">
-                           <subflow id="Subprocess2d398510-f809-4c09-9537-9cd593aa1743">
-                              <title>Consumer B Subprocess</title>
-                              <subflowGUID>aNbfAH72Y28gY8vqfzwWCM</subflowGUID>
-                              <subflowPath>Consumer_B_SubProcess</subflowPath>
-                              <appliesTo/>
-                              <runForEach>false</runForEach>
-                              <input>
-                                 <parameter name="consumerBList" source="formula" updatable="true">
-                                    <expression language="XQuery">$temp.tempConsumerBList</expression>
-                                 </parameter>
-                              </input>
-                              <outputDef>
-                                 <field description="" name="responseConsumerB" type="string">
-                                    <options>
-                                       <option name="required">false</option>
-                                    </options>
-                                 </field>
-                              </outputDef>
-                           </subflow>
-                           <link id="jc9becd9d-65d4-4f0f-8f21-ae2bd54dfe56"
+                        <flow id="uaea08173-cee3-4ef8-ae43-d86624e3c161">
+                           <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743">
+                              <subflow id="n5cc86f7c-57e6-4111-8f12-5b1d4a328f37">
+                                 <title>Consumer B Subprocess</title>
+                                 <subflowGUID>aNbfAH72Y28gY8vqfzwWCM</subflowGUID>
+                                 <subflowPath>Consumer_B_SubProcess</subflowPath>
+                                 <appliesTo/>
+                                 <runForEach>false</runForEach>
+                                 <input>
+                                    <parameter name="consumerBList" source="formula" updatable="true">
+                                       <expression language="XQuery">$temp.tempConsumerBList</expression>
+                                    </parameter>
+                                 </input>
+                                 <outputDef>
+                                    <field description="" name="responseConsumerB" type="string">
+                                       <options>
+                                          <option name="required">false</option>
+                                       </options>
+                                    </field>
+                                 </outputDef>
+                              </subflow>
+                              <flow id="u974e234c-06db-4017-a43f-158d8e0950ac">
+                                 <link id="s66a6542e-6a9e-497f-9b0e-919bd302c8b5"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="bf2ed00e9-ee3f-4f29-a35d-acdb1f47114c">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment798d3aaa-51e3-4b30-8913-d1a35dfbf91b">
+                                    <title>Add Response Error Consumer B</title>
+                                    <operation source="formula" to="temp.tempErrorResponseList">
+                                       <expression language="XQuery">  let $custPartIds := &lt;test&gt;&lt;Customers&gt;{
+    for $customer in $temp.tempConsumerBList
+         return fn:concat ($customer/party_id/text(),",")   
+}&lt;/Customers&gt;&lt;/test&gt;
+
+let $a:='{
+    "error": {
+        "ConsumerB_List": "'||$custPartIds||'",
+        "FaultInfoCode": "'||$output.faultInfoConsumerB[1]/code||'",
+        "FaultInfoDetail": "'||$output.faultInfoConsumerB[1]/detail||'",
+        "FaultInfoReason": "'||$output.faultInfoConsumerB[1]/reason||'"
+    }
+}'
+
+return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="v4c77c341-6cce-4b86-982e-bcffbd9ce0b1"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="sd27cdc9f-571d-4c69-936c-c36fd1d85ffb"
+                                    targetId="u974e234c-06db-4017-a43f-158d8e0950ac"
+                                    type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfoConsumerB"
+                                        id="ofda2e820-da13-486f-a6ed-2f2a62b54a8c"
+                                        interrupting="true">
+                                    <link id="cf42b7e0a-8bbb-4740-bd3c-096b8ddc79b9"
+                                          targetId="bf2ed00e9-ee3f-4f29-a35d-acdb1f47114c"
+                                          type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="u167d2111-5351-4ef1-940b-55ff0801a9a0"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="v5edd086e-ac75-4423-a5d9-e3907581e756">
-                           <subflow id="Subprocess5b752819-34c4-4f4d-a082-6071217d4a67">
-                              <title>Consumer C SubProcess</title>
-                              <subflowGUID>c0lKqsoWIAGedWOictdAeI</subflowGUID>
-                              <subflowPath>Consumer_C_SubProcess</subflowPath>
-                              <appliesTo/>
-                              <runForEach>false</runForEach>
-                              <input>
-                                 <parameter name="consumerCList" source="formula" updatable="true">
-                                    <expression language="XQuery">$temp.tempConsumerCList</expression>
-                                 </parameter>
-                              </input>
-                              <outputDef>
-                                 <field description="" name="responseConsumerC" type="string">
-                                    <options>
-                                       <option name="required">false</option>
-                                    </options>
-                                 </field>
-                              </outputDef>
-                           </subflow>
-                           <link id="lcfd4df31-4707-4691-b9f4-b0dc294a6ab2"
+                        <flow id="ke5cc6dfa-4069-487e-9098-5324d56755ba">
+                           <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67">
+                              <subflow id="zc2c40311-0e19-4e1a-b635-5a8f087b93e5">
+                                 <title>Consumer C SubProcess</title>
+                                 <subflowGUID>c0lKqsoWIAGedWOictdAeI</subflowGUID>
+                                 <subflowPath>Consumer_C_SubProcess</subflowPath>
+                                 <appliesTo/>
+                                 <runForEach>false</runForEach>
+                                 <input>
+                                    <parameter name="consumerCList" source="formula" updatable="true">
+                                       <expression language="XQuery">$temp.tempConsumerCList</expression>
+                                    </parameter>
+                                 </input>
+                                 <outputDef>
+                                    <field description="" name="responseConsumerC" type="string">
+                                       <options>
+                                          <option name="required">false</option>
+                                       </options>
+                                    </field>
+                                 </outputDef>
+                              </subflow>
+                              <flow id="h756568b4-e367-4bb1-b7e8-0bafaca20939">
+                                 <link id="wd417398a-8d80-4ceb-82b0-646770ba2d67"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="f17860eda-6d09-4aad-b13e-4ab99828b042">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment843ed819-a42a-4391-a930-91d9208e8b31">
+                                    <title>Add Response Error Consumer C</title>
+                                    <operation source="formula" to="temp.tempErrorResponseList">
+                                       <expression language="XQuery">  let $custPartIds := &lt;test&gt;&lt;Customers&gt;{
+    for $customer in $temp.tempConsumerCList
+         return fn:concat ($customer/party_id/text(),",")   
+}&lt;/Customers&gt;&lt;/test&gt;
+
+let $a:='{
+    "error": {
+        "ConsumerC_List": "'||$custPartIds||'",
+        "FaultInfoCode": "'||$output.faultInfoConsumerC[1]/code||'",
+        "FaultInfoDetail": "'||$output.faultInfoConsumerC[1]/detail||'",
+        "FaultInfoReason": "'||$output.faultInfoConsumerC[1]/reason||'"
+    }
+}'
+
+return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="y5e3e205a-6a1a-46ca-a9b8-31624dd01fd0"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="h41e9c88a-8fc8-4429-a860-ff14fe8367b7"
+                                    targetId="h756568b4-e367-4bb1-b7e8-0bafaca20939"
+                                    type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfoConsumerC"
+                                        id="yab03251f-5d34-42eb-8936-c4fada9a44d5"
+                                        interrupting="true">
+                                    <link id="ib7f3f81f-8346-42a6-a6cb-c7d02790705c"
+                                          targetId="f17860eda-6d09-4aad-b13e-4ab99828b042"
+                                          type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="t3d1fda7c-a050-43fe-bf79-474730326635"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="p8b8667a2-e31a-448f-a43e-d83be8111414">
-                           <subflow id="Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc">
-                              <title>Consumer Other Subprocess</title>
-                              <subflowGUID>70NdRvlueE2e1qNZKfrvw0</subflowGUID>
-                              <subflowPath>Consumer_Other_SubProcess</subflowPath>
-                              <appliesTo/>
-                              <runForEach>false</runForEach>
-                              <input>
-                                 <parameter name="consumerOtherList" source="formula" updatable="true">
-                                    <expression language="XQuery">$temp.tempConsumerOtherList</expression>
-                                 </parameter>
-                              </input>
-                              <outputDef>
-                                 <field description="" name="responseConsumerOther" type="string">
-                                    <options>
-                                       <option name="required">false</option>
-                                    </options>
-                                 </field>
-                              </outputDef>
-                           </subflow>
-                           <link id="k8a54e63f-73cc-4ef3-8ab6-01d8969b0e32"
+                        <flow id="rb292fd1e-4f3f-4a4c-9215-06f246453607">
+                           <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc">
+                              <subflow id="j0fabb19e-e740-459b-80de-6208d1398dc7">
+                                 <title>Consumer Other Subprocess</title>
+                                 <subflowGUID>70NdRvlueE2e1qNZKfrvw0</subflowGUID>
+                                 <subflowPath>Consumer_Other_SubProcess</subflowPath>
+                                 <appliesTo/>
+                                 <runForEach>false</runForEach>
+                                 <input>
+                                    <parameter name="consumerOtherList" source="formula" updatable="true">
+                                       <expression language="XQuery">$temp.tempConsumerOtherList</expression>
+                                    </parameter>
+                                 </input>
+                                 <outputDef>
+                                    <field description="" name="responseConsumerOther" type="string">
+                                       <options>
+                                          <option name="required">false</option>
+                                       </options>
+                                    </field>
+                                 </outputDef>
+                              </subflow>
+                              <flow id="h6fa207ee-d1cb-4b7d-9d39-a97d723f2ef6">
+                                 <link id="ze7a41e74-cfa7-4ab0-8073-77e334180a31"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="se869acab-e23b-4233-bad8-e52bab60d7a0">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment30830bc3-4a48-4cf3-ae09-d7dcc0e50c1e">
+                                    <title>Add Response Error Consumer Other</title>
+                                    <operation source="formula" to="temp.tempErrorResponseList">
+                                       <expression language="XQuery">  let $custPartIds := &lt;test&gt;&lt;Customers&gt;{
+    for $customer in $temp.tempConsumerOtherList
+         return fn:concat ($customer/party_id/text(),",")   
+}&lt;/Customers&gt;&lt;/test&gt;
+
+let $a:='{
+    "error": {
+        "ConsumerOther_List": "'||$custPartIds||'",
+        "FaultInfoCode": "'||$output.faultInfoConsumerOther[1]/code||'",
+        "FaultInfoDetail": "'||$output.faultInfoConsumerOther[1]/detail||'",
+        "FaultInfoReason": "'||$output.faultInfoConsumerOther[1]/reason||'"
+    }
+}'
+
+return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="dd6ea9423-98f2-46e3-8dc3-36f79150e1aa"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="h315c6d6f-574f-4995-a47f-bbdc1d9971ba"
+                                    targetId="h6fa207ee-d1cb-4b7d-9d39-a97d723f2ef6"
+                                    type="containerLink"/>
+                              <events>
+                                 <catch faultField="faultInfoConsumerOther"
+                                        id="mafc968c9-a0b0-4781-a5f1-77d9f460bc02"
+                                        interrupting="true">
+                                    <link id="pfc265b72-6eee-4539-9d4f-9d065df336d0"
+                                          targetId="se869acab-e23b-4233-bad8-e52bab60d7a0"
+                                          type="containerLink"/>
+                                 </catch>
+                              </events>
+                           </eventContainer>
+                           <link id="he2ff9825-6236-4617-9ba8-0a53d273aa1b"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <link id="j3e116daa-d796-49aa-8261-c0b77f9a0530"
-                              targetId="hb44e6eaa-a72f-45a9-a91b-4fc25dca3663"
+                        <link id="ed347d19d-a99f-4bc3-976c-936c7d09b718"
+                              targetId="h7676c345-a7fd-4f8f-a0f6-22d683745383"
                               type="containerLink"/>
-                        <link id="f78497e39-2a67-477d-832e-5a3ef1b94375"
-                              targetId="vaf5dd03c-583c-4360-8e85-c706bb64a577"
+                        <link id="t539b78cc-e704-4612-bdfe-fdf1211aec99"
+                              targetId="uaea08173-cee3-4ef8-ae43-d86624e3c161"
                               type="containerLink"/>
-                        <link id="nf1f8c461-262c-4623-ba40-c1e10ab0ab02"
-                              targetId="v5edd086e-ac75-4423-a5d9-e3907581e756"
+                        <link id="h4326eced-eb2f-41aa-9f18-ec61f20f1968"
+                              targetId="ke5cc6dfa-4069-487e-9098-5324d56755ba"
                               type="containerLink"/>
-                        <link id="q2e43c5ab-10d9-4c9d-a25c-da6990c04717"
-                              targetId="p8b8667a2-e31a-448f-a43e-d83be8111414"
+                        <link id="ubecd6c5d-01b5-40ea-a634-593a7089c152"
+                              targetId="rb292fd1e-4f3f-4a4c-9215-06f246453607"
                               type="containerLink"/>
-                        <link id="g602349f2-6896-440f-b406-3b12587b1bc7"
+                        <link id="cca02b240-37c2-4d12-b915-163dbd9544ab"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ac7450b-8dbd-442d-8bbd-d12bd152c8c5"/>
                      </container>
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
                                 type="exclusive">
                         <title>next Page</title>
-                        <flow id="tb4bd3181-349f-4d3c-b044-e1eec574c7e8">
-                           <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment34e492af-df13-4f95-b491-119cfdcf535d">
-                              <title>Set Response</title>
-                              <operation source="formula" to="output.status">
-                                 <expression language="XQuery">'FIN'</expression>
-                              </operation>
-                           </assignment>
-                           <link id="ja0caeac3-8d3c-4f50-8a77-a839df126ab2"
+                        <flow id="pc17e3789-9940-4139-8b22-23d07ff05baf">
+                           <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
+                                      type="exclusive">
+                              <title>Has a FaultInfo</title>
+                              <flow id="m5d5787c7-97a5-41b7-8d08-d6a9ba72c1d2">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentdef8bf1c-8312-415d-a371-8dee44cbd5e9">
+                                    <title>Set Success Response</title>
+                                    <operation source="constant" to="output.status">sucess</operation>
+                                    <operation source="constant" to="output.statusCode">200</operation>
+                                    <operation source="field" to="output.summary">temp.tempSuccessResponseList</operation>
+                                    <operation source="formula" to="output.processId">
+                                       <expression language="XQuery">util:getProcessId()</expression>
+                                    </operation>
+                                 </assignment>
+                                 <link id="y9a747c0b-a026-4adc-bf74-5e3570204f04"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
+                                       type="containerLink"/>
+                              </flow>
+                              <flow id="j67a5c46f-d5f8-4033-bd33-0c8a611501a3">
+                                 <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentfdd5de59-1115-4544-9cdc-c1e6e8b3684d">
+                                    <title>Set Error Response</title>
+                                    <operation source="constant" to="output.status">error</operation>
+                                    <operation source="constant" to="output.statusCode">500</operation>
+                                    <operation source="field" to="output.summary">temp.tempErrorResponseList</operation>
+                                    <operation source="constant" to="output.processId">util:getProcessId()</operation>
+                                 </assignment>
+                                 <link id="t47f8d05f-1e71-46e3-bd09-9872e617eef7"
+                                       targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
+                                       type="containerLink"/>
+                              </flow>
+                              <link id="q909630b5-9cbb-4e61-938c-2cfb1e1ee647"
+                                    targetId="m5d5787c7-97a5-41b7-8d08-d6a9ba72c1d2"
+                                    type="containerLink">
+                                 <condition source="formula">
+                                    <function name="empty">
+                                       <arg name="field">{$temp.tempErrorResponseList}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                              <link id="p5a77ab8e-6ea2-4db2-8a80-a0ee5565a0d9"
+                                    targetId="j67a5c46f-d5f8-4033-bd33-0c8a611501a3"
+                                    type="containerLink">
+                                 <condition source="formula">
+                                    <function name="not-empty">
+                                       <arg name="field">{$temp.tempErrorResponseList}</arg>
+                                    </function>
+                                 </condition>
+                              </link>
+                           </container>
+                           <link id="jceda2877-cecb-4800-948e-f97513e8d8b3"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="z8b51ec4d-b7a8-42b0-87cf-e5a11c07be70">
-                           <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentdef8bf1c-8312-415d-a371-8dee44cbd5e9">
-                              <title>Assignment to response</title>
-                              <operation source="constant" to="output.status">sucess</operation>
-                              <operation source="constant" to="output.statusCode">200</operation>
-                              <operation source="formula" to="output.error">
-                                 <expression language="XQuery">let $a:='{
+                        <flow id="oc7b56f6f-5524-4d6b-a54e-4919c5341596">
+                           <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment29e07b6c-160a-46f9-82bf-172248b99b9c">
+                              <title>Set New Offset</title>
+                              <operation source="formula" to="input.offset_InputParam">
+                                 <expression language="XQuery">$input.offset_InputParam + $input.fetch_InputParam</expression>
+                              </operation>
+                              <link id="kcc2e13e6-5f55-48be-a547-89c6082bc730"
+                                    targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad"/>
+                           </assignment>
+                           <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad">
+                              <title>Clear Consumers List</title>
+                              <operation source="field" to="temp.tempConsumerAList">temp.tempEmptyList</operation>
+                              <operation source="field" to="temp.tempConsumerBList">temp.tempEmptyList</operation>
+                              <operation source="field" to="temp.tempConsumerCList">temp.tempEmptyList</operation>
+                              <operation source="field" to="temp.tempConsumerOtherList">temp.tempEmptyList</operation>
+                              <link id="wf53ad6be-0476-4e4b-a3b1-eb758d42bd51"
+                                    targetId="a14L0daQ56MJ1h9zv1qFNSU1-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b"/>
+                           </assignment>
+                           <jumpTo id="a14L0daQ56MJ1h9zv1qFNSU1-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b">
+                              <link id="t9999f4e8-6165-4a68-a291-b2813658ec8b"
+                                    targetId="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="w84154f0b-d099-4303-8bae-3804aa56d305"
+                              targetId="pc17e3789-9940-4139-8b22-23d07ff05baf"
+                              type="containerLink">
+                           <condition source="formula">
+                              <function name="greater-than">
+                                 <arg name="left" source="formula">{$temp.tempPagesNumber}</arg>
+                                 <arg name="right">0</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="ca538348f-f698-4bdc-b3a6-3d06b9ec1b87"
+                              targetId="oc7b56f6f-5524-4d6b-a54e-4919c5341596"
+                              type="containerLink"/>
+                        <link id="c879559c0-ecf1-4914-80f1-6661d4769f5e"
+                              targetId="a14L0daQ56MJ1h9zv1qFNSU1-End38e0328d-0f3b-4d89-a946-c543ee58eea1"/>
+                     </container>
+                     <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ac7450b-8dbd-442d-8bbd-d12bd152c8c5">
+                        <title>Add Response Summary Per Consumer</title>
+                        <operation source="formula" to="temp.tempSuccessResponseList">
+                           <expression language="XQuery">let $a:='{
     "response": {
         "ConsumerA": "'||$output.responseConsumerA||'",
         "ConsumerB": " '||$output.responseConsumerB||'",
@@ -345,48 +620,25 @@
         "ConsumerOther": "'||$output.responseConsumerOther||'"
     }
 }'
-return util:parseJSON($a)</expression>
-                              </operation>
-                              <operation source="formula" to="output.processId">
-                                 <expression language="XQuery">util:getProcessId()</expression>
-                              </operation>
-                           </assignment>
-                           <link id="j49e3cfb7-a780-4a63-87d1-e45e131e9350"
-                                 targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
-                                 type="containerLink"/>
-                        </flow>
-                        <link id="y9191dd8a-15c9-48a3-8377-34432215eb6d"
-                              targetId="tb4bd3181-349f-4d3c-b044-e1eec574c7e8"
-                              type="containerLink">
-                           <condition source="formula">
-                              <function name="less-or-equals">
-                                 <arg name="left" source="formula">{$temp.tempPagesNumber}</arg>
-                                 <arg name="right">0</arg>
-                              </function>
-                           </condition>
-                        </link>
-                        <link id="ka0f56072-d18f-4a9a-ad9e-d00d449f0230"
-                              targetId="z8b51ec4d-b7a8-42b0-87cf-e5a11c07be70"
-                              type="containerLink"/>
-                        <link id="c134c2356-79fe-48f2-9c0f-db62949ecf36"
-                              targetId="a14L0daQ56MJ1h9zv1qFNSU1-End38e0328d-0f3b-4d89-a946-c543ee58eea1"/>
-                     </container>
-                     <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ac7450b-8dbd-442d-8bbd-d12bd152c8c5">
-                        <title>Update Next Page index</title>
+
+return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</expression>
+                        </operation>
+                        <link id="r22aa5d4d-828c-4797-beaa-a1742ecaa416"
+                              targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek"/>
+                     </assignment>
+                     <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek">
+                        <title>Get Pending pages to process</title>
                         <operation source="formula" to="temp.tempPagesNumber">
-                           <expression language="XQuery">$temp.tempPagesNumber - 1</expression>
+                           <expression language="XQuery">fn:ceiling( ($output.customersearchresult//totalRecords - $input.offset_InputParam) div $input.fetch_InputParam) - 1</expression>
                         </operation>
-                        <operation source="formula" to="input.offset_InputParam">
-                           <expression language="XQuery">$input.offset_InputParam + $input.fetch_InputParam</expression>
-                        </operation>
-                        <link id="v3a3b6313-d0e1-4907-a107-3e4428d1bdb9"
+                        <link id="w9e35471a-bd8c-4262-9edf-e980edf0fd5f"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"/>
                      </assignment>
                      <end id="a14L0daQ56MJ1h9zv1qFNSU1-End38e0328d-0f3b-4d89-a946-c543ee58eea1">
                         <title>End</title>
                      </end>
                   </flow>
-                  <flow id="f3a9aaf1a-35f2-43fc-a33f-377a3d3f4c1f">
+                  <flow id="e6ce06690-8f40-4306-a611-61205ee723bb">
                      <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment22576c0e-ab87-475d-823d-1b75f1ec945f">
                         <title>Get Current Customer</title>
                         <operation source="formula" to="temp.tempCurrentCustomer">
@@ -395,58 +647,58 @@ return util:parseJSON($a)</expression>
                         <operation source="formula" to="temp.tempCustomerList">
                            <expression language="XQuery">list:tail( $temp.tempCustomerList )</expression>
                         </operation>
-                        <link id="gc8b1b427-18b5-453c-94ad-48c281cc6280"
+                        <link id="lf6a2be65-b378-4968-ae1a-c57848da0fef"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"/>
                      </assignment>
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                 type="exclusive">
                         <title>Consumer Routing</title>
-                        <flow id="g30a13320-cdd2-4fd6-99bf-08cc982e2013">
+                        <flow id="b7c87d0e2-07da-4a98-9ca0-8acb9134f516">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment22a452f7-7154-48c6-9830-1c2f68c78eea">
                               <title>Add Consumer A List</title>
                               <operation source="formula" to="temp.tempConsumerAList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerAList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="ta6f8b556-c832-404a-88fb-aefa37b53efd"
+                           <link id="ve30cd548-bcf0-4fb8-937e-6eb51cc57717"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="ia11813cf-ffb0-440b-93e1-1e5b7d822f17">
+                        <flow id="f2dfd7149-4668-4d04-9a64-7233deca0870">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment654e38ce-6c4d-4780-9af1-8e872ccbacc0">
                               <title>Add Consumer B List</title>
                               <operation source="formula" to="temp.tempConsumerBList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerBList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="ib2aff5a8-3ddb-4291-b4d8-5a2b52badf7b"
+                           <link id="cac9f29dd-2e13-4ab1-b508-fa0e0bf4e71e"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="r37546dcb-c964-4d5d-8a2f-bd09939053f2">
+                        <flow id="v9efe2c0a-03a2-4fa0-a307-c37aa451890f">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentcd249778-cf0d-4588-8ec3-e327b4673618">
                               <title>Add Consumer C List</title>
                               <operation source="formula" to="temp.tempConsumerCList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerCList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="oc33d60b1-00b7-466c-9be7-21e43e642b74"
+                           <link id="f60425554-0100-4e5b-b7d1-52a4afc6ff59"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="v14ad1f14-0515-4164-b192-95e875396378">
+                        <flow id="y86859498-9270-4faf-ac36-241f2bf93540">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentd15e80f6-44d7-4426-a403-983982427d3f">
                               <title>Add Consumer Other List</title>
                               <operation source="formula" to="temp.tempConsumerOtherList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerOtherList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="k71a24c46-357e-41c6-b73b-22c376bd9b33"
+                           <link id="b92fb511f-f56b-43b9-bdf6-66ae88c4b457"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <link id="b79886d5c-9f3d-46f9-9b09-5a59757a1bc1"
-                              targetId="g30a13320-cdd2-4fd6-99bf-08cc982e2013"
+                        <link id="t5fc0162d-5174-4112-84ae-a451274d0de1"
+                              targetId="b7c87d0e2-07da-4a98-9ca0-8acb9134f516"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -455,8 +707,8 @@ return util:parseJSON($a)</expression>
                               </function>
                            </condition>
                         </link>
-                        <link id="l6263d349-e859-4e28-a8c0-3b35783783fd"
-                              targetId="ia11813cf-ffb0-440b-93e1-1e5b7d822f17"
+                        <link id="ha632099c-c8f5-40c8-88fd-5132842500d5"
+                              targetId="f2dfd7149-4668-4d04-9a64-7233deca0870"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -465,8 +717,8 @@ return util:parseJSON($a)</expression>
                               </function>
                            </condition>
                         </link>
-                        <link id="od43f5684-5842-49d1-9f70-d356869f5c2c"
-                              targetId="r37546dcb-c964-4d5d-8a2f-bd09939053f2"
+                        <link id="f8055a99c-0b88-4588-9dbb-decbee7d736b"
+                              targetId="v9efe2c0a-03a2-4fa0-a307-c37aa451890f"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -475,19 +727,19 @@ return util:parseJSON($a)</expression>
                               </function>
                            </condition>
                         </link>
-                        <link id="l6446503a-afda-4e86-bd6f-00cc30338c0e"
-                              targetId="v14ad1f14-0515-4164-b192-95e875396378"
+                        <link id="a3b92ae41-7f09-4f7b-866e-f4a3c2d986a2"
+                              targetId="y86859498-9270-4faf-ac36-241f2bf93540"
                               type="containerLink"/>
-                        <link id="a951e8e85-cd46-426d-a0ee-17cf5dddb81e"
+                        <link id="j8eafc700-d58a-46b2-86a9-a6b8e0ba9d04"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Jumpa571d485-7e47-4480-b2bf-930412c550b7"/>
                      </container>
                      <jumpTo id="a14L0daQ56MJ1h9zv1qFNSU1-Jumpa571d485-7e47-4480-b2bf-930412c550b7">
-                        <link id="if840bd30-e819-4bc8-9cd6-f61d31c59916"
+                        <link id="md0e9e816-1126-4087-b3d3-ef56cb3991b9"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
                      </jumpTo>
                   </flow>
-                  <link id="d42dafad9-96b0-4a97-b2f4-37c62577ee0e"
-                        targetId="c23d2c6af-ebd5-4ca6-bcee-365d7e20bf88"
+                  <link id="c2c1e5675-b011-4e9d-a5b6-5a2683272448"
+                        targetId="c784f22d1-c41e-4af2-98c8-cd553d9b7335"
                         type="containerLink">
                      <condition source="formula">
                         <function name="empty">
@@ -495,8 +747,8 @@ return util:parseJSON($a)</expression>
                         </function>
                      </condition>
                   </link>
-                  <link id="nb0efa8bf-90d0-4c83-84e9-b961ec2e768f"
-                        targetId="f3a9aaf1a-35f2-43fc-a33f-377a3d3f4c1f"
+                  <link id="neb52c288-77e8-4a8a-af98-397dde6dfb86"
+                        targetId="e6ce06690-8f40-4306-a611-61205ee723bb"
                         type="containerLink">
                      <condition source="formula">
                         <function name="not-empty">
@@ -522,5 +774,5 @@ return util:parseJSON($a)</expression>
       <types1:GUID>4L0daQ56MJ1h9zv1qFNSU1</types1:GUID>
       <types1:DisplayName>Customer Process</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-07T22:26:01.559Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-08T19:45:02.536Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
