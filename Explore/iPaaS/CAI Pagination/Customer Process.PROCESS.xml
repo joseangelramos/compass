@@ -13,10 +13,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-06T21:34:12Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-08T19:42:16Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-08T21:19:35Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-08T21:19:44Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Customer_Process/Customer_Process.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -187,9 +187,9 @@
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="uba66386e-9719-4fe7-a514-530245c44a6f">
-               <start id="a83d2631c-d0cd-4165-ae82-a4a06e9ce9ea">
-                  <link id="x395465bd-b2ad-4a37-92e9-0d0dfed88dba"
+            <flow id="ob37fbf4a-84a1-4a8a-9d07-ef760fe55c30">
+               <start id="e267e34c4-2b70-437a-aee9-cee38e6840d5">
+                  <link id="e8e813b3e-837e-4b94-a4ce-994e73207802"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822"/>
                </start>
                <service id="a14L0daQ56MJ1h9zv1qFNSU1-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822">
@@ -200,7 +200,7 @@
                      <parameter name="client_id" source="field">input.client_idInputParam</parameter>
                      <parameter name="client_secret" source="field">input.client_secret_InputParam</parameter>
                   </serviceInput>
-                  <link id="rcf0c72a5-57af-409b-bb7f-f69883be2507"
+                  <link id="sa3e33254-835a-4931-9a7c-1d7173970c3a"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e"/>
                </service>
                <service id="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e">
@@ -212,7 +212,7 @@
                      <parameter name="fetch" source="field">input.fetch_InputParam</parameter>
                      <parameter name="authtoken" source="field">output.responseauthtoken</parameter>
                   </serviceInput>
-                  <link id="e6292851c-0536-4355-80b1-aa1051a6544c"
+                  <link id="pb37f1dc9-3bef-4e75-9f74-004546633b0a"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignment52a20790-5430-4722-9914-8359e000c2b4"/>
                </service>
                <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment52a20790-5430-4722-9914-8359e000c2b4">
@@ -220,18 +220,18 @@
                   <operation source="formula" to="temp.tempCustomerList">
                      <expression language="XQuery">list:list($output.customersearchresult//pageItems)</expression>
                   </operation>
-                  <link id="vece62f4e-f771-4e2a-ab8d-c3feaaff929d"
+                  <link id="mdc9c9f01-c242-49a5-bc6b-bd86de4a7e38"
                         targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
                </assignment>
                <container id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1" type="exclusive">
                   <title>index Customer</title>
-                  <flow id="c784f22d1-c41e-4af2-98c8-cd553d9b7335">
+                  <flow id="rb45108b8-ac0b-448e-b4cc-fca606e2d60e">
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                 type="parallel">
                         <title>Consumer Dispatcher</title>
-                        <flow id="h7676c345-a7fd-4f8f-a0f6-22d683745383">
+                        <flow id="h72a7d35c-377b-4443-8625-856918a1bf32">
                            <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217">
-                              <subflow id="ofb923113-b9cc-4280-bd6f-e0402c3730e0">
+                              <subflow id="qc3f352e7-20dc-4775-b7aa-f25339fb1c76">
                                  <title>Consumer A SubProcess</title>
                                  <subflowGUID>80z4FnditAPhkRzQTdZiUX</subflowGUID>
                                  <subflowPath>Consumer_A_SubProcess</subflowPath>
@@ -248,12 +248,12 @@
                                     </field>
                                  </outputDef>
                               </subflow>
-                              <flow id="ecab25d6c-78dc-4923-9055-5e9f3576f843">
-                                 <link id="da9ccbec1-dff2-494b-883e-ae32d1255595"
+                              <flow id="a339a941a-9ff7-4a36-98ca-efa1ee6b2e31">
+                                 <link id="dac40e7c7-1065-492e-8e26-7b79da3cb2fe"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217"
                                        type="containerLink"/>
                               </flow>
-                              <flow id="g4d79a3ed-0b01-4acd-b2e9-e69c0216cf55">
+                              <flow id="h1b7967c6-902d-41dc-a63d-a411a8753402">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ab2ebea-b10e-4885-b5c8-30d98dceecb8">
                                     <title>Add Response Error Consumer A</title>
                                     <operation source="formula" to="temp.tempErrorResponseList">
@@ -274,30 +274,30 @@ let $a:='{
 return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
                                     </operation>
                                  </assignment>
-                                 <link id="f420ea00c-1104-440c-b32f-f9e9679cb944"
+                                 <link id="ye5551fcc-9bbd-4bd3-a7ee-50cf0fb2432c"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocessa74d086a-95bd-4069-a724-a4a61f031217"
                                        type="containerLink"/>
                               </flow>
-                              <link id="o9004447a-1d99-4e77-b20a-961a02bbde42"
-                                    targetId="ecab25d6c-78dc-4923-9055-5e9f3576f843"
+                              <link id="x57ae9044-7a3e-4d4d-83c8-db048b31430e"
+                                    targetId="a339a941a-9ff7-4a36-98ca-efa1ee6b2e31"
                                     type="containerLink"/>
                               <events>
                                  <catch faultField="faultInfoConsumerA"
-                                        id="u7bdb2b29-7e2d-4731-b29f-dfdaa3df64d9"
+                                        id="p047524d9-a833-46ff-868c-cac969082875"
                                         interrupting="true">
-                                    <link id="nd3cc3986-ac45-4122-81e2-fb33e4ebbd08"
-                                          targetId="g4d79a3ed-0b01-4acd-b2e9-e69c0216cf55"
+                                    <link id="j251752e0-5efe-4826-8a9a-c07053f450be"
+                                          targetId="h1b7967c6-902d-41dc-a63d-a411a8753402"
                                           type="containerLink"/>
                                  </catch>
                               </events>
                            </eventContainer>
-                           <link id="zdb3ee228-cee8-4d48-8a0a-f39af9cbecc9"
+                           <link id="k662d607f-b723-469f-9eeb-59e9e238ef3e"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="uaea08173-cee3-4ef8-ae43-d86624e3c161">
+                        <flow id="i1e7fcba1-d16c-44bb-bd3b-9ee949dc8ff7">
                            <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743">
-                              <subflow id="n5cc86f7c-57e6-4111-8f12-5b1d4a328f37">
+                              <subflow id="s5ace37fd-caf7-4d06-b0a5-5328fa81d223">
                                  <title>Consumer B Subprocess</title>
                                  <subflowGUID>aNbfAH72Y28gY8vqfzwWCM</subflowGUID>
                                  <subflowPath>Consumer_B_SubProcess</subflowPath>
@@ -316,12 +316,12 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                     </field>
                                  </outputDef>
                               </subflow>
-                              <flow id="u974e234c-06db-4017-a43f-158d8e0950ac">
-                                 <link id="s66a6542e-6a9e-497f-9b0e-919bd302c8b5"
+                              <flow id="od3dab41a-1949-46ac-ae3d-48fcb54d28ef">
+                                 <link id="cae57e161-4173-402d-917b-12ee85e8d4f3"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743"
                                        type="containerLink"/>
                               </flow>
-                              <flow id="bf2ed00e9-ee3f-4f29-a35d-acdb1f47114c">
+                              <flow id="ba8f3d5d2-b209-4bbe-9705-d09debde0884">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment798d3aaa-51e3-4b30-8913-d1a35dfbf91b">
                                     <title>Add Response Error Consumer B</title>
                                     <operation source="formula" to="temp.tempErrorResponseList">
@@ -342,30 +342,30 @@ let $a:='{
 return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
                                     </operation>
                                  </assignment>
-                                 <link id="v4c77c341-6cce-4b86-982e-bcffbd9ce0b1"
+                                 <link id="f20a0d28b-182e-439f-9042-c4c2c10cc347"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess2d398510-f809-4c09-9537-9cd593aa1743"
                                        type="containerLink"/>
                               </flow>
-                              <link id="sd27cdc9f-571d-4c69-936c-c36fd1d85ffb"
-                                    targetId="u974e234c-06db-4017-a43f-158d8e0950ac"
+                              <link id="dfb349de6-9d44-4be0-a4d1-9e01e0096fd6"
+                                    targetId="od3dab41a-1949-46ac-ae3d-48fcb54d28ef"
                                     type="containerLink"/>
                               <events>
                                  <catch faultField="faultInfoConsumerB"
-                                        id="ofda2e820-da13-486f-a6ed-2f2a62b54a8c"
+                                        id="s4d996248-713d-40ca-b2ab-e43ff3af3b33"
                                         interrupting="true">
-                                    <link id="cf42b7e0a-8bbb-4740-bd3c-096b8ddc79b9"
-                                          targetId="bf2ed00e9-ee3f-4f29-a35d-acdb1f47114c"
+                                    <link id="ydc2de911-87d0-483f-8b92-3e1cf550125c"
+                                          targetId="ba8f3d5d2-b209-4bbe-9705-d09debde0884"
                                           type="containerLink"/>
                                  </catch>
                               </events>
                            </eventContainer>
-                           <link id="u167d2111-5351-4ef1-940b-55ff0801a9a0"
+                           <link id="j80a0d43f-be5b-40d4-bf35-a3796528edba"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="ke5cc6dfa-4069-487e-9098-5324d56755ba">
+                        <flow id="kbec1ea9c-1646-4cfd-8408-5f20b3101d5b">
                            <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67">
-                              <subflow id="zc2c40311-0e19-4e1a-b635-5a8f087b93e5">
+                              <subflow id="mafe06550-5f3a-4372-8412-b1cb51ae5cea">
                                  <title>Consumer C SubProcess</title>
                                  <subflowGUID>c0lKqsoWIAGedWOictdAeI</subflowGUID>
                                  <subflowPath>Consumer_C_SubProcess</subflowPath>
@@ -384,12 +384,12 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                     </field>
                                  </outputDef>
                               </subflow>
-                              <flow id="h756568b4-e367-4bb1-b7e8-0bafaca20939">
-                                 <link id="wd417398a-8d80-4ceb-82b0-646770ba2d67"
+                              <flow id="g22f77ab9-fe22-4674-b041-00dc1ee15dfe">
+                                 <link id="w0ac432f3-4ff6-4f0e-8058-9b56271a3747"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67"
                                        type="containerLink"/>
                               </flow>
-                              <flow id="f17860eda-6d09-4aad-b13e-4ab99828b042">
+                              <flow id="b0b01d0bf-c480-4d80-aeb5-7f9666d626ce">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment843ed819-a42a-4391-a930-91d9208e8b31">
                                     <title>Add Response Error Consumer C</title>
                                     <operation source="formula" to="temp.tempErrorResponseList">
@@ -410,30 +410,30 @@ let $a:='{
 return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
                                     </operation>
                                  </assignment>
-                                 <link id="y5e3e205a-6a1a-46ca-a9b8-31624dd01fd0"
+                                 <link id="pb9c2a7e9-4083-43d3-baff-6592bbdb8fe1"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess5b752819-34c4-4f4d-a082-6071217d4a67"
                                        type="containerLink"/>
                               </flow>
-                              <link id="h41e9c88a-8fc8-4429-a860-ff14fe8367b7"
-                                    targetId="h756568b4-e367-4bb1-b7e8-0bafaca20939"
+                              <link id="jb7cb11ee-44a7-44f7-bf06-c67ace328a93"
+                                    targetId="g22f77ab9-fe22-4674-b041-00dc1ee15dfe"
                                     type="containerLink"/>
                               <events>
                                  <catch faultField="faultInfoConsumerC"
-                                        id="yab03251f-5d34-42eb-8936-c4fada9a44d5"
+                                        id="ufd24bc1d-4048-4d9f-ad57-b0e36c9077f1"
                                         interrupting="true">
-                                    <link id="ib7f3f81f-8346-42a6-a6cb-c7d02790705c"
-                                          targetId="f17860eda-6d09-4aad-b13e-4ab99828b042"
+                                    <link id="h900cb2b3-d154-4ecc-9174-9b6f9dc29ec7"
+                                          targetId="b0b01d0bf-c480-4d80-aeb5-7f9666d626ce"
                                           type="containerLink"/>
                                  </catch>
                               </events>
                            </eventContainer>
-                           <link id="t3d1fda7c-a050-43fe-bf79-474730326635"
+                           <link id="x4b1e9428-d4b7-4514-8769-89d0d3dcd7a4"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="rb292fd1e-4f3f-4a4c-9215-06f246453607">
+                        <flow id="q4210dc0a-e98b-421f-90bc-35c26800f6a1">
                            <eventContainer id="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc">
-                              <subflow id="j0fabb19e-e740-459b-80de-6208d1398dc7">
+                              <subflow id="we8dc6b2a-8ffc-434e-8b7d-5fcb2d131406">
                                  <title>Consumer Other Subprocess</title>
                                  <subflowGUID>70NdRvlueE2e1qNZKfrvw0</subflowGUID>
                                  <subflowPath>Consumer_Other_SubProcess</subflowPath>
@@ -452,12 +452,12 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                     </field>
                                  </outputDef>
                               </subflow>
-                              <flow id="h6fa207ee-d1cb-4b7d-9d39-a97d723f2ef6">
-                                 <link id="ze7a41e74-cfa7-4ab0-8073-77e334180a31"
+                              <flow id="uc655cbb6-07cb-4849-8292-876b7877aada">
+                                 <link id="o8b113a9d-2e6b-4c92-9547-48983988fe8d"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc"
                                        type="containerLink"/>
                               </flow>
-                              <flow id="se869acab-e23b-4233-bad8-e52bab60d7a0">
+                              <flow id="fce2a1bcf-274a-4daf-ac7e-460b6969cf6b">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment30830bc3-4a48-4cf3-ae09-d7dcc0e50c1e">
                                     <title>Add Response Error Consumer Other</title>
                                     <operation source="formula" to="temp.tempErrorResponseList">
@@ -478,50 +478,50 @@ let $a:='{
 return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expression>
                                     </operation>
                                  </assignment>
-                                 <link id="dd6ea9423-98f2-46e3-8dc3-36f79150e1aa"
+                                 <link id="qe8e1886e-4a9c-41a1-bb87-534d232527e0"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Subprocess3a4b9a27-d120-4ae9-833d-e1d12bb46fdc"
                                        type="containerLink"/>
                               </flow>
-                              <link id="h315c6d6f-574f-4995-a47f-bbdc1d9971ba"
-                                    targetId="h6fa207ee-d1cb-4b7d-9d39-a97d723f2ef6"
+                              <link id="lec62be54-579a-4035-abdd-47b62f6cf0b6"
+                                    targetId="uc655cbb6-07cb-4849-8292-876b7877aada"
                                     type="containerLink"/>
                               <events>
                                  <catch faultField="faultInfoConsumerOther"
-                                        id="mafc968c9-a0b0-4781-a5f1-77d9f460bc02"
+                                        id="g40a7b5b0-9116-48ac-b5d8-297f469420e4"
                                         interrupting="true">
-                                    <link id="pfc265b72-6eee-4539-9d4f-9d065df336d0"
-                                          targetId="se869acab-e23b-4233-bad8-e52bab60d7a0"
+                                    <link id="lf3a1faec-0a2b-4632-a895-f3e1df7b7d48"
+                                          targetId="fce2a1bcf-274a-4daf-ac7e-460b6969cf6b"
                                           type="containerLink"/>
                                  </catch>
                               </events>
                            </eventContainer>
-                           <link id="he2ff9825-6236-4617-9ba8-0a53d273aa1b"
+                           <link id="m026bc61a-5aeb-4d2b-8f34-daf8a240ede3"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-ParallelPathc78242c6-5a50-4c87-9947-c3166b290576"
                                  type="containerLink"/>
                         </flow>
-                        <link id="ed347d19d-a99f-4bc3-976c-936c7d09b718"
-                              targetId="h7676c345-a7fd-4f8f-a0f6-22d683745383"
+                        <link id="dad42a0b2-8a1a-4481-b024-2cc2851d8c6a"
+                              targetId="h72a7d35c-377b-4443-8625-856918a1bf32"
                               type="containerLink"/>
-                        <link id="t539b78cc-e704-4612-bdfe-fdf1211aec99"
-                              targetId="uaea08173-cee3-4ef8-ae43-d86624e3c161"
+                        <link id="j81dc9c79-92f2-4ef9-b38d-84c11ee6fd44"
+                              targetId="i1e7fcba1-d16c-44bb-bd3b-9ee949dc8ff7"
                               type="containerLink"/>
-                        <link id="h4326eced-eb2f-41aa-9f18-ec61f20f1968"
-                              targetId="ke5cc6dfa-4069-487e-9098-5324d56755ba"
+                        <link id="f8fc4f47d-708b-4fb3-80ed-46e988f56dae"
+                              targetId="kbec1ea9c-1646-4cfd-8408-5f20b3101d5b"
                               type="containerLink"/>
-                        <link id="ubecd6c5d-01b5-40ea-a634-593a7089c152"
-                              targetId="rb292fd1e-4f3f-4a4c-9215-06f246453607"
+                        <link id="xaec2e5ac-e868-48ab-be42-e2a86b80080d"
+                              targetId="q4210dc0a-e98b-421f-90bc-35c26800f6a1"
                               type="containerLink"/>
-                        <link id="cca02b240-37c2-4d12-b915-163dbd9544ab"
+                        <link id="ef8849a7f-d937-4ba9-a814-5f95d0987e2b"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ac7450b-8dbd-442d-8bbd-d12bd152c8c5"/>
                      </container>
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
                                 type="exclusive">
                         <title>next Page</title>
-                        <flow id="pc17e3789-9940-4139-8b22-23d07ff05baf">
+                        <flow id="h3fd7314f-460e-4b9c-93ce-41827b460019">
                            <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
                                       type="exclusive">
                               <title>Has a FaultInfo</title>
-                              <flow id="m5d5787c7-97a5-41b7-8d08-d6a9ba72c1d2">
+                              <flow id="y74101ddc-d249-437a-b6e3-6fcea739042b">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentdef8bf1c-8312-415d-a371-8dee44cbd5e9">
                                     <title>Set Success Response</title>
                                     <operation source="constant" to="output.status">sucess</operation>
@@ -531,11 +531,11 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                        <expression language="XQuery">util:getProcessId()</expression>
                                     </operation>
                                  </assignment>
-                                 <link id="y9a747c0b-a026-4adc-bf74-5e3570204f04"
+                                 <link id="naea32c53-a203-42dc-911d-cdf747f0fc8b"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
                                        type="containerLink"/>
                               </flow>
-                              <flow id="j67a5c46f-d5f8-4033-bd33-0c8a611501a3">
+                              <flow id="y95ed2036-c953-42d1-bb8b-62e1274ebc22">
                                  <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentfdd5de59-1115-4544-9cdc-c1e6e8b3684d">
                                     <title>Set Error Response</title>
                                     <operation source="constant" to="output.status">error</operation>
@@ -543,12 +543,12 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                     <operation source="field" to="output.summary">temp.tempErrorResponseList</operation>
                                     <operation source="constant" to="output.processId">util:getProcessId()</operation>
                                  </assignment>
-                                 <link id="t47f8d05f-1e71-46e3-bd09-9872e617eef7"
+                                 <link id="o3b003535-5f3a-4038-a4df-74aaf268e71f"
                                        targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decisionf8615e43-6863-4d24-a2e3-182a82d43d42"
                                        type="containerLink"/>
                               </flow>
-                              <link id="q909630b5-9cbb-4e61-938c-2cfb1e1ee647"
-                                    targetId="m5d5787c7-97a5-41b7-8d08-d6a9ba72c1d2"
+                              <link id="i431c69b3-e3d0-4c43-96f5-07e5c7120a4e"
+                                    targetId="y74101ddc-d249-437a-b6e3-6fcea739042b"
                                     type="containerLink">
                                  <condition source="formula">
                                     <function name="empty">
@@ -556,8 +556,8 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                     </function>
                                  </condition>
                               </link>
-                              <link id="p5a77ab8e-6ea2-4db2-8a80-a0ee5565a0d9"
-                                    targetId="j67a5c46f-d5f8-4033-bd33-0c8a611501a3"
+                              <link id="u2f1b3fe0-c171-47eb-b96b-e366366d3294"
+                                    targetId="y95ed2036-c953-42d1-bb8b-62e1274ebc22"
                                     type="containerLink">
                                  <condition source="formula">
                                     <function name="not-empty">
@@ -566,17 +566,17 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                                  </condition>
                               </link>
                            </container>
-                           <link id="jceda2877-cecb-4800-948e-f97513e8d8b3"
+                           <link id="a7462c56a-7f15-4568-85d7-6e17363c4c94"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="oc7b56f6f-5524-4d6b-a54e-4919c5341596">
+                        <flow id="vac7eb303-90a5-4f8b-b492-326ea20f7362">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment29e07b6c-160a-46f9-82bf-172248b99b9c">
                               <title>Set New Offset</title>
                               <operation source="formula" to="input.offset_InputParam">
                                  <expression language="XQuery">$input.offset_InputParam + $input.fetch_InputParam</expression>
                               </operation>
-                              <link id="kcc2e13e6-5f55-48be-a547-89c6082bc730"
+                              <link id="cf88ca6ee-7434-4e17-a89d-ab9c4c5b4ae9"
                                     targetId="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad"/>
                            </assignment>
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad">
@@ -585,28 +585,28 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
                               <operation source="field" to="temp.tempConsumerBList">temp.tempEmptyList</operation>
                               <operation source="field" to="temp.tempConsumerCList">temp.tempEmptyList</operation>
                               <operation source="field" to="temp.tempConsumerOtherList">temp.tempEmptyList</operation>
-                              <link id="wf53ad6be-0476-4e4b-a3b1-eb758d42bd51"
+                              <link id="u305be240-af81-43a3-b519-e5e3579ce6f9"
                                     targetId="a14L0daQ56MJ1h9zv1qFNSU1-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b"/>
                            </assignment>
                            <jumpTo id="a14L0daQ56MJ1h9zv1qFNSU1-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b">
-                              <link id="t9999f4e8-6165-4a68-a291-b2813658ec8b"
+                              <link id="ceafcef61-de24-4b2a-bf48-bacfcb095b59"
                                     targetId="a14L0daQ56MJ1h9zv1qFNSU1-m31mtd0e"/>
                            </jumpTo>
                         </flow>
-                        <link id="w84154f0b-d099-4303-8bae-3804aa56d305"
-                              targetId="pc17e3789-9940-4139-8b22-23d07ff05baf"
+                        <link id="c13934fba-1ca8-4df8-841a-15529f29c25d"
+                              targetId="h3fd7314f-460e-4b9c-93ce-41827b460019"
                               type="containerLink">
                            <condition source="formula">
-                              <function name="greater-than">
+                              <function name="greater-or-equals">
                                  <arg name="left" source="formula">{$temp.tempPagesNumber}</arg>
                                  <arg name="right">0</arg>
                               </function>
                            </condition>
                         </link>
-                        <link id="ca538348f-f698-4bdc-b3a6-3d06b9ec1b87"
-                              targetId="oc7b56f6f-5524-4d6b-a54e-4919c5341596"
+                        <link id="k183e54c6-3c73-4638-94c9-5ad3a19288cc"
+                              targetId="vac7eb303-90a5-4f8b-b492-326ea20f7362"
                               type="containerLink"/>
-                        <link id="c879559c0-ecf1-4914-80f1-6661d4769f5e"
+                        <link id="yada1aea6-c8c5-4864-8e76-98ca6f4c687a"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-End38e0328d-0f3b-4d89-a946-c543ee58eea1"/>
                      </container>
                      <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment6ac7450b-8dbd-442d-8bbd-d12bd152c8c5">
@@ -623,7 +623,7 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
 
 return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</expression>
                         </operation>
-                        <link id="r22aa5d4d-828c-4797-beaa-a1742ecaa416"
+                        <link id="qf20afce8-41de-4092-91bc-d7667c06259e"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek"/>
                      </assignment>
                      <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnek">
@@ -631,14 +631,14 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                         <operation source="formula" to="temp.tempPagesNumber">
                            <expression language="XQuery">fn:ceiling( ($output.customersearchresult//totalRecords - $input.offset_InputParam) div $input.fetch_InputParam) - 1</expression>
                         </operation>
-                        <link id="w9e35471a-bd8c-4262-9edf-e980edf0fd5f"
+                        <link id="f0a722cf8-f3d5-460a-a5d9-3e4c4ebe2adf"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"/>
                      </assignment>
                      <end id="a14L0daQ56MJ1h9zv1qFNSU1-End38e0328d-0f3b-4d89-a946-c543ee58eea1">
                         <title>End</title>
                      </end>
                   </flow>
-                  <flow id="e6ce06690-8f40-4306-a611-61205ee723bb">
+                  <flow id="la937a1f7-376b-47e2-92e9-022486ac854a">
                      <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment22576c0e-ab87-475d-823d-1b75f1ec945f">
                         <title>Get Current Customer</title>
                         <operation source="formula" to="temp.tempCurrentCustomer">
@@ -647,58 +647,58 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                         <operation source="formula" to="temp.tempCustomerList">
                            <expression language="XQuery">list:tail( $temp.tempCustomerList )</expression>
                         </operation>
-                        <link id="lf6a2be65-b378-4968-ae1a-c57848da0fef"
+                        <link id="z527d4019-de5d-46c2-821f-620de6ea3cdf"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"/>
                      </assignment>
                      <container id="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                 type="exclusive">
                         <title>Consumer Routing</title>
-                        <flow id="b7c87d0e2-07da-4a98-9ca0-8acb9134f516">
+                        <flow id="m8f35185f-2875-4483-ac21-ad0788d62612">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment22a452f7-7154-48c6-9830-1c2f68c78eea">
                               <title>Add Consumer A List</title>
                               <operation source="formula" to="temp.tempConsumerAList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerAList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="ve30cd548-bcf0-4fb8-937e-6eb51cc57717"
+                           <link id="h4667d208-5b8a-4fe4-a0ab-245fdc944a77"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="f2dfd7149-4668-4d04-9a64-7233deca0870">
+                        <flow id="l6d36f30d-1c16-462c-a384-e0984d0ca5d6">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignment654e38ce-6c4d-4780-9af1-8e872ccbacc0">
                               <title>Add Consumer B List</title>
                               <operation source="formula" to="temp.tempConsumerBList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerBList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="cac9f29dd-2e13-4ab1-b508-fa0e0bf4e71e"
+                           <link id="j1f17f2db-ed78-4805-b12f-fed1ef5973a9"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="v9efe2c0a-03a2-4fa0-a307-c37aa451890f">
+                        <flow id="ie0133b75-e23c-49e6-ac38-ff3856a1746a">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentcd249778-cf0d-4588-8ec3-e327b4673618">
                               <title>Add Consumer C List</title>
                               <operation source="formula" to="temp.tempConsumerCList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerCList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="f60425554-0100-4e5b-b7d1-52a4afc6ff59"
+                           <link id="xbf71a506-8328-4415-8088-3e4b80c86e2e"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <flow id="y86859498-9270-4faf-ac36-241f2bf93540">
+                        <flow id="bd9429100-6018-4bf7-ada6-d1391e5df1e0">
                            <assignment id="a14L0daQ56MJ1h9zv1qFNSU1-Assignmentd15e80f6-44d7-4426-a403-983982427d3f">
                               <title>Add Consumer Other List</title>
                               <operation source="formula" to="temp.tempConsumerOtherList">
                                  <expression language="XQuery">list:append( $temp.tempConsumerOtherList , $temp.tempCurrentCustomer )</expression>
                               </operation>
                            </assignment>
-                           <link id="b92fb511f-f56b-43b9-bdf6-66ae88c4b457"
+                           <link id="ec50aeebb-3a6a-4578-acca-9ac12b58a43d"
                                  targetId="a14L0daQ56MJ1h9zv1qFNSU1-Decision8c6c0bae-29b8-44d9-9e7d-e366b9b360a2"
                                  type="containerLink"/>
                         </flow>
-                        <link id="t5fc0162d-5174-4112-84ae-a451274d0de1"
-                              targetId="b7c87d0e2-07da-4a98-9ca0-8acb9134f516"
+                        <link id="vcaa94d73-8aa9-4cc4-a685-56e2ae7e2f6f"
+                              targetId="m8f35185f-2875-4483-ac21-ad0788d62612"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -707,8 +707,8 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                               </function>
                            </condition>
                         </link>
-                        <link id="ha632099c-c8f5-40c8-88fd-5132842500d5"
-                              targetId="f2dfd7149-4668-4d04-9a64-7233deca0870"
+                        <link id="kde14e27a-a7e8-4063-b792-c154aa3e5a47"
+                              targetId="l6d36f30d-1c16-462c-a384-e0984d0ca5d6"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -717,8 +717,8 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                               </function>
                            </condition>
                         </link>
-                        <link id="f8055a99c-0b88-4588-9dbb-decbee7d736b"
-                              targetId="v9efe2c0a-03a2-4fa0-a307-c37aa451890f"
+                        <link id="t8d25e5f6-53b8-4517-8ecc-3e26dc650a94"
+                              targetId="ie0133b75-e23c-49e6-ac38-ff3856a1746a"
                               type="containerLink">
                            <condition source="formula">
                               <function name="string-equals">
@@ -727,19 +727,19 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                               </function>
                            </condition>
                         </link>
-                        <link id="a3b92ae41-7f09-4f7b-866e-f4a3c2d986a2"
-                              targetId="y86859498-9270-4faf-ac36-241f2bf93540"
+                        <link id="n113f2896-90a8-4238-b60b-71fd91f6f0e8"
+                              targetId="bd9429100-6018-4bf7-ada6-d1391e5df1e0"
                               type="containerLink"/>
-                        <link id="j8eafc700-d58a-46b2-86a9-a6b8e0ba9d04"
+                        <link id="v0f8073ed-1040-4f16-8798-3b68c4a17404"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-Jumpa571d485-7e47-4480-b2bf-930412c550b7"/>
                      </container>
                      <jumpTo id="a14L0daQ56MJ1h9zv1qFNSU1-Jumpa571d485-7e47-4480-b2bf-930412c550b7">
-                        <link id="md0e9e816-1126-4087-b3d3-ef56cb3991b9"
+                        <link id="u1d25d061-cfce-4324-b677-cebe2d71be60"
                               targetId="a14L0daQ56MJ1h9zv1qFNSU1-m1l0gnf1"/>
                      </jumpTo>
                   </flow>
-                  <link id="c2c1e5675-b011-4e9d-a5b6-5a2683272448"
-                        targetId="c784f22d1-c41e-4af2-98c8-cd553d9b7335"
+                  <link id="nd5508c88-9884-4ec0-af4d-de8a7d7ce2c6"
+                        targetId="rb45108b8-ac0b-448e-b4cc-fca606e2d60e"
                         type="containerLink">
                      <condition source="formula">
                         <function name="empty">
@@ -747,8 +747,8 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                         </function>
                      </condition>
                   </link>
-                  <link id="neb52c288-77e8-4a8a-af98-397dde6dfb86"
-                        targetId="e6ce06690-8f40-4306-a611-61205ee723bb"
+                  <link id="g7f8ba7e7-afd6-4e0a-9925-c2859b684389"
+                        targetId="la937a1f7-376b-47e2-92e9-022486ac854a"
                         type="containerLink">
                      <condition source="formula">
                         <function name="not-empty">
@@ -766,7 +766,7 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
                <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
                <ns1:CreationDate>2025-03-06T21:34:12Z</ns1:CreationDate>
                <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
-               <ns1:ModificationDate>2025-03-06T21:34:12Z</ns1:ModificationDate>
+               <ns1:ModificationDate>2025-03-08T20:02:44Z</ns1:ModificationDate>
                <ns1:Data format="json">{}</ns1:Data>
             </ns1:SampleData>
          </ns1:sample-data-sets>
@@ -774,5 +774,5 @@ return list:append( $temp.tempSuccessResponseList , util:parseJSON($a))</express
       <types1:GUID>4L0daQ56MJ1h9zv1qFNSU1</types1:GUID>
       <types1:DisplayName>Customer Process</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-08T19:45:02.536Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-08T21:23:04.44Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
