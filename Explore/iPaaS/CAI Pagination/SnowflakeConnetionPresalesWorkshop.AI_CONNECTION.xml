@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2024-12-16T19:57:48Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-06T07:06:13Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T16:34:45Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-09T03:52:05Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-11T16:34:51Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/SnowflakeConnetionPresalesWorkshop/SnowflakeConnetionPresalesWorkshop.conn.xml</types1:PublishedContributionId>
       <types1:Entry>
          <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
@@ -39,7 +39,7 @@
                <attribute encrypted="false" name="schema" value="ACME_RETAIL_STG"/>
                <attribute encrypted="false" name="includeTables" value=""/>
                <attribute encrypted="false" name="excludeTables" value=""/>
-               <attribute encrypted="false" name="checkSqlInjection" value="true"/>
+               <attribute encrypted="false" name="checkSqlInjection" value="false"/>
                <attribute encrypted="false" name="initialSize" value="5"/>
                <attribute encrypted="false" name="maxActive" value="10"/>
                <attribute encrypted="false" name="minIdle" value="1"/>
@@ -68,5 +68,5 @@
       <types1:GUID>9S7EVPEnQiegEofph87xe4</types1:GUID>
       <types1:DisplayName>SnowflakeConnetionPresalesWorkshop</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T05:01:57.154Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T21:06:05.284Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

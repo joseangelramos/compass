@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T18:23:39Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-11T04:47:04Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T21:04:24Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-11T21:04:33Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_C_SubProcess/Consumer_C_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -54,6 +54,18 @@
                   </options>
                </field>
             </output>
+            <tempFields>
+               <field description="" name="jsonRequest" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="test" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </tempFields>
             <notes/>
             <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
                <rest>
@@ -61,15 +73,110 @@
                </rest>
             </deployment>
             <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="i65cd03bf-e1c3-42b5-b97c-7e35f1804138">
-               <start id="t3fc10ef0-1dcb-4445-ba77-e09ca130d64c">
-                  <link id="c454731e5-988f-4bfd-bce5-63890e567b4b"
-                        targetId="End948bac9b-6a78-467e-aed1-c51af25039be"/>
+            <flow id="g5d2eb99b-d6c7-441e-97ba-0191e61f37b2">
+               <start id="o4c69a5a6-fa48-47df-898c-4cf88ac02005">
+                  <link id="hf85ab166-5b08-455f-bde4-8cc7f831b377"
+                        targetId="a1c0lKqsoWIAGedWOictdAeI-Decisionc17c2bc1-6422-485b-9b3e-d98ae9e40212"/>
                </start>
-               <end id="End948bac9b-6a78-467e-aed1-c51af25039be">
+               <container id="a1c0lKqsoWIAGedWOictdAeI-Decisionc17c2bc1-6422-485b-9b3e-d98ae9e40212"
+                          type="exclusive">
+                  <title>consumer C List</title>
+                  <flow id="gfaa5b1df-f020-4bfc-9f09-0b357a1269ae">
+                     <jumpTo id="a1c0lKqsoWIAGedWOictdAeI-Jumpaf9bffd8-4c50-4c78-bbba-abbf21062a08">
+                        <link id="a9ab263b6-f6cb-41d1-8566-f01d8befd3e5"
+                              targetId="a1c0lKqsoWIAGedWOictdAeI-End948bac9b-6a78-467e-aed1-c51af25039be"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="xc9d38240-24b5-4682-80ce-7e6bbafb7ae5">
+                     <assignment id="a1c0lKqsoWIAGedWOictdAeI-Assignmentaa6b08d4-32ec-4f64-8cda-5a7fce511afa">
+                        <title>Set Prepare JSON Requiest</title>
+                        <operation source="formula" to="temp.jsonRequest">
+                           <expression language="XQuery">'INSERT INTO CUSTOMERSJSON SELECT '||util:getProcessId()||', parse_json(&amp;apos;'|| fn:replace(util:toJSON($input.consumerCList), "'" , '')||'&amp;apos;)'</expression>
+                        </operation>
+                        <operation source="formula" to="temp.test">
+                           <expression language="XQuery">'INSERT INTO CUSTOMERSJSON SELECT '||util:getProcessId()||', parse_json(&amp;apos;'|| util:escapeJsonString(util:toJSON($input.consumerCList))||'&amp;apos;)'</expression>
+                        </operation>
+                     </assignment>
+                     <link id="o469ee9f0-ca45-4a29-9704-e871a95aeb29"
+                           targetId="a1c0lKqsoWIAGedWOictdAeI-Decisionc17c2bc1-6422-485b-9b3e-d98ae9e40212"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="w0df1b203-d436-47c1-812e-91ccc2fa2515"
+                        targetId="gfaa5b1df-f020-4bfc-9f09-0b357a1269ae"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$input.consumerCList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="m017fe241-fdd2-49e9-b03c-aa7712fe6a10"
+                        targetId="xc9d38240-24b5-4682-80ce-7e6bbafb7ae5"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$input.consumerCList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="hd5fd6d6a-9b7b-42b4-9fce-93c2d51fb4f1"
+                        targetId="a1c0lKqsoWIAGedWOictdAeI-Service06b23010-058d-4666-ad06-fc4b11e4c0f7"/>
+               </container>
+               <eventContainer id="a1c0lKqsoWIAGedWOictdAeI-Service06b23010-058d-4666-ad06-fc4b11e4c0f7">
+                  <service id="q88d91133-031d-4ba9-8ad3-9d86b03ab833">
+                     <title>INSERT TO SNOWFLAKE</title>
+                     <serviceName>SnowflakeConnetionPresalesWorkshop:INSERT</serviceName>
+                     <serviceInput>
+                        <parameter name="query" source="field">temp.jsonRequest</parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="l66020ae7-9daf-455a-9621-2d551cffb880">
+                     <link id="f8d52aa03-cc1b-443d-b5cb-c84774391a3b"
+                           targetId="a1c0lKqsoWIAGedWOictdAeI-Service06b23010-058d-4666-ad06-fc4b11e4c0f7"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="g5154bb43-ec4e-4d2b-8ed1-084f9a99eb41">
+                     <throw id="a1c0lKqsoWIAGedWOictdAeI-Throw161c59bf-1568-4ac0-9b36-4419f64d7b36">
+                        <title>Throw 103</title>
+                        <throwInput>
+                           <parameter name="code" source="constant" updatable="true">103</parameter>
+                           <parameter name="detail" source="formula" updatable="true">
+                              <expression language="XQuery">$output.faultInfo[1]/detail</expression>
+                           </parameter>
+                           <parameter name="reason" source="constant" updatable="true">ERROR INSERT IN DATABASE</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="y4de80d68-c1e4-48e4-ad02-0628fd8c5bbf"
+                        targetId="l66020ae7-9daf-455a-9621-2d551cffb880"
+                        type="containerLink"/>
+                  <link id="d5e7c9300-25b3-4655-8dc3-628357f3a90c"
+                        targetId="a1c0lKqsoWIAGedWOictdAeI-Assignmentf78e0635-e5a9-4ae3-9b99-7bed1945e82c"/>
+                  <events>
+                     <catch faultField="faultInfo"
+                            id="t3ad9cd27-76e2-4b99-aa6c-ca5cedbc6a56"
+                            interrupting="true">
+                        <link id="a68db18a8-91a0-47d1-bd76-6ded90bab176"
+                              targetId="g5154bb43-ec4e-4d2b-8ed1-084f9a99eb41"
+                              type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <assignment id="a1c0lKqsoWIAGedWOictdAeI-Assignmentf78e0635-e5a9-4ae3-9b99-7bed1945e82c">
+                  <title>Set Reponse</title>
+                  <operation source="formula" to="output.responseConsumerC">
+                     <expression language="XQuery">'{ "response":  {  "Consumer C": "JSON Persisted in Database"} }'
+</expression>
+                  </operation>
+                  <link id="bf227124a-771c-4760-9501-a1feb431e606"
+                        targetId="a1c0lKqsoWIAGedWOictdAeI-End948bac9b-6a78-467e-aed1-c51af25039be"/>
+               </assignment>
+               <end id="a1c0lKqsoWIAGedWOictdAeI-End948bac9b-6a78-467e-aed1-c51af25039be">
                   <title>End 1</title>
                </end>
             </flow>
@@ -78,5 +185,5 @@
       <types1:GUID>c0lKqsoWIAGedWOictdAeI</types1:GUID>
       <types1:DisplayName>Consumer C SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T05:01:56.944Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T21:06:05.093Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

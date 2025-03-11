@@ -15,12 +15,12 @@
       "additionalInfo" : {
         "description" : "",
         "contentType" : "application/json; charset=utf-8",
-        "documentState" : "VALID"
+        "documentState" : "INVALID"
       }
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-11T05:01:57.443Z",
+  "updateTime" : "2025-03-11T21:06:05.578Z",
   "objectRefs" : [ ],
   "readableFileExtension" : null,
   "readableFilePresent" : false
