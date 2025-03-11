@@ -15,9 +15,9 @@
       <types1:CreationDate>2024-12-18T16:53:40Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
       <types1:ModificationDate>2025-03-06T06:27:52Z</types1:ModificationDate>
-      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-06T06:02:19Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-09T03:51:31Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connector/SnowflakeDatabase/SnowflakeDatabase_svcDef.xml</types1:PublishedContributionId>
       <types1:Entry>
          <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
@@ -338,5 +338,5 @@ offset -&gt; The row number after which the limited/fetched rows are returned. M
       <types1:GUID>7gmpEmYKsDwhjd9Xg9UK2M</types1:GUID>
       <types1:DisplayName>SnowflakeDatabase</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-06T16:08:20.242Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.078Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

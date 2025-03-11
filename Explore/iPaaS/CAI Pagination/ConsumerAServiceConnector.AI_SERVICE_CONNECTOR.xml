@@ -1,0 +1,83 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>gclopz4KhPVEQrX-gt-1296932-2025-03-10T05:18:59.102Z::svc.xml</types1:EntryId>
+      <types1:Name>ConsumerAServiceConnector</types1:Name>
+      <types1:ParentFlowIds>QWk6yQC8WrY1Syp-gt-1301407-2025-03-10T06:26:56.691Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-10T05:18:59Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-10T18:50:36Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-10T18:50:45Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ConsumerAServiceConnector/ConsumerAServiceConnector_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="ConsumerAServiceConnector"
+                            label=""
+                            name="ConsumerAServiceConnector"
+                            uuid="282efb9e-2c1b-4cfd-a241-16e56dfdd23d">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Synchronize Customers"
+                       maxRedirects="100"
+                       name="Synchronize Customers"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="requestConsumerAServiceCon"
+                                required="true"
+                                testWith="[&#xA;    {&#xA;      &#34;FaultInfoDetail&#34;: &#34;Error Processing Customers Other&#34;,&#xA;      &#34;ConsumerOther_List&#34;: &#34;&#34;,&#xA;      &#34;FaultInfoReason&#34;: &#34;Not Implemented Yet&#34;,&#xA;      &#34;FaultInfoCode&#34;: &#34;104&#34;&#xA;    },&#xA;    {&#xA;      &#34;FaultInfoDetail&#34;: &#34;Error Processing Customers C&#34;,&#xA;      &#34;ConsumerC_List&#34;: &#34;&#34;,&#xA;      &#34;FaultInfoReason&#34;: &#34;Not Implemented Yet&#34;,&#xA;      &#34;FaultInfoCode&#34;: &#34;102&#34;&#xA;    }&#xA;]"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://usw1-gw.dmp-us.informaticacloud.com/5gkw7gkuuxde95kh2syi4e.com/consumapi/v1/consumerA"
+                                        verb="POST">
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{
+  "requestConsumerAProcessMock": {$requestConsumerAServiceCon}
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            entireResponse="true"
+                            name="responseConsumerAServiceCon"
+                            type="string"/>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>13ai4J1dmQWjGRo9ZJ7zyB</types1:GUID>
+      <types1:DisplayName>ConsumerAServiceConnector</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.057Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

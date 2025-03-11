@@ -7,17 +7,17 @@
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
-      <types1:Tags/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
       <types1:VersionLabel>1.0</types1:VersionLabel>
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T18:21:52Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-08T03:44:53Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T04:08:15Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_B_SubProcess/Consumer_B_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -31,7 +31,7 @@
             <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
             <appliesTo/>
             <description/>
-            <tags/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
             <generator>Informatica Process Designer 11</generator>
             <input>
                <parameter description=""
@@ -39,6 +39,7 @@
                           required="false"
                           type="objectlist">
                   <options>
+                     <option name="required">false</option>
                      <option name="required">false</option>
                      <option name="referenceTo">$po:$any</option>
                      <option name="isCopy">true</option>
@@ -50,11 +51,23 @@
                <field description="" name="responseConsumerB" type="string">
                   <options>
                      <option name="required">false</option>
+                     <option name="initialvalue">{'{ "response":  {  "Consumer B": "Ignoring Empty List."} }'}</option>
                   </options>
                </field>
             </output>
+            <tempFields>
+               <field description="" name="TempContentWrite" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">S3AppConnection:StoreS3DelimitedContentRequest</option>
+                     <option name="guid">fbndTue6nmVh9BFukO5ra9</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </tempFields>
             <notes/>
             <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <targetLocation>idmc08-latam-carlos-primary.infacloud.eu</targetLocation>
                <rest>
                   <allowAnonymousAccess/>
                </rest>
@@ -65,32 +78,132 @@
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="d87a3a8b6-f77f-4f3b-9727-60aa94116763">
-               <start id="v1c64ac64-6ddf-4185-9a13-e718a062981c">
-                  <link id="wac8c51d3-1a79-4e8d-a2aa-8a304393e7fa"
-                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246"/>
+            <flow id="n49c219fb-afaf-434a-8db4-4b61562e8dc9">
+               <start id="f56c60a48-7239-4c29-84e3-2988fc6dc068">
+                  <link id="h09a3d62c-630b-48f7-a0d7-51b8b0a3d226"
+                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"/>
                </start>
-               <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246">
+               <container id="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"
+                          type="exclusive">
+                  <title>consumerBList</title>
+                  <flow id="wd1d4dabf-573c-40ab-b471-b0f3fba6295d">
+                     <jumpTo id="a1aNbfAH72Y28gY8vqfzwWCM-Jump3513baba-234a-40ba-b922-ab8bf55c5d2a">
+                        <link id="jcb5cf09b-5e79-481c-a1c1-8dff39152cd2"
+                              targetId="a1aNbfAH72Y28gY8vqfzwWCM-End652b2bb1-84c9-4c76-bae0-58731ea4c561"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="cc54b700a-9e61-4a07-8d09-8fbcbad05df5">
+                     <link id="ybf2395d2-9fb1-40b8-a519-00add0620c8c"
+                           targetId="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="v3662e99a-a5e2-4d6f-ba6b-68559afb63cb"
+                        targetId="wd1d4dabf-573c-40ab-b471-b0f3fba6295d"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$input.consumerBList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="gce8d211e-fb28-4baa-b86c-7afdda0e4d20"
+                        targetId="cc54b700a-9e61-4a07-8d09-8fbcbad05df5"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$input.consumerBList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="x831af954-d263-40b5-b8f7-657ca21486c8"
+                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignment479133aa-4cbf-4072-ad8f-d8ce846e1346"/>
+               </container>
+               <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignment479133aa-4cbf-4072-ad8f-d8ce846e1346">
+                  <title>Set S3 Content</title>
+                  <operation source="formula"
+                             to="temp.TempContentWrite[1]/s3ObjectParameters[1]/awsS3Key">
+                     <expression language="XQuery">'joramos/Customers_'||util:getProcessId()||'.csv'</expression>
+                  </operation>
+                  <operation source="constant"
+                             to="temp.TempContentWrite[1]/s3ObjectParameters[1]/contentType">text/csv</operation>
+                  <operation source="formula"
+                             to="temp.TempContentWrite[1]/delimitedContentObject[1]/record[1]/field[1]/value">
+                     <expression language="XQuery">let $body := 
+    for $customer in  $input.consumerBList 
+         return fn:concat ($customer/party_id/text(),',',$customer/name/text(),',',$customer/address/text(),',',$customer/address2/text(),',',$customer/city/text(),',',$customer/state/text(),',',$customer/zipcode/text(),',',$customer/country/text(),',',$customer/phone/text(),',',$customer/email/text(),',',$customer/status/text(),',',$customer/tier/text(),',',$customer/gender/text(),',',$customer/dob/text(),',',$customer/cc_type/text(),',',$customer/cc_num/text(),',',$customer/cc_exp_dt/text(),',',$customer/last_updt/text(),',',$customer/consumer/text(),fn:codepoints-to-string(10))
+  
+  return $body</expression>
+                  </operation>
+                  <link id="da9853f34-dc44-456a-9e8e-b4bf2d7d7ba4"
+                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9"/>
+               </assignment>
+               <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignmenta8488ac1-bc5d-4995-a0f9-83e5c56e24aa">
                   <title>Set Response</title>
                   <operation source="formula" to="output.responseConsumerB">
-                     <expression language="XQuery">list:count ($input.consumerBList)</expression>
+                     <expression language="XQuery">'{ "response":  {  "Consumer B": "File['|| $temp.TempContentWrite[1]/s3ObjectParameters[1]/awsS3Key||'], Records Processed['||list:count ($input.consumerBList)||']"} }'</expression>
                   </operation>
-                  <link id="e949caa07-bccc-4d99-aa1b-352eafa0847f"
-                        targetId="Throwf2316e53-2f7a-425e-81b6-de7067affa8f"/>
+                  <link id="r73ae15c1-4737-4eb5-864f-7e4dce1507b0"
+                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-End652b2bb1-84c9-4c76-bae0-58731ea4c561"/>
                </assignment>
-               <throw id="Throwf2316e53-2f7a-425e-81b6-de7067affa8f">
-                  <title>Throw 1</title>
-                  <throwInput>
-                     <parameter name="code" source="constant" updatable="true">101</parameter>
-                     <parameter name="detail" source="constant" updatable="true">Error Processing Customers B</parameter>
-                     <parameter name="reason" source="constant" updatable="true">Not Implemented Yet</parameter>
-                  </throwInput>
-               </throw>
+               <eventContainer id="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9">
+                  <service id="kd4dd344f-8947-43c4-8f7f-a3bd8b063e16">
+                     <title>AwsS3DelimitedContentWriter</title>
+                     <serviceName>S3AppConnection:AwsS3DelimitedContentWriter</serviceName>
+                     <serviceInput>
+                        <parameter name="storeS3DelimitedContentRequest" source="formula">
+                           <expression language="XQuery">$temp.TempContentWrite</expression>
+                        </parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="r28491223-8a3a-4591-8385-9f6268738145">
+                     <link id="u1dca5d02-0f30-4b89-b4a9-92e3bbd57974"
+                           targetId="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="y2a703127-da21-4279-90b4-b6815b3b51ad">
+                     <throw id="a1aNbfAH72Y28gY8vqfzwWCM-Throw56f30483-7898-423b-b2c6-741f28ccbf5c">
+                        <title>Throw Code 101</title>
+                        <throwInput>
+                           <parameter name="code" source="constant" updatable="true">101</parameter>
+                           <parameter name="detail" source="constant" updatable="true">{$output.storeS3DelimitedContentResponset[1]/message}</parameter>
+                           <parameter name="reason" source="constant" updatable="true">ERROR UPLOAD CSV FILE TO S3</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="wa365827d-a0eb-4f0d-b0c0-54e6c26e0b0e"
+                        targetId="r28491223-8a3a-4591-8385-9f6268738145"
+                        type="containerLink"/>
+                  <link id="ocea2c511-4813-4401-9dbf-a6e151c4bf42"
+                        targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignmenta8488ac1-bc5d-4995-a0f9-83e5c56e24aa"/>
+                  <events>
+                     <catch faultField="faultInfo"
+                            id="p4f8a0067-f891-4a1d-ae67-4eb468fa8a2e"
+                            interrupting="true">
+                        <link id="la1b198f8-bfc4-4aaf-9939-faada182c4ba"
+                              targetId="y2a703127-da21-4279-90b4-b6815b3b51ad"
+                              type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <end id="a1aNbfAH72Y28gY8vqfzwWCM-End652b2bb1-84c9-4c76-bae0-58731ea4c561">
+                  <title>End</title>
+               </end>
             </flow>
          </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>cc57b549-84c2-4a09-9135-01c3002cee93</ns1:Id>
+               <ns1:Name>test s3</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2025-03-09T04:58:06Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-03-09T04:58:06Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
       </types1:Entry>
       <types1:GUID>aNbfAH72Y28gY8vqfzwWCM</types1:GUID>
       <types1:DisplayName>Consumer B SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-08T19:45:02.417Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.175Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

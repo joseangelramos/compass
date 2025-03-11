@@ -17,7 +17,7 @@
       <types1:ModificationDate>2025-03-06T07:06:13Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-06T07:06:19Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-09T03:52:05Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/SnowflakeConnetionPresalesWorkshop/SnowflakeConnetionPresalesWorkshop.conn.xml</types1:PublishedContributionId>
       <types1:Entry>
          <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
@@ -68,5 +68,5 @@
       <types1:GUID>9S7EVPEnQiegEofph87xe4</types1:GUID>
       <types1:DisplayName>SnowflakeConnetionPresalesWorkshop</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-06T16:08:20.346Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.154Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

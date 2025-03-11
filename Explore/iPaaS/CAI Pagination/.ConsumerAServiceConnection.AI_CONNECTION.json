@@ -1,29 +1,7 @@
 {
   "objectInfo" : {
-    "id" : "6Ijmg06b2qeblv9DOFFf2N",
-    "name" : "Search Customers",
-    "type" : "PROCESS",
-    "metadata" : {
-      "modelVersion" : {
-        "major" : 1,
-        "minor" : 0
-      },
-      "repoInfo" : {
-        "repoHandle" : "2lxbdypKwKBqRi9-gt-15802-2024-12-18T02:37:05.861Z::pd.xml"
-      },
-      "contextAttributes" : null,
-      "additionalInfo" : {
-        "description" : "List customers\nThe list capability of clients can support pagination",
-        "contentType" : "application/json; charset=utf-8",
-        "documentState" : "VALID"
-      }
-    }
-  },
-  "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-11T05:01:57.444Z",
-  "objectRefs" : [ {
-    "id" : "9S7EVPEnQiegEofph87xe4",
-    "name" : "SnowflakeConnetionPresalesWorkshop",
+    "id" : "7Q18NJ1Mecpk06QJHkjKIv",
+    "name" : "ConsumerAServiceConnection",
     "type" : "AI_CONNECTION",
     "metadata" : {
       "modelVersion" : {
@@ -31,11 +9,33 @@
         "minor" : 0
       },
       "repoInfo" : {
-        "repoHandle" : "nW7eLyCnNZPD4AR-gt-2220974-2024-12-16T19:57:48.218Z::conn.xml"
+        "repoHandle" : "QWk6yQC8WrY1Syp-gt-1301407-2025-03-10T06:26:56.691Z::conn.xml"
       },
       "contextAttributes" : null,
       "additionalInfo" : {
-        "description" : "Snowflake connection Warehouse APJ_PRESALES_WORKSHOP",
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-11T05:01:57.441Z",
+  "objectRefs" : [ {
+    "id" : "13ai4J1dmQWjGRo9ZJ7zyB",
+    "name" : "ConsumerAServiceConnector",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "gclopz4KhPVEQrX-gt-1296932-2025-03-10T05:18:59.102Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
         "contentType" : "application/json; charset=utf-8",
         "documentState" : "VALID"
       }

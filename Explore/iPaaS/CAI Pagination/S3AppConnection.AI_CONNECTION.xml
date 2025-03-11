@@ -1,0 +1,79 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>clq1iUsRvsGRvDI-gt-1258545-2025-03-09T00:58:37.042Z::conn.xml</types1:EntryId>
+      <types1:Name>S3AppConnection</types1:Name>
+      <types1:ParentFlowIds>RBjISUXL86zqzm5-gt-1222611-2025-03-07T18:21:51.703Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-09T00:58:37Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-10T01:45:57Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-10T01:46:08Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/S3AppConnection/S3AppConnection.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="S3AppConnection"
+                     label="S3AppConnection"
+                     name="S3AppConnection">
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <agent>idmc08-latam-carlos-primary.infacloud.eu</agent>
+            <attributes>
+               <attribute encrypted="false" name="accessKey" value="AKIAVLNDJOLLMIPCIMUQ"/>
+               <attribute encrypted="true" name="secretKey" value=""/>
+               <attribute encrypted="false" name="useEC2RoleToAssumeRole" value="false"/>
+               <attribute encrypted="false" name="iamRoleArn" value=""/>
+               <attribute encrypted="false" name="externalId" value=""/>
+               <attribute encrypted="false" name="policy" value=""/>
+               <attribute encrypted="false"
+                          name="amazonS3Endpoint"
+                          value="s3.us-west-2.amazonaws.com"/>
+               <attribute encrypted="false" name="region" value="us-west-2"/>
+               <attribute encrypted="false" name="encryptObjects" value="false"/>
+               <attribute encrypted="false" name="encryptionAlgorithm" value=""/>
+               <attribute encrypted="true" name="encryptionKey" value=""/>
+               <attribute encrypted="true" name="encryptionPassword" value=""/>
+            </attributes>
+            <producers>
+               <producer enabled="true"
+                         name="AwsS3DelimitedContentWriter"
+                         typeName="AwsS3DelimitedContentWriter">
+                  <description>Event target that serializes process objects to delimited content files (for example, CSV) and stores them in an Amazon S3 bucket.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="bucketName" value="sandbox-tech-sales"/>
+                     <attribute encrypted="false" name="storageClass" value="STANDARD"/>
+                     <attribute encrypted="false" name="delimiter" value=","/>
+                     <attribute encrypted="false" name="textQualifier" value="&#34;"/>
+                     <attribute encrypted="false" name="skipHeaders" value="false"/>
+                     <attribute encrypted="false" name="lineEnding" value="Windows"/>
+                  </attributes>
+               </producer>
+            </producers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           cloudOnly="false"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           supportsPublishSkipMetadataRefresh="false"
+                           type="AWSS3"
+                           uuid="fb38e8f3-3552-4837-8bcd-6f938183d3dd">
+               <description>Amazon Simple Storage Service (S3) Connector.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>fbndTue6nmVh9BFukO5ra9</types1:GUID>
+      <types1:DisplayName>S3AppConnection</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:56.989Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

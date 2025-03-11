@@ -20,8 +20,28 @@
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-08T19:45:02.847Z",
-  "objectRefs" : [ ],
+  "updateTime" : "2025-03-11T05:01:57.442Z",
+  "objectRefs" : [ {
+    "id" : "fbndTue6nmVh9BFukO5ra9",
+    "name" : "S3AppConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "clq1iUsRvsGRvDI-gt-1258545-2025-03-09T00:58:37.042Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CAI Pagination"
+  } ],
   "readableFileExtension" : null,
   "readableFilePresent" : false
 }

@@ -1,7 +1,7 @@
 {
   "objectInfo" : {
-    "id" : "80z4FnditAPhkRzQTdZiUX",
-    "name" : "Consumer A SubProcess",
+    "id" : "212GatLFVkZePQJigaL0m4",
+    "name" : "ConsumerAProcessMock",
     "type" : "PROCESS",
     "metadata" : {
       "modelVersion" : {
@@ -9,18 +9,18 @@
         "minor" : 0
       },
       "repoInfo" : {
-        "repoHandle" : "4dpjq2SOMzeHbcj-gt-1217104-2025-03-07T15:15:37.889Z::pd.xml"
+        "repoHandle" : "VNIW7WHK80FIRi9-gt-1288772-2025-03-10T04:39:52.772Z::pd.xml"
       },
       "contextAttributes" : null,
       "additionalInfo" : {
         "description" : "",
         "contentType" : "application/json; charset=utf-8",
-        "documentState" : "INVALID"
+        "documentState" : "VALID"
       }
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-11T05:01:57.444Z",
+  "updateTime" : "2025-03-11T05:01:57.443Z",
   "objectRefs" : [ ],
   "readableFileExtension" : null,
   "readableFilePresent" : false

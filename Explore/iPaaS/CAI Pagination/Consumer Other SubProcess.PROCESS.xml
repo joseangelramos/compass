@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T18:24:28Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-08T03:47:12Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T04:57:49Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_Other_SubProcess/Consumer_Other_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -50,6 +50,7 @@
                <field description="" name="responseConsumerOther" type="string">
                   <options>
                      <option name="required">false</option>
+                     <option name="initialvalue">{'{ "response":  {  "Consumer Other": "Ignoring Empty List."} }'}</option>
                   </options>
                </field>
             </output>
@@ -63,32 +64,105 @@
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="u2c279489-6f1e-452f-97a2-cd1e06910099">
-               <start id="meb866bcc-88cc-481c-9e0a-a38ef35afaed">
-                  <link id="l06556c35-5b5e-493a-b9af-148b0d0e529a"
-                        targetId="a170NdRvlueE2e1qNZKfrvw0-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246"/>
+            <flow id="h066bec91-f654-4998-9d0b-a6c67c8d4451">
+               <start id="f6009d96f-5f56-409d-ad50-2efbb75a913e">
+                  <link id="d6707ce46-e176-4b3b-9761-25c7d7376fb1"
+                        targetId="a170NdRvlueE2e1qNZKfrvw0-Decision8e6ad4c7-83f4-4e0f-a6c0-12e53a61d87b"/>
                </start>
-               <assignment id="a170NdRvlueE2e1qNZKfrvw0-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246">
-                  <title>Set Response</title>
-                  <operation source="formula" to="output.responseConsumerOther">
-                     <expression language="XQuery">list:count ($input.consumerOtherList)</expression>
-                  </operation>
-                  <link id="of7846a32-136a-44b9-84dc-3ec85d0d8616"
-                        targetId="Throw000a6619-42bb-4226-9249-8903239276d5"/>
-               </assignment>
-               <throw id="Throw000a6619-42bb-4226-9249-8903239276d5">
-                  <title>Throw 1</title>
-                  <throwInput>
-                     <parameter name="code" source="constant" updatable="true">104</parameter>
-                     <parameter name="detail" source="constant" updatable="true">Error Processing Customers Other</parameter>
-                     <parameter name="reason" source="constant" updatable="true">Not Implemented Yet</parameter>
-                  </throwInput>
-               </throw>
+               <container id="a170NdRvlueE2e1qNZKfrvw0-Decision8e6ad4c7-83f4-4e0f-a6c0-12e53a61d87b"
+                          type="exclusive">
+                  <title>consumerOtherList</title>
+                  <flow id="rb5e82121-6496-477b-8e57-eac9c487b0cb">
+                     <jumpTo id="a170NdRvlueE2e1qNZKfrvw0-Jumpbed540d3-67a3-4524-9d45-7e15b25afe7b">
+                        <link id="gafd15182-fec1-453b-a057-9af3c68a1a5a"
+                              targetId="a170NdRvlueE2e1qNZKfrvw0-Endbe9e88b7-a740-4ce5-b1b8-b953a295794d"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="yd8f31ab1-6765-4597-b0dc-d8e95fea2c2d">
+                     <eventContainer id="a170NdRvlueE2e1qNZKfrvw0-Service7f4878f6-0489-43d3-aa7f-2df10f30530c">
+                        <service id="q41bfc333-b5b5-4ac5-ab3a-fb1290ad5666">
+                           <title>Synchronize Customers</title>
+                           <serviceName>ConsumerAServiceConnection:Synchronize Customers</serviceName>
+                           <serviceInput>
+                              <parameter name="requestConsumerAServiceCon" source="formula">
+                                 <expression language="XQuery"> util:toJSON($input.consumerOtherList)</expression>
+                              </parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="ibffc7f7d-a622-42bf-ba69-7e6d4ae1a786">
+                           <link id="bb6f02345-c007-4eea-b3db-5f226d17b7c3"
+                                 targetId="a170NdRvlueE2e1qNZKfrvw0-Service7f4878f6-0489-43d3-aa7f-2df10f30530c"
+                                 type="containerLink"/>
+                        </flow>
+                        <flow id="yca4a2e58-eb83-4959-815f-df9358e9d58d">
+                           <throw id="a170NdRvlueE2e1qNZKfrvw0-Throwdf7bb35f-44b1-438c-b015-4352678dca27">
+                              <title>Throw 103</title>
+                              <throwInput>
+                                 <parameter name="code" source="constant" updatable="true">103</parameter>
+                                 <parameter name="detail" source="formula" updatable="true">
+                                    <expression language="XQuery">$output.faultInfo[1]/detail</expression>
+                                 </parameter>
+                                 <parameter name="reason" source="constant" updatable="true">Error Consuming Service Consumers Type Other</parameter>
+                              </throwInput>
+                           </throw>
+                        </flow>
+                        <link id="af0e6a9a4-d0ed-4279-a632-557256e759ce"
+                              targetId="ibffc7f7d-a622-42bf-ba69-7e6d4ae1a786"
+                              type="containerLink"/>
+                        <link id="v91df57f1-90ce-4082-96ed-4c3408c82c01"
+                              targetId="a170NdRvlueE2e1qNZKfrvw0-Assignment22c56e10-710e-4dc3-8128-7856d9ac778a"/>
+                        <events>
+                           <catch faultField="faultInfo"
+                                  id="hc18361de-584e-4063-8e6d-513bc4622a8d"
+                                  interrupting="true">
+                              <link id="pd5d0950d-f569-499f-ae75-f8c2e6e0309e"
+                                    targetId="yca4a2e58-eb83-4959-815f-df9358e9d58d"
+                                    type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                     <assignment id="a170NdRvlueE2e1qNZKfrvw0-Assignment22c56e10-710e-4dc3-8128-7856d9ac778a">
+                        <title>Set Response</title>
+                        <operation source="formula" to="output.responseConsumerOther">
+                           <expression language="XQuery">let $parsedXML := util:parseXML($output.responseConsumerAServiceCon)
+return
+'{ "response":  {  "Consumer Other": "'||$parsedXML/responseConsumerAProcessMock/text()||'"} }'
+</expression>
+                        </operation>
+                     </assignment>
+                     <link id="pb99401dc-52f3-44fc-82a1-6026b64634c7"
+                           targetId="a170NdRvlueE2e1qNZKfrvw0-Decision8e6ad4c7-83f4-4e0f-a6c0-12e53a61d87b"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="u4b5e81bf-3990-4a27-84b2-bbf02cd6a9af"
+                        targetId="rb5e82121-6496-477b-8e57-eac9c487b0cb"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$input.consumerOtherList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="pa0db984e-48ed-4aa6-94c2-97b17df57559"
+                        targetId="yd8f31ab1-6765-4597-b0dc-d8e95fea2c2d"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$input.consumerOtherList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="h941a0206-19ab-4a5c-a7d6-956930b77d01"
+                        targetId="a170NdRvlueE2e1qNZKfrvw0-Endbe9e88b7-a740-4ce5-b1b8-b953a295794d"/>
+               </container>
+               <end id="a170NdRvlueE2e1qNZKfrvw0-Endbe9e88b7-a740-4ce5-b1b8-b953a295794d">
+                  <title>End 1</title>
+               </end>
             </flow>
          </process>
       </types1:Entry>
       <types1:GUID>70NdRvlueE2e1qNZKfrvw0</types1:GUID>
       <types1:DisplayName>Consumer Other SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-08T19:45:02.382Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.099Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

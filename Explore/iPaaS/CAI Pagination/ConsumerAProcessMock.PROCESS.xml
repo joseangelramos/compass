@@ -1,9 +1,8 @@
 <aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
                    xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
    <types1:Item>
-      <types1:EntryId>3OzI1dq2ME9paab-gt-1230544-2025-03-07T18:23:38.881Z::pd.xml</types1:EntryId>
-      <types1:Name>Consumer_C_SubProcess</types1:Name>
-      <types1:ParentFlowIds>wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml</types1:ParentFlowIds>
+      <types1:EntryId>VNIW7WHK80FIRi9-gt-1288772-2025-03-10T04:39:52.772Z::pd.xml</types1:EntryId>
+      <types1:Name>consumerA</types1:Name>
       <types1:MimeType>application/xml+process</types1:MimeType>
       <types1:Description/>
       <types1:AppliesTo/>
@@ -12,21 +11,21 @@
       <types1:State>CURRENT</types1:State>
       <types1:ProcessGroup/>
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
-      <types1:CreationDate>2025-03-07T18:23:39Z</types1:CreationDate>
+      <types1:CreationDate>2025-03-10T04:39:53Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-11T04:47:04Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T03:53:37Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
-      <types1:PublishedContributionId>project:/spi.Consumer_C_SubProcess/Consumer_C_SubProcess.pd.xml</types1:PublishedContributionId>
+      <types1:PublicationDate>2025-03-11T03:53:43Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.consumerA/consumerA.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
                   xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
                   xmlns:list="urn:activevos:spi:list:functions"
-                  GUID="c0lKqsoWIAGedWOictdAeI"
-                  displayName="Consumer C SubProcess"
-                  name="Consumer_C_SubProcess"
-                  overrideAPIName="false"
+                  GUID="212GatLFVkZePQJigaL0m4"
+                  displayName="ConsumerAProcessMock"
+                  name="consumerA"
+                  overrideAPIName="true"
                   processNamespace="urn:screenflow:process:">
             <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
             <appliesTo/>
@@ -35,10 +34,11 @@
             <generator>Informatica Process Designer 11</generator>
             <input>
                <parameter description=""
-                          name="consumerCList"
-                          required="false"
+                          name="requestConsumerAProcessMock"
+                          required="true"
                           type="objectlist">
                   <options>
+                     <option name="required">false</option>
                      <option name="required">false</option>
                      <option name="referenceTo">$po:$any</option>
                      <option name="isCopy">true</option>
@@ -47,36 +47,45 @@
                </parameter>
             </input>
             <output>
-               <field description="" name="responseConsumerC" type="string">
+               <field description="" name="responseConsumerAProcessMock" type="string">
                   <options>
                      <option name="required">false</option>
-                     <option name="initialvalue">{'{ "response":  {  "Consumer C": "Ignoring Empty List."} }'}</option>
                   </options>
                </field>
             </output>
             <notes/>
-            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
                <rest>
                   <allowAnonymousAccess/>
                </rest>
             </deployment>
             <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="i65cd03bf-e1c3-42b5-b97c-7e35f1804138">
-               <start id="t3fc10ef0-1dcb-4445-ba77-e09ca130d64c">
-                  <link id="c454731e5-988f-4bfd-bce5-63890e567b4b"
-                        targetId="End948bac9b-6a78-467e-aed1-c51af25039be"/>
+            <flow id="vbaaa112e-c496-4d94-a9eb-9b3028cd11f2">
+               <start id="kca661add-cf0e-418a-a905-0e07c0a86c3e">
+                  <link id="p92603111-f7f5-4ae4-befe-ab2c13bcb881"
+                        targetId="a1212GatLFVkZePQJigaL0m4-Assignment3fc4b506-8b74-4777-9d6c-9da51ffd5c23"/>
                </start>
-               <end id="End948bac9b-6a78-467e-aed1-c51af25039be">
+               <assignment id="a1212GatLFVkZePQJigaL0m4-Assignment3fc4b506-8b74-4777-9d6c-9da51ffd5c23">
+                  <title>Set Response Mock</title>
+                  <operation source="formula" to="output.responseConsumerAProcessMock">
+                     <expression language="XQuery">'The Service Consumer processes '||list:count ( $input.requestConsumerAProcessMock//pageItems)||' records.'</expression>
+                  </operation>
+                  <link id="e83fb59b4-9915-41b2-ac93-676098bad9c4"
+                        targetId="Endb1b23e24-10d7-456a-919e-f185e5d66091"/>
+               </assignment>
+               <end id="Endb1b23e24-10d7-456a-919e-f185e5d66091">
                   <title>End 1</title>
                </end>
             </flow>
          </process>
       </types1:Entry>
-      <types1:GUID>c0lKqsoWIAGedWOictdAeI</types1:GUID>
-      <types1:DisplayName>Consumer C SubProcess</types1:DisplayName>
+      <types1:GUID>212GatLFVkZePQJigaL0m4</types1:GUID>
+      <types1:DisplayName>ConsumerAProcessMock</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T05:01:56.944Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:57.035Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T15:15:38Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-08T03:43:37Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-11T03:58:52Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-08T19:42:33Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_A_SubProcess/Consumer_A_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -47,9 +47,10 @@
                </parameter>
             </input>
             <output>
-               <field description="" name="responseConsumerA" type="string">
+               <field description="" name="responseConsumerASubProcess" type="string">
                   <options>
                      <option name="required">false</option>
+                     <option name="initialvalue">{'{ "response":  {  "Consumer A": "Ignoring Empty List."} }'}</option>
                   </options>
                </field>
             </output>
@@ -65,32 +66,110 @@
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="pcd065cc0-d522-44aa-9257-32d1569d2f9e">
-               <start id="b8d70a406-fe79-4d49-9202-0afd6380c389">
-                  <link id="ldd74068a-9cb6-4b91-a20f-dd4c0bddf36e"
-                        targetId="a180z4FnditAPhkRzQTdZiUX-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246"/>
+            <flow id="e2b60356b-3e33-417d-96ac-7f698a61f0c0">
+               <start id="vdf675076-aa3a-4759-bc55-63ae6c8f9ff8">
+                  <link id="l48d993b4-e5fe-4f0a-8cff-199a0dea5a35"
+                        targetId="a180z4FnditAPhkRzQTdZiUX-Decision1e2b088d-b00a-4b7c-a9c6-e89ca92e47b7"/>
                </start>
-               <assignment id="a180z4FnditAPhkRzQTdZiUX-Assignmentd7d113f6-a1fd-482e-bca8-6ab75bd28246">
+               <container id="a180z4FnditAPhkRzQTdZiUX-Decision1e2b088d-b00a-4b7c-a9c6-e89ca92e47b7"
+                          type="exclusive">
+                  <title>consumer A List</title>
+                  <flow id="c69a19a83-8657-46c6-83c1-3fee0ae3c85f">
+                     <jumpTo id="a180z4FnditAPhkRzQTdZiUX-Jump6b6ada13-d4c3-4b09-844c-76d1f408289a">
+                        <link id="n85ad0231-7622-4f05-aab0-cb7b6742a8a7"
+                              targetId="a180z4FnditAPhkRzQTdZiUX-End856ecedc-1e3a-4a60-89ff-e47aea49f4fb"/>
+                     </jumpTo>
+                  </flow>
+                  <flow id="c44d7aec3-c71e-4dc6-9ec9-82165c202829">
+                     <link id="gf3c1ea8a-19bc-4098-988e-0abdb1e8ee99"
+                           targetId="a180z4FnditAPhkRzQTdZiUX-Decision1e2b088d-b00a-4b7c-a9c6-e89ca92e47b7"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="z4b147401-92dc-4ffe-bb3d-001fca4337d5"
+                        targetId="c69a19a83-8657-46c6-83c1-3fee0ae3c85f"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$input.consumerAList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="yf3f586ac-9d24-44c2-8bc7-2494bf4f18b5"
+                        targetId="c44d7aec3-c71e-4dc6-9ec9-82165c202829"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$input.consumerAList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="bc81f5f79-91d2-4f7e-b3f8-45827c939b40"
+                        targetId="a180z4FnditAPhkRzQTdZiUX-Service8245b7fd-6121-4af9-851e-4e7e0c2a8e76"/>
+               </container>
+               <eventContainer id="a180z4FnditAPhkRzQTdZiUX-Service8245b7fd-6121-4af9-851e-4e7e0c2a8e76">
+                  <service id="ibfa86f9f-3e41-4068-8467-73a4d479f00f">
+                     <title>Synchronize Customers</title>
+                     <serviceName>ConsumerAServiceConnection:Synchronize Customers</serviceName>
+                     <serviceInput>
+                        <parameter name="requestConsumerAList" source="formula">
+                           <expression language="XQuery">$input.consumerAList</expression>
+                        </parameter>
+                        <parameter name="requestConsumerAServiceCon" source="formula">
+                           <expression language="XQuery"> util:toJSON($input.consumerAList)</expression>
+                        </parameter>
+                     </serviceInput>
+                  </service>
+                  <flow id="ffc231a1c-0b0c-4d60-a542-f4121b4b475f">
+                     <link id="sfb645ed2-20d8-416c-9e99-b766a6f9f083"
+                           targetId="a180z4FnditAPhkRzQTdZiUX-Service8245b7fd-6121-4af9-851e-4e7e0c2a8e76"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="pb4ca363c-0f0e-4ff4-a6e0-e49a1d460f32">
+                     <throw id="Throwd2d7053f-46a6-4325-a392-7cfc517014fa">
+                        <title>Throw 100</title>
+                        <throwInput>
+                           <parameter name="code" source="constant" updatable="true">100</parameter>
+                           <parameter name="detail" source="formula" updatable="true">
+                              <expression language="XQuery">$output.faultInfo[1]/detail</expression>
+                           </parameter>
+                           <parameter name="reason" source="constant" updatable="true">Error Consuming Service Consumers Type A</parameter>
+                        </throwInput>
+                     </throw>
+                  </flow>
+                  <link id="beb305a7f-6964-48fc-bc40-12d2870a466d"
+                        targetId="ffc231a1c-0b0c-4d60-a542-f4121b4b475f"
+                        type="containerLink"/>
+                  <link id="f58178482-8c6c-4c48-b496-e594154690a7"
+                        targetId="a180z4FnditAPhkRzQTdZiUX-Assignmentef475d01-0664-4ae8-ac25-a0d8eeb9dd6f"/>
+                  <events>
+                     <catch faultField="faultInfo"
+                            id="iba640685-82d3-4f3d-9156-5ec23b53b408"
+                            interrupting="true">
+                        <link id="b80a9598c-933c-437f-8525-4ecaa00c0a21"
+                              targetId="pb4ca363c-0f0e-4ff4-a6e0-e49a1d460f32"
+                              type="containerLink"/>
+                     </catch>
+                  </events>
+               </eventContainer>
+               <assignment id="a180z4FnditAPhkRzQTdZiUX-Assignmentef475d01-0664-4ae8-ac25-a0d8eeb9dd6f">
                   <title>Set Response</title>
-                  <operation source="formula" to="output.responseConsumerA">
-                     <expression language="XQuery">list:count ($input.consumerAList)</expression>
+                  <operation source="formula" to="output.responseConsumerASubProcess">
+                     <expression language="XQuery">let $parsedXML := util:parseXML($output.responseConsumerAServiceCon)
+return
+'{ "response":  {  "Consumer A": "'||$parsedXML/responseConsumerAProcessMock/text()||'"} }'
+</expression>
                   </operation>
-                  <link id="o015d871e-7e83-4abb-9804-5ca3a00365b7"
-                        targetId="Throwd473a643-be13-4b57-8987-7c0f4e0bcbdd"/>
+                  <link id="zc30199ea-3758-4dcc-a58b-3b917e2a17d3"
+                        targetId="a180z4FnditAPhkRzQTdZiUX-End856ecedc-1e3a-4a60-89ff-e47aea49f4fb"/>
                </assignment>
-               <throw id="Throwd473a643-be13-4b57-8987-7c0f4e0bcbdd">
-                  <title>Throw 1</title>
-                  <throwInput>
-                     <parameter name="code" source="constant" updatable="true">100</parameter>
-                     <parameter name="detail" source="constant" updatable="true">Error Processing Customers A</parameter>
-                     <parameter name="reason" source="constant" updatable="true">No Implemented Yet</parameter>
-                  </throwInput>
-               </throw>
+               <end id="a180z4FnditAPhkRzQTdZiUX-End856ecedc-1e3a-4a60-89ff-e47aea49f4fb">
+                  <title>End 1</title>
+               </end>
             </flow>
          </process>
       </types1:Entry>
       <types1:GUID>80z4FnditAPhkRzQTdZiUX</types1:GUID>
       <types1:DisplayName>Consumer A SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-08T19:45:02.434Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-11T05:01:56.966Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
