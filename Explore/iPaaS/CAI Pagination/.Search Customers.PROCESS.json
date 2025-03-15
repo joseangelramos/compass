@@ -15,12 +15,12 @@
       "additionalInfo" : {
         "description" : "List customers\nThe list capability of clients can support pagination",
         "contentType" : "application/json; charset=utf-8",
-        "documentState" : "VALID"
+        "documentState" : "INVALID"
       }
     }
   },
   "dataFileExtension" : "xml",
-  "updateTime" : "2025-03-11T21:06:05.578Z",
+  "updateTime" : "2025-03-15T19:08:25.991Z",
   "objectRefs" : [ {
     "id" : "9S7EVPEnQiegEofph87xe4",
     "name" : "SnowflakeConnetionPresalesWorkshop",

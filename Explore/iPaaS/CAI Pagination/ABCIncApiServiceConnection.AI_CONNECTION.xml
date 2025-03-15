@@ -3,7 +3,7 @@
    <types1:Item>
       <types1:EntryId>CJhtghGZ5i4rswV-gt-1179211-2025-03-06T21:48:25.464Z::conn.xml</types1:EntryId>
       <types1:Name>ABCIncApiServiceConnection</types1:Name>
-      <types1:ParentFlowIds>wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml</types1:ParentFlowIds>
+      <types1:ParentFlowIds>rwn2H0Fdw8jIw8j-gt-31887-2025-03-11T22:27:32.289Z::pd.xml,wdrtRuImXycotFg-gt-1178899-2025-03-06T21:34:12.361Z::pd.xml</types1:ParentFlowIds>
       <types1:MimeType>application/xml+connection</types1:MimeType>
       <types1:Description>Connection to ABC Inc Api Rest</types1:Description>
       <types1:AppliesTo/>
@@ -17,7 +17,7 @@
       <types1:ModificationDate>2025-03-07T00:45:23Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-09T04:02:25Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-13T22:50:31Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connection/ABCIncApiServiceConnection/ABCIncApiServiceConnection.conn.xml</types1:PublishedContributionId>
       <types1:Entry>
          <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
@@ -41,5 +41,5 @@
       <types1:GUID>8btWD0tMBJ0fAJfYY0vCG3</types1:GUID>
       <types1:DisplayName>ABCIncApiServiceConnection</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T05:01:57.219Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-15T19:08:25.828Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

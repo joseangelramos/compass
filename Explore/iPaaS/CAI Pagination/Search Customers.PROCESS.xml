@@ -14,10 +14,10 @@ The list capability of clients can support pagination</types1:Description>
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2024-12-18T02:37:06Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-09T03:47:00Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-13T22:21:45Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-11T16:34:57Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-13T22:22:12Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.customers/customers.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -48,6 +48,14 @@ The list capability of clients can support pagination</description>
                      <option name="required">false</option>
                   </options>
                </parameter>
+               <parameter description="Last Update date"
+                          name="lastUpdated"
+                          required="false"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
             </input>
             <output>
                <field description="" name="pageItems" type="objectlist">
@@ -64,6 +72,14 @@ The list capability of clients can support pagination</description>
                   </options>
                </field>
             </output>
+            <tempFields>
+               <field description="" name="isDeltaSearch" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">0</option>
+                  </options>
+               </field>
+            </tempFields>
             <notes/>
             <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
                <rest>
@@ -74,42 +90,103 @@ The list capability of clients can support pagination</description>
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
             </extData>
-            <flow id="a05a06e9f-412b-4201-8430-8c47c2b9b320">
-               <start id="yc7638676-b9ff-4471-9e9e-0ea8861900c6">
-                  <link id="r3504ebf5-5a17-4f69-be8f-08a07e299b5d"
-                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Serviceef4815c3-9864-45c6-92e9-c4b55ed7e421"/>
+            <flow id="gf17888bb-2185-4596-96e8-321e19096643">
+               <start id="p2c5a505f-3d99-4223-8552-5acc9ef5844b">
+                  <link id="mbe4be4cb-3529-4c45-970c-b6fb487a4aa9"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Assignment2709b272-4fb9-4e1e-9bb6-062fdb14b000"/>
                </start>
-               <service id="a16Ijmg06b2qeblv9DOFFf2N-Serviceef4815c3-9864-45c6-92e9-c4b55ed7e421">
-                  <title>SELECT CUSTOMERS PAGINATED</title>
-                  <serviceName>SnowflakeConnetionPresalesWorkshop:SELECT PAGINATED</serviceName>
-                  <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
-                  <serviceInput>
-                     <parameter name="tableName" source="constant">CUSTOMER</parameter>
-                     <parameter name="limit" source="field">input.fetch</parameter>
-                     <parameter name="offset" source="field">input.offset</parameter>
-                  </serviceInput>
-                  <link id="q02f9f362-4a54-40db-9429-3e647bdac6c4"
-                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e"/>
-               </service>
-               <service id="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e">
-                  <title>CUSTOMERS COUNT</title>
-                  <serviceName>SnowflakeConnetionPresalesWorkshop:RECORD COUNT </serviceName>
-                  <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
-                  <serviceInput>
-                     <parameter name="tableName" source="constant">CUSTOMER</parameter>
-                  </serviceInput>
-                  <link id="dedb3fe13-bc29-4d7e-a0ff-da6fa3df421b"
-                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Assignment789803c5-e88f-4823-a67c-8777b6a3e084"/>
-               </service>
+               <assignment id="a16Ijmg06b2qeblv9DOFFf2N-Assignment2709b272-4fb9-4e1e-9bb6-062fdb14b000">
+                  <title>Set Date LastUpdate</title>
+                  <operation source="formula" to="temp.isDeltaSearch">
+                     <expression language="XQuery">fn:string-length($input.lastUpdated)</expression>
+                  </operation>
+                  <link id="v5999fdda-e4cb-4ad0-b681-3a1f16cecaca"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Decision03e4f01e-7bb5-4c8d-a568-d8ba08a90139"/>
+               </assignment>
                <assignment id="a16Ijmg06b2qeblv9DOFFf2N-Assignment789803c5-e88f-4823-a67c-8777b6a3e084">
                   <title>Assignment to response</title>
                   <operation source="field" to="output.totalRecords">output.count</operation>
                   <operation source="formula" to="output.pageItems">
                      <expression language="XQuery">$output.rows</expression>
                   </operation>
-                  <link id="jecec399f-6625-4fa8-bea2-752d9b7a45b5"
+                  <link id="t6add14bf-4dee-4794-aae3-99c19e14033f"
                         targetId="a16Ijmg06b2qeblv9DOFFf2N-end-j54d87150-6001-4b41-b1ad-2c7a08a84eb2"/>
                </assignment>
+               <container id="a16Ijmg06b2qeblv9DOFFf2N-Decision03e4f01e-7bb5-4c8d-a568-d8ba08a90139"
+                          type="exclusive">
+                  <title>isDeltaSearch</title>
+                  <flow id="pc11ab3e2-073c-4f37-9b54-bd0d2166f86a">
+                     <service id="a16Ijmg06b2qeblv9DOFFf2N-Service9008b006-0692-4161-bdf0-7259c10163b2">
+                        <title>SELECT CUSTOMERS DELTAS </title>
+                        <serviceName>SnowflakeConnetionPresalesWorkshop:SELECT WITH FILTER PAGINATED</serviceName>
+                        <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                           <parameter name="filter" source="formula">
+                              <expression language="XQuery">'LAST_UPDT=&amp;apos;'|| $input.lastUpdated ||'&amp;apos;'</expression>
+                           </parameter>
+                           <parameter name="limit" source="constant">{$input.fetch}</parameter>
+                           <parameter name="offset" source="constant">{$input.offset}</parameter>
+                        </serviceInput>
+                        <link id="c09506c92-2f0c-4bdd-b44a-b23045096f2e"
+                              targetId="a16Ijmg06b2qeblv9DOFFf2N-Service6890ace5-ed4c-47ed-bf0e-5644d3c248ab"/>
+                     </service>
+                     <service id="a16Ijmg06b2qeblv9DOFFf2N-Service6890ace5-ed4c-47ed-bf0e-5644d3c248ab">
+                        <title>RECORD COUNT WITH FILTER</title>
+                        <serviceName>SnowflakeConnetionPresalesWorkshop:RECORD COUNT WITH FILTER</serviceName>
+                        <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                           <parameter name="filter" source="formula">
+                              <expression language="XQuery">'LAST_UPDT=&amp;apos;'|| $input.lastUpdated ||'&amp;apos;'</expression>
+                           </parameter>
+                        </serviceInput>
+                     </service>
+                     <link id="m1893253d-cf16-43ce-8078-686b3581a551"
+                           targetId="a16Ijmg06b2qeblv9DOFFf2N-Decision03e4f01e-7bb5-4c8d-a568-d8ba08a90139"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="af7d33ebf-a3ed-4528-9450-f308eb06efa2">
+                     <service id="a16Ijmg06b2qeblv9DOFFf2N-Serviceef4815c3-9864-45c6-92e9-c4b55ed7e421">
+                        <title>SELECT CUSTOMERS PAGINATED</title>
+                        <serviceName>SnowflakeConnetionPresalesWorkshop:SELECT PAGINATED</serviceName>
+                        <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                           <parameter name="limit" source="field">input.fetch</parameter>
+                           <parameter name="offset" source="field">input.offset</parameter>
+                        </serviceInput>
+                        <link id="a9cff7873-8968-4bd8-aeea-bfee4521ca35"
+                              targetId="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e"/>
+                     </service>
+                     <service id="a16Ijmg06b2qeblv9DOFFf2N-Service0ccabb6e-0eb2-4bd0-9a39-f496f458342e">
+                        <title>CUSTOMERS COUNT</title>
+                        <serviceName>SnowflakeConnetionPresalesWorkshop:RECORD COUNT </serviceName>
+                        <serviceGUID>9S7EVPEnQiegEofph87xe4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="tableName" source="constant">CUSTOMER</parameter>
+                        </serviceInput>
+                     </service>
+                     <link id="vc8cf9053-ac1c-4e60-9078-6b0b9110b0af"
+                           targetId="a16Ijmg06b2qeblv9DOFFf2N-Decision03e4f01e-7bb5-4c8d-a568-d8ba08a90139"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="n1de6321d-ec93-4a81-afd0-77c371602c6f"
+                        targetId="pc11ab3e2-073c-4f37-9b54-bd0d2166f86a"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="greater-than">
+                           <arg name="left">{$temp.isDeltaSearch}</arg>
+                           <arg name="right">{0}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="l0457d7b9-d1c2-45d5-ac1d-b96b7287a8a7"
+                        targetId="af7d33ebf-a3ed-4528-9450-f308eb06efa2"
+                        type="containerLink"/>
+                  <link id="u831f1728-dad8-4888-9ba2-43882b350017"
+                        targetId="a16Ijmg06b2qeblv9DOFFf2N-Assignment789803c5-e88f-4823-a67c-8777b6a3e084"/>
+               </container>
                <end id="a16Ijmg06b2qeblv9DOFFf2N-end-j54d87150-6001-4b41-b1ad-2c7a08a84eb2">
                   <title>End</title>
                </end>
@@ -133,5 +210,5 @@ The list capability of clients can support pagination</description>
       <types1:GUID>6Ijmg06b2qeblv9DOFFf2N</types1:GUID>
       <types1:DisplayName>Search Customers</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T21:06:05.341Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-15T19:08:25.768Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
