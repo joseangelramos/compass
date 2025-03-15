@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "gyJJtGLXtKVhEsUb5oItmc",
+    "name" : "PublishCustomersCIHConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "fS98C1LOwD0wWcn-gt-137688-2025-03-14T02:50:27.084Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-15T19:09:36.194Z",
+  "objectRefs" : [ {
+    "id" : "6JnDlNhbDNrfmhekiSZvcK",
+    "name" : "PublishCustomersCIHServiceConnector",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Ldqcgm8lnCmp6oI-gt-136950-2025-03-14T02:01:26.087Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CIH Deltas"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

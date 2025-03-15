@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "6JnDlNhbDNrfmhekiSZvcK",
+    "name" : "PublishCustomersCIHServiceConnector",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "Ldqcgm8lnCmp6oI-gt-136950-2025-03-14T02:01:26.087Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-15T19:09:36.192Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

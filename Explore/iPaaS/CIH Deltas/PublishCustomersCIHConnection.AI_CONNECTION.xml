@@ -1,0 +1,49 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>fS98C1LOwD0wWcn-gt-137688-2025-03-14T02:50:27.084Z::conn.xml</types1:EntryId>
+      <types1:Name>PublishCustomersCIHConnection</types1:Name>
+      <types1:ParentFlowIds>rwn2H0Fdw8jIw8j-gt-31887-2025-03-11T22:27:32.289Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-14T02:50:27Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-15T03:10:15Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/PublishCustomersCIHConnection/PublishCustomersCIHConnection.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="PublishCustomersCIHConnection"
+                     label="PublishCustomersCIHConnection"
+                     name="PublishCustomersCIHConnection">
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <agent>idmc08-latam-carlos-primary.infacloud.eu</agent>
+            <attributes>
+               <attribute encrypted="false"
+                          name="hostName"
+                          value="usw1-cih.dmp-us.informaticacloud.com:443"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/PublishCustomersCIHServiceConnector/PublishCustomersCIHServiceConnector_svcDef.xml"
+                               guid="6JnDlNhbDNrfmhekiSZvcK"
+                               name="PublishCustomersCIHServiceConnector"
+                               supportsConnectionTest="false"
+                               uuid="cf150f90-38b5-4080-b09e-0436ac77f31f">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>gyJJtGLXtKVhEsUb5oItmc</types1:GUID>
+      <types1:DisplayName>PublishCustomersCIHConnection</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-15T19:09:35.831Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

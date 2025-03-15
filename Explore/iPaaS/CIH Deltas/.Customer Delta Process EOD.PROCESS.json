@@ -1,0 +1,67 @@
+{
+  "objectInfo" : {
+    "id" : "7rSxj4eSnhWfb3qzhBF8cm",
+    "name" : "Customer Delta Process EOD",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "eIXycotFgpKi9zh-gt-196647-2025-03-15T03:50:13.074Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "INVALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-15T19:09:36.194Z",
+  "objectRefs" : [ {
+    "id" : "kzqPfQkg90qlVURnUXyc09",
+    "name" : "SubscriberCustomersCIHConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "3Oppppppppppppp-gt-196927-2025-03-15T03:55:33.875Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CIH Deltas"
+  }, {
+    "id" : "7Q18NJ1Mecpk06QJHkjKIv",
+    "name" : "ConsumerAServiceConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "QWk6yQC8WrY1Syp-gt-1301407-2025-03-10T06:26:56.691Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CAI Pagination"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

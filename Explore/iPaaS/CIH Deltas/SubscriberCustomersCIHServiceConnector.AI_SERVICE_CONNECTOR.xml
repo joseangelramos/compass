@@ -1,0 +1,94 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>SptM9hOznKKvvNt-gt-180833-2025-03-14T20:59:06.71Z::svc.xml</types1:EntryId>
+      <types1:Name>SubscriberCustomersCIHServiceConnector</types1:Name>
+      <types1:ParentFlowIds>3Oppppppppppppp-gt-196927-2025-03-15T03:55:33.875Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-14T20:59:07Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-15T17:13:52Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-15T17:16:53Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SubscriberCustomersCIHServiceConnector/SubscriberCustomersCIHServiceConnector_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SubscriberCustomersCIHServiceConnector"
+                            label=""
+                            name="SubscriberCustomersCIHServiceConnector"
+                            uuid="b9687d71-3a7c-4898-bb68-f8629d1828d5">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="hostname"
+                                    masked="false"
+                                    name="hostname"
+                                    required="true"
+                                    testWith="usw1-cih.dmp-us.informaticacloud.com:443"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="subscribe"
+                       maxRedirects="100"
+                       name="subscribe"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Data subscriber on this endpoint will be submitted to the named Cloud Integration Hub subscriber</description>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostname}/dih-pub-repo-service/api/v1/subscriptions/Sub_Target_System_Customers/data"
+                                        verb="POST">
+                        <authentication>
+                           <username>joramos_LATAM_Carlos_tspod_SO</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{
+    "aggregated":true
+}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Subscription job response."
+                            entireResponse="true"
+                            name="response"
+                            type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>5sGVsO4s3C5clsmxygqhgH</types1:GUID>
+      <types1:DisplayName>SubscriberCustomersCIHServiceConnector</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-15T19:09:35.741Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

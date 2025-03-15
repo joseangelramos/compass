@@ -1,0 +1,106 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>Ldqcgm8lnCmp6oI-gt-136950-2025-03-14T02:01:26.087Z::svc.xml</types1:EntryId>
+      <types1:Name>PublishCustomersCIHServiceConnector</types1:Name>
+      <types1:ParentFlowIds>fS98C1LOwD0wWcn-gt-137688-2025-03-14T02:50:27.084Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-14T02:01:26Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-15T03:09:52Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-15T03:10:09Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/PublishCustomersCIHServiceConnector/PublishCustomersCIHServiceConnector_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="PublishCustomersCIHServiceConnector"
+                            label=""
+                            name="PublishCustomersCIHServiceConnector"
+                            uuid="cf150f90-38b5-4080-b09e-0436ac77f31f">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    label="hostName"
+                                    masked="false"
+                                    name="hostName"
+                                    required="true"
+                                    testWith="usw1-cih.dmp-us.informaticacloud.com:443"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="publish"
+                       maxRedirects="100"
+                       name="publish"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Data published on this endpoint will be submitted to the named Cloud Integration Hub publication. The input body contains the data to publish.</description>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="customerRecord"
+                                required="true"
+                                testWith="      &#34;address&#34;: &#34;580 Central Ave&#34;,&#xA;      &#34;address2&#34;: &#34;&#34;,&#xA;      &#34;cc_exp_dt&#34;: &#34;&#34;,&#xA;      &#34;cc_num&#34;: &#34;&#34;,&#xA;      &#34;cc_type&#34;: &#34;&#34;,&#xA;      &#34;city&#34;: &#34;New Providence&#34;,&#xA;      &#34;consumer&#34;: &#34;ConsumerC&#34;,&#xA;      &#34;country&#34;: &#34;US&#34;,&#xA;      &#34;dob&#34;: &#34;1992-07-10&#34;,&#xA;      &#34;email&#34;: &#34;a&amp;p@aptea.com&#34;,&#xA;      &#34;gender&#34;: &#34;&#34;,&#xA;      &#34;last_updt&#34;: &#34;2024-02-29&#34;,&#xA;      &#34;name&#34;: &#34;WILBUR HOSSAIN&#34;,&#xA;      &#34;party_id&#34;: 3042900,&#xA;      &#34;phone&#34;: &#34;Phone:   908.464.078&#34;,&#xA;      &#34;state&#34;: &#34;NJ&#34;,&#xA;      &#34;status&#34;: &#34;LIVE&#34;,&#xA;      &#34;tier&#34;: 1,&#xA;      &#34;zipcode&#34;: &#34;7974&#34;"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/dih-pub-repo-service/api/v1/publications/Pub_Customers_API/data"
+                                        verb="POST">
+                        <authentication>
+                           <username>joramos_LATAM_Carlos_tspod_SO</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Accept">application/json;charset=utf-8</header>
+                           <header name="Content-Type">application/json;charset=utf-8</header>
+                        </httpHeaders>
+                        <body>{{
+    "pageItems": [
+        {{
+            {$customerRecord}
+        }}
+    ]
+}}
+</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Publication job request accepted."
+                            entireResponse="true"
+                            name="response"
+                            type="reference">
+                        <options>
+                           <option name="relationshipName">Child</option>
+                           <option name="referenceTo">$po:$any</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects/>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>6JnDlNhbDNrfmhekiSZvcK</types1:GUID>
+      <types1:DisplayName>PublishCustomersCIHServiceConnector</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-15T19:09:35.757Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

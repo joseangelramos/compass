@@ -1,0 +1,166 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>eIXycotFgpKi9zh-gt-196647-2025-03-15T03:50:13.074Z::pd.xml</types1:EntryId>
+      <types1:Name>Customer_Delta_Process_EOD</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-15T03:50:13Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-15T18:44:40Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-15T18:44:45Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Customer_Delta_Process_EOD/Customer_Delta_Process_EOD.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="7rSxj4eSnhWfb3qzhBF8cm"
+                  displayName="Customer Delta Process EOD"
+                  name="Customer_Delta_Process_EOD"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <output>
+               <field description="" name="responseEOD" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="subscribedCustomers" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="customersJson" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="i3ac04ff5-fa64-4228-a204-b00bf1c598b5">
+               <start id="y612fcd1a-f155-4d6d-b68f-eb14fed52f8b">
+                  <link id="zc6cc21c8-586f-4013-b043-fd1441560bbd"
+                        targetId="a17rSxj4eSnhWfb3qzhBF8cm-Service88d0e533-6cd2-4c15-967c-9ea8923349c9"/>
+               </start>
+               <service id="a17rSxj4eSnhWfb3qzhBF8cm-Service88d0e533-6cd2-4c15-967c-9ea8923349c9">
+                  <title>Get Subscribed Customers</title>
+                  <serviceName>SubscriberCustomersCIHConnection:subscribe</serviceName>
+                  <serviceGUID>kzqPfQkg90qlVURnUXyc09</serviceGUID>
+                  <link id="yd672fd50-b9f1-49f8-ae38-f42f9784297e"
+                        targetId="a17rSxj4eSnhWfb3qzhBF8cm-Assignmentca8ccf39-3edf-4ec7-b9bd-a45d4a006d10"/>
+               </service>
+               <assignment id="a17rSxj4eSnhWfb3qzhBF8cm-Assignmentca8ccf39-3edf-4ec7-b9bd-a45d4a006d10">
+                  <title>Parse Response</title>
+                  <operation source="formula" to="output.responseEOD">
+                     <expression language="XQuery">fn:data($output.response//responseExtraMessage)</expression>
+                  </operation>
+                  <link id="n70d4eb40-851a-4c68-8f54-a09c3777e8eb"
+                        targetId="a17rSxj4eSnhWfb3qzhBF8cm-Decision2d5e765c-c12d-4b99-972a-cbe26f183b0f"/>
+               </assignment>
+               <container id="a17rSxj4eSnhWfb3qzhBF8cm-Decision2d5e765c-c12d-4b99-972a-cbe26f183b0f"
+                          type="exclusive">
+                  <title>subscribed Customers</title>
+                  <flow id="u75bc528f-b994-47a0-a5ac-310e9234a98f">
+                     <link id="l1bb9570f-5f61-4c06-a7a6-67bcf291d333"
+                           targetId="a17rSxj4eSnhWfb3qzhBF8cm-Decision2d5e765c-c12d-4b99-972a-cbe26f183b0f"
+                           type="containerLink"/>
+                  </flow>
+                  <flow id="hba3c7627-283e-4926-99c7-9ef7224a33b3">
+                     <service id="a17rSxj4eSnhWfb3qzhBF8cm-Servicec54ca851-9187-4782-9d18-188b04204291">
+                        <title>Synchronize Customers</title>
+                        <serviceName>ConsumerAServiceConnection:Synchronize Customers</serviceName>
+                        <serviceGUID>7Q18NJ1Mecpk06QJHkjKIv</serviceGUID>
+                        <serviceInput>
+                           <parameter name="requestConsumerAServiceCon" source="formula">
+                              <expression language="XQuery">util:toJSON($output.response//data)</expression>
+                           </parameter>
+                        </serviceInput>
+                        <link id="ze8b2f8ca-2eae-4a21-b2f5-2ca5ba7f257a"
+                              targetId="a17rSxj4eSnhWfb3qzhBF8cm-Assignmentde8c66db-ae52-4703-8902-1f7bcc3baa85"/>
+                     </service>
+                     <assignment id="a17rSxj4eSnhWfb3qzhBF8cm-Assignmentde8c66db-ae52-4703-8902-1f7bcc3baa85">
+                        <title>Set Response</title>
+                        <operation source="formula" to="output.responseEOD">
+                           <expression language="XQuery">$output.responseConsumerAServiceCon</expression>
+                        </operation>
+                     </assignment>
+                     <link id="o91ea46e3-8203-4aad-8f62-72f6f2a1207e"
+                           targetId="a17rSxj4eSnhWfb3qzhBF8cm-Decision2d5e765c-c12d-4b99-972a-cbe26f183b0f"
+                           type="containerLink"/>
+                  </flow>
+                  <link id="ccb1ec1c4-d97f-4a67-984e-bbe7a1161c3b"
+                        targetId="u75bc528f-b994-47a0-a5ac-310e9234a98f"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="set">
+                           <arg name="field">{$output.responseEOD}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="x41263622-5469-4e5e-83d1-0f1a5883a93e"
+                        targetId="hba3c7627-283e-4926-99c7-9ef7224a33b3"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="unset">
+                           <arg name="field">{$output.responseEOD}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="df411f9cf-9e6b-401b-93da-b9377c930d72"
+                        targetId="a17rSxj4eSnhWfb3qzhBF8cm-end-nb15f80f5-dfc7-4976-8fa2-a4eadd1de9f9"/>
+               </container>
+               <end id="a17rSxj4eSnhWfb3qzhBF8cm-end-nb15f80f5-dfc7-4976-8fa2-a4eadd1de9f9">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>1873e279-b71c-4ad0-8c80-4ec8611f7c45</ns1:Id>
+               <ns1:Name>Test</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2025-03-15T05:01:51Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-03-15T05:01:51Z</ns1:ModificationDate>
+               <ns1:Data format="json">{}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>7rSxj4eSnhWfb3qzhBF8cm</types1:GUID>
+      <types1:DisplayName>Customer Delta Process EOD</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-15T19:09:35.885Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
