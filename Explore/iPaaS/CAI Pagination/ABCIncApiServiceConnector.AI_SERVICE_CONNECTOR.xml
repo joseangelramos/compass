@@ -14,8 +14,8 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-06T16:24:03Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-13T22:48:10Z</types1:ModificationDate>
-      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:ModificationDate>2025-03-16T20:15:40Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
       <types1:PublicationDate>2025-03-13T22:49:48Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/rt.connector/ABCIncApiServiceConnector/ABCIncApiServiceConnector_svcDef.xml</types1:PublishedContributionId>
@@ -51,7 +51,7 @@
                                 label="OAuth 2.0 Client Secret"
                                 name="client_secret"
                                 required="true"
-                                testWith="LGviqqC7y"
+                                testWith="eGMx19r5I"
                                 type="string"/>
                   </input>
                   <binding>
@@ -102,7 +102,7 @@
                                 name="authtoken"
                                 nogen="true"
                                 required="true"
-                                testWith="eyJraWQiOiI5NUliMExIS01GaWV3eGZHczFtenEyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlYTJUTHpCcHJBUmtXVWFFZ05xQ3FaIiwiYXVkIjoiQVBJQyIsIm9yZ19pZCI6IjVHS3c3R0t1VXhkZTk1a2gyU1lpNEUiLCJzY29wZSI6WyJleGVjdXRlIl0sImFkZGl0aW9uYWxfY2xhaW0iOiJld29nSUNKMWMyVnlUbUZ0WlNJZ09pQWlhbTl5WVcxdmMxOU1RVlJCVFY5RFlYSnNiM05mZEhOd2IyUmZVMDhpTEFvZ0lDSnRZVzVoWjJWa1FYQnBjeUlnT2lCYklGMHNDaUFnSW1Gc2JGSmxjMjkxY21ObGN5SWdPaUIwY25WbENuMD0iLCJpc3MiOiJodHRwczovL2RtcC11cy5pbmZvcm1hdGljYWNsb3VkLmNvbS9hdXRoei1zZXJ2aWNlIiwiZXhwIjoxNzQxNTM4ODg3LCJjbGllbnRfbmFtZSI6ImFiY2luY19jbGllbnQiLCJpYXQiOjE3NDE0NTI0ODcsImp0aSI6Imt1aHQ1YmhlWWRSd1V3bUtZZzAyUEZjQ2VTTSIsImNsaWVudF9pZCI6ImVhMlRMekJwckFSa1dVYUVnTnFDcVoifQ.PBFsK3xcct1CDcYvr9URNyoE0LCUpKxeJXCVIF3jCpx-38gNpl8VNd_jisGLRzHdv4LJYWY5_amkK3IhiEDYoYq9AmBjSTUsx9lF3gt4mo9KfPWlmBlqhLNUZSqaWMv9vPXlFy8JGWuS33sEOulomxSIMRhkg_yrep1T7tYiuBMaN-w9jgUsYAXgzNnTZ-Phak4_3nTEaDmD0-YaFI19rDdVkT4eM4Df-fkC9grUNfWIGckk654lEoU4kElbr9omHwiDLoWeBNlViEtk8aFjkxLa5Y8quph2K97pYLmgQW1VnbYMEeSLR41bEcuI-QM9mj1aPKbMqb5TFWNuKfiyEQ"
+                                testWith="eyJraWQiOiI5NUliMExIS01GaWV3eGZHczFtenEyIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJlYTJUTHpCcHJBUmtXVWFFZ05xQ3FaIiwiaXNzIjoiaHR0cHM6Ly9kbXAtdXMuaW5mb3JtYXRpY2FjbG91ZC5jb20vYXV0aHotc2VydmljZSIsImNsaWVudF9pZCI6ImVhMlRMekJwckFSa1dVYUVnTnFDcVoiLCJhdWQiOiJBUElDIiwibmJmIjoxNzQyMTU2MTAxLCJvcmdfaWQiOiI1R0t3N0dLdVV4ZGU5NWtoMlNZaTRFIiwic2NvcGUiOlsiZXhlY3V0ZSJdLCJhZGRpdGlvbmFsX2NsYWltIjoiZXdvZ0lDSjFjMlZ5VG1GdFpTSWdPaUFpYW05eVlXMXZjMTlNUVZSQlRWOURZWEpzYjNOZmRITndiMlJmVTA4aUxBb2dJQ0p0WVc1aFoyVmtRWEJwY3lJZ09pQmJJRjBzQ2lBZ0ltRnNiRkpsYzI5MWNtTmxjeUlnT2lCMGNuVmxDbjA9IiwiZXhwIjoxNzQyMjQyNTAxLCJpYXQiOjE3NDIxNTYxMDEsImNsaWVudF9uYW1lIjoiYWJjaW5jX2NsaWVudCIsImp0aSI6IjhmNDFmMDIxLTc2Y2EtNGE5MC04NTNkLTljNDMxMWE3ZGEyYyJ9.WXFMHvMbjpg9_nBMZxlm-9ARg8GMQOcdKG_J7zYVbrFRkVI6rlA1dZJHzsx8mNdXLxFwus5DyWMfEL2Ny5BqZuLGWtH9fahh0RLl_RFvS-W2z70s8Y7V99jIGp2w84azQIMAE6kSSTtMc0G3cbA0mdvSAtLIoBbN85mXJNhy2J-i1Kf4z6eyoZAa_HEo35ROEA2gF80L7QVcXrc_MDc0kcmztI31huRjtT3TPzSqIR7TpL1tOGOgbXu6TdL_p49zfKB_3JNs85mrFLiOtq4jzWnBXT_UIiuYGEgdfaL4fQRA4EicKOSuyIAmBO7QVv6mCLJLJi-jq2LiOwphS34EjA"
                                 type="string"/>
                   </input>
                   <binding>
@@ -200,5 +200,5 @@
       <types1:GUID>lgDHtccQQoQkHtVgMx2VSO</types1:GUID>
       <types1:DisplayName>ABCIncApiServiceConnector</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-15T19:08:25.74Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-17T03:26:06.164Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

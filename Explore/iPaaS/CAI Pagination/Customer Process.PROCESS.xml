@@ -14,9 +14,9 @@
       <types1:CreationDate>2025-03-06T21:34:12Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
       <types1:ModificationDate>2025-03-11T17:40:51Z</types1:ModificationDate>
-      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-11T17:40:59Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-17T03:16:51Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Customer_Process/Customer_Process.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -789,5 +789,5 @@ return list:append( $temp.tempErrorResponseList , util:parseJSON($a)) </expressi
       <types1:GUID>4L0daQ56MJ1h9zv1qFNSU1</types1:GUID>
       <types1:DisplayName>Customer Process</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T21:06:05.257Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-17T03:26:06.306Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

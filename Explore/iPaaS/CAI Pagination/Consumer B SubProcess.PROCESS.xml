@@ -14,10 +14,10 @@
       <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
       <types1:CreationDate>2025-03-07T18:21:52Z</types1:CreationDate>
       <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
-      <types1:ModificationDate>2025-03-11T04:08:15Z</types1:ModificationDate>
+      <types1:ModificationDate>2025-03-17T03:16:30Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-11T04:58:37Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-17T03:16:51Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.Consumer_B_SubProcess/Consumer_B_SubProcess.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -26,8 +26,7 @@
                   GUID="aNbfAH72Y28gY8vqfzwWCM"
                   displayName="Consumer B SubProcess"
                   name="Consumer_B_SubProcess"
-                  overrideAPIName="false"
-                  processNamespace="urn:screenflow:process:">
+                  overrideAPIName="false">
             <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
             <appliesTo/>
             <description/>
@@ -77,28 +76,30 @@
                <nvpair name="treatEmptyStringAsNull">true</nvpair>
                <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
                <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
             </extData>
-            <flow id="n49c219fb-afaf-434a-8db4-4b61562e8dc9">
-               <start id="f56c60a48-7239-4c29-84e3-2988fc6dc068">
-                  <link id="h09a3d62c-630b-48f7-a0d7-51b8b0a3d226"
+            <flow id="x4a0a66a5-9b8b-4dec-b0a0-38c17f372be2">
+               <start id="r3c7c413a-2af7-42d5-bba3-0315252cd350">
+                  <link id="nef658cb9-35f1-4f0c-a732-f3cf2d3e0f65"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"/>
                </start>
                <container id="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"
                           type="exclusive">
                   <title>consumerBList</title>
-                  <flow id="wd1d4dabf-573c-40ab-b471-b0f3fba6295d">
+                  <flow id="mb4329d85-bb6a-4ca6-bd85-c9243cd0d114">
                      <jumpTo id="a1aNbfAH72Y28gY8vqfzwWCM-Jump3513baba-234a-40ba-b922-ab8bf55c5d2a">
-                        <link id="jcb5cf09b-5e79-481c-a1c1-8dff39152cd2"
+                        <link id="qb52721ea-3854-4257-9c3e-dc0568f22207"
                               targetId="a1aNbfAH72Y28gY8vqfzwWCM-End652b2bb1-84c9-4c76-bae0-58731ea4c561"/>
                      </jumpTo>
                   </flow>
-                  <flow id="cc54b700a-9e61-4a07-8d09-8fbcbad05df5">
-                     <link id="ybf2395d2-9fb1-40b8-a519-00add0620c8c"
+                  <flow id="qfc1a6fdb-764e-435d-a1cf-2f0452e05871">
+                     <link id="x7be7ed58-19c4-463b-8f5b-f5b162da3cb9"
                            targetId="a1aNbfAH72Y28gY8vqfzwWCM-Decision35a9c351-8b4f-47be-adf2-8cbabfb46474"
                            type="containerLink"/>
                   </flow>
-                  <link id="v3662e99a-a5e2-4d6f-ba6b-68559afb63cb"
-                        targetId="wd1d4dabf-573c-40ab-b471-b0f3fba6295d"
+                  <link id="r3c326e01-ae2d-464c-aefd-8f70be205af3"
+                        targetId="mb4329d85-bb6a-4ca6-bd85-c9243cd0d114"
                         type="containerLink">
                      <condition source="formula">
                         <function name="empty">
@@ -106,8 +107,8 @@
                         </function>
                      </condition>
                   </link>
-                  <link id="gce8d211e-fb28-4baa-b86c-7afdda0e4d20"
-                        targetId="cc54b700a-9e61-4a07-8d09-8fbcbad05df5"
+                  <link id="b2c376942-0d97-427b-a804-818999bbe342"
+                        targetId="qfc1a6fdb-764e-435d-a1cf-2f0452e05871"
                         type="containerLink">
                      <condition source="formula">
                         <function name="not-empty">
@@ -115,7 +116,7 @@
                         </function>
                      </condition>
                   </link>
-                  <link id="x831af954-d263-40b5-b8f7-657ca21486c8"
+                  <link id="vd94fb200-1217-408d-8f50-3c10603173a8"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignment479133aa-4cbf-4072-ad8f-d8ce846e1346"/>
                </container>
                <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignment479133aa-4cbf-4072-ad8f-d8ce846e1346">
@@ -126,15 +127,110 @@
                   </operation>
                   <operation source="constant"
                              to="temp.TempContentWrite[1]/s3ObjectParameters[1]/contentType">text/csv</operation>
-                  <operation source="formula"
-                             to="temp.TempContentWrite[1]/delimitedContentObject[1]/record[1]/field[1]/value">
-                     <expression language="XQuery">let $body := 
-    for $customer in  $input.consumerBList 
-         return fn:concat ($customer/party_id/text(),',',$customer/name/text(),',',$customer/address/text(),',',$customer/address2/text(),',',$customer/city/text(),',',$customer/state/text(),',',$customer/zipcode/text(),',',$customer/country/text(),',',$customer/phone/text(),',',$customer/email/text(),',',$customer/status/text(),',',$customer/tier/text(),',',$customer/gender/text(),',',$customer/dob/text(),',',$customer/cc_type/text(),',',$customer/cc_num/text(),',',$customer/cc_exp_dt/text(),',',$customer/last_updt/text(),',',$customer/consumer/text(),fn:codepoints-to-string(10))
-  
-  return $body</expression>
+                  <operation source="formula" to="temp.TempContentWrite[1]/delimitedContentObject">
+                     <expression language="XQuery">&lt;S3DelimitedContent&gt;
+    &lt;header&gt;
+       &lt;name&gt;PARTY_ID&lt;/name&gt; 
+       &lt;fieldIndex&gt;1&lt;/fieldIndex&gt; 
+   &lt;/header&gt; 
+   &lt;header&gt; 
+       &lt;name&gt;NAME&lt;/name&gt; 
+       &lt;fieldIndex&gt;2&lt;/fieldIndex&gt; 
+   &lt;/header&gt; 
+   &lt;header&gt; 
+       &lt;name&gt;ADDRESS&lt;/name&gt; 
+       &lt;fieldIndex&gt;3&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;ADDRESS2&lt;/name&gt; 
+       &lt;fieldIndex&gt;4&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CITY&lt;/name&gt; 
+       &lt;fieldIndex&gt;5&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;STATE&lt;/name&gt; 
+       &lt;fieldIndex&gt;6&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;ZIPCODE&lt;/name&gt; 
+       &lt;fieldIndex&gt;7&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;COUNTRY&lt;/name&gt; 
+       &lt;fieldIndex&gt;8&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;PHONE&lt;/name&gt; 
+       &lt;fieldIndex&gt;9&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;EMAIL&lt;/name&gt; 
+       &lt;fieldIndex&gt;10&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;STATUS&lt;/name&gt; 
+       &lt;fieldIndex&gt;11&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;TIER&lt;/name&gt; 
+       &lt;fieldIndex&gt;12&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;GENDER&lt;/name&gt; 
+       &lt;fieldIndex&gt;13&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;DOB&lt;/name&gt; 
+       &lt;fieldIndex&gt;14&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_TYPE&lt;/name&gt; 
+       &lt;fieldIndex&gt;15&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_NUM&lt;/name&gt; 
+       &lt;fieldIndex&gt;16&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_EXP_DT&lt;/name&gt; 
+       &lt;fieldIndex&gt;17&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;LAST_UPDT&lt;/name&gt; 
+       &lt;fieldIndex&gt;18&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CONSUMER&lt;/name&gt; 
+       &lt;fieldIndex&gt;19&lt;/fieldIndex&gt; 
+   &lt;/header&gt;{
+        for $customer in  $input.consumerBList
+          return  &lt;record&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/party_id/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/name/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/address/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/address2/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/city/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/state/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/zipcode/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/country/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/phone/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/email/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/status/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/tier/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/gender/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/dob/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/cc_type/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/cc_num/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/cc_exp_dt/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/last_updt/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;field&gt;&lt;value&gt;{$customer/consumer/text()}&lt;/value&gt;&lt;/field&gt;
+            &lt;/record&gt; 
+    }
+ &lt;/S3DelimitedContent&gt;</expression>
                   </operation>
-                  <link id="da9853f34-dc44-456a-9e8e-b4bf2d7d7ba4"
+                  <link id="k444e0c6e-384b-4a84-9b23-371ece466367"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9"/>
                </assignment>
                <assignment id="a1aNbfAH72Y28gY8vqfzwWCM-Assignmenta8488ac1-bc5d-4995-a0f9-83e5c56e24aa">
@@ -142,11 +238,11 @@
                   <operation source="formula" to="output.responseConsumerB">
                      <expression language="XQuery">'{ "response":  {  "Consumer B": "File['|| $temp.TempContentWrite[1]/s3ObjectParameters[1]/awsS3Key||'], Records Processed['||list:count ($input.consumerBList)||']"} }'</expression>
                   </operation>
-                  <link id="r73ae15c1-4737-4eb5-864f-7e4dce1507b0"
+                  <link id="k14e8c5f6-32f5-4029-8c58-4c702c606e6f"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-End652b2bb1-84c9-4c76-bae0-58731ea4c561"/>
                </assignment>
                <eventContainer id="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9">
-                  <service id="kd4dd344f-8947-43c4-8f7f-a3bd8b063e16">
+                  <service id="m4f696baf-c920-4f7c-a2a6-9aa8d2e40ccb">
                      <title>AwsS3DelimitedContentWriter</title>
                      <serviceName>S3AppConnection:AwsS3DelimitedContentWriter</serviceName>
                      <serviceInput>
@@ -155,12 +251,12 @@
                         </parameter>
                      </serviceInput>
                   </service>
-                  <flow id="r28491223-8a3a-4591-8385-9f6268738145">
-                     <link id="u1dca5d02-0f30-4b89-b4a9-92e3bbd57974"
+                  <flow id="v22eb0e55-af50-44df-8359-6a500074091d">
+                     <link id="va82e7a39-8dc0-4369-867d-551fc1f6bc5b"
                            targetId="a1aNbfAH72Y28gY8vqfzwWCM-Service3c142ee0-b9d3-47c1-8757-db3a161da8e9"
                            type="containerLink"/>
                   </flow>
-                  <flow id="y2a703127-da21-4279-90b4-b6815b3b51ad">
+                  <flow id="ndf886977-8e7e-46fe-b2c3-1aa0c14add61">
                      <throw id="a1aNbfAH72Y28gY8vqfzwWCM-Throw56f30483-7898-423b-b2c6-741f28ccbf5c">
                         <title>Throw Code 101</title>
                         <throwInput>
@@ -170,17 +266,17 @@
                         </throwInput>
                      </throw>
                   </flow>
-                  <link id="wa365827d-a0eb-4f0d-b0c0-54e6c26e0b0e"
-                        targetId="r28491223-8a3a-4591-8385-9f6268738145"
+                  <link id="de33a4f0a-c8e3-4127-b209-9c72b4a6b9a7"
+                        targetId="v22eb0e55-af50-44df-8359-6a500074091d"
                         type="containerLink"/>
-                  <link id="ocea2c511-4813-4401-9dbf-a6e151c4bf42"
+                  <link id="xf26152e0-e01d-436a-83b1-810c707e93c2"
                         targetId="a1aNbfAH72Y28gY8vqfzwWCM-Assignmenta8488ac1-bc5d-4995-a0f9-83e5c56e24aa"/>
                   <events>
                      <catch faultField="faultInfo"
-                            id="p4f8a0067-f891-4a1d-ae67-4eb468fa8a2e"
+                            id="xbe809980-4cd9-409f-abd1-597cb00661ff"
                             interrupting="true">
-                        <link id="la1b198f8-bfc4-4aaf-9939-faada182c4ba"
-                              targetId="y2a703127-da21-4279-90b4-b6815b3b51ad"
+                        <link id="jf4599f4d-70e1-4072-9b4d-d35276a96371"
+                              targetId="ndf886977-8e7e-46fe-b2c3-1aa0c14add61"
                               type="containerLink"/>
                      </catch>
                   </events>
@@ -197,7 +293,7 @@
                <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
                <ns1:CreationDate>2025-03-09T04:58:06Z</ns1:CreationDate>
                <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
-               <ns1:ModificationDate>2025-03-09T04:58:06Z</ns1:ModificationDate>
+               <ns1:ModificationDate>2025-03-17T03:03:21Z</ns1:ModificationDate>
                <ns1:Data format="json">{}</ns1:Data>
             </ns1:SampleData>
          </ns1:sample-data-sets>
@@ -205,5 +301,5 @@
       <types1:GUID>aNbfAH72Y28gY8vqfzwWCM</types1:GUID>
       <types1:DisplayName>Consumer B SubProcess</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-11T05:01:57.175Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-17T03:26:06.144Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>

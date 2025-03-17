@@ -17,7 +17,7 @@ The list capability of clients can support pagination</types1:Description>
       <types1:ModificationDate>2025-03-13T22:21:45Z</types1:ModificationDate>
       <types1:PublicationStatus>published</types1:PublicationStatus>
       <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
-      <types1:PublicationDate>2025-03-13T22:22:12Z</types1:PublicationDate>
+      <types1:PublicationDate>2025-03-16T20:58:25Z</types1:PublicationDate>
       <types1:PublishedContributionId>project:/spi.customers/customers.pd.xml</types1:PublishedContributionId>
       <types1:Entry>
          <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
@@ -199,10 +199,11 @@ The list capability of clients can support pagination</description>
                <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
                <ns1:CreationDate>2025-03-10T02:46:49Z</ns1:CreationDate>
                <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
-               <ns1:ModificationDate>2025-03-10T02:47:06Z</ns1:ModificationDate>
+               <ns1:ModificationDate>2025-03-16T20:49:39Z</ns1:ModificationDate>
                <ns1:Data format="json">{
     "offset": "1",
-    "fetch": "5"
+    "fetch": "5",
+    "lastUpdated":"2024-03-15"
 }</ns1:Data>
             </ns1:SampleData>
          </ns1:sample-data-sets>
@@ -210,5 +211,5 @@ The list capability of clients can support pagination</description>
       <types1:GUID>6Ijmg06b2qeblv9DOFFf2N</types1:GUID>
       <types1:DisplayName>Search Customers</types1:DisplayName>
    </types1:Item>
-   <types1:CurrentServerDateTime>2025-03-15T19:08:25.768Z</types1:CurrentServerDateTime>
+   <types1:CurrentServerDateTime>2025-03-17T03:26:06.376Z</types1:CurrentServerDateTime>
 </aetgt:getResponse>
