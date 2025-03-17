@@ -1,0 +1,472 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>fXs3C6LlRkPUEbf-gt-49344-2025-03-16T01:20:47.089Z::svc.xml</types1:EntryId>
+      <types1:Name>EventImportServiceConnector</types1:Name>
+      <types1:ParentFlowIds>f6eCUtoVVVVVVVV-gt-126888-2025-03-17T00:07:50.966Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-16T01:20:47Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-17T01:38:33Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-17T01:33:20Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/EventImportServiceConnector/EventImportServiceConnector_svcDef.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="EventImportServiceConnector"
+                            label=""
+                            name="EventImportServiceConnector"
+                            uuid="4bfdf984-db17-422c-bbbf-3cb7f39be978">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"/>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       isAbstract="true"
+                       label="BaseAction"
+                       maxRedirects="100"
+                       name="BaseAction"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://na1.ai.dm-us.informaticacloud.com/active-bpel/services/EventImportPortType"
+                                        verb="POST">
+                        <authentication>
+                           <username>apiuser@iics.org</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="Content-Type">text/xml; charset=utf-8</header>
+                        </httpHeaders>
+                        <body/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       inherits="BaseAction"
+                       label="EventImportOperation"
+                       maxRedirects="100"
+                       name="EventImportOperation"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <inheritanceMetadata>
+                     <section type="restSimpleBinding">
+                        <attribute inherit="inherit" name="url" type="url"/>
+                        <section type="authentication">
+                           <attribute inherit="inherit" name="username" type="parameter"/>
+                           <attribute inherit="inherit" name="password" type="parameter"/>
+                           <attribute name="isExpressionInPassword" type="parameter"/>
+                        </section>
+                        <section type="mutualAuth">
+                           <attribute inherit="inherit" name="keyStore" type="parameter"/>
+                           <attribute inherit="inherit" name="keyStorePassword" type="parameter"/>
+                        </section>
+                        <section type="body">
+                           <attribute inherit="inherit" name="generateUsing" type="generateUsing"/>
+                           <attribute inherit="overwrite" name="content" type="content"/>
+                        </section>
+                        <section type="httpHeaders">
+                           <attribute inherit="inherit" name="Content-Type" type="header"/>
+                        </section>
+                     </section>
+                  </inheritanceMetadata>
+                  <input>
+                     <parameter description=""
+                                label=""
+                                name="EventImportRequest"
+                                required="false"
+                                testWith="&lt;EventImportRequest_AT&gt;&#xA;    &lt;partition&gt;partitionA&lt;/partition&gt;&#xA;    &lt;variant&gt;variantA&lt;/variant&gt;&#xA;    &lt;WSRFXDocumentInputBean_Item&gt;&#xA;        &lt;item&gt;&#xA;            &lt;Action&gt;Create&lt;/Action&gt;&#xA;            &lt;Attachments&gt;xxxx&lt;/Attachments&gt;&#xA;            &lt;Contents&gt;ZIP&lt;/Contents&gt;&#xA;            &lt;DocumentId&gt;&lt;/DocumentId&gt;&#xA;            &lt;DocumentName&gt;csvFiles.zip&lt;/DocumentName&gt;&#xA;            &lt;OnBehalfUserId&gt;joramos&lt;/OnBehalfUserId&gt;&#xA;            &lt;OnBehalfUserPasswordAdapter&gt;&lt;/OnBehalfUserPasswordAdapter&gt;&#xA;            &lt;ReplaceEventContent&gt;true&lt;/ReplaceEventContent&gt;&#xA;            &lt;TemplateId&gt;SYS0107&lt;/TemplateId&gt;&#xA;            &lt;WorkspaceId&gt;WORKID&lt;/WorkspaceId&gt;&#xA;&lt;/item&gt;&#xA;    &lt;/WSRFXDocumentInputBean_Item&gt;&#xA;&lt;/EventImportRequest_AT&gt;"
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">EventImportRequest_AT</option>
+                           <option name="isCopy">true</option>
+                        </options>
+                     </parameter>
+                     <parameter description=""
+                                label=""
+                                name="Headers"
+                                required="false"
+                                testWith="&lt;Headers_AT&gt;&#xA;    &lt;variant&gt;variantA&lt;/variant&gt;&#xA;    &lt;partition&gt;partitionA&lt;/partition&gt;&#xA;&lt;/Headers_AT&gt;&#xA;"
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Headers_AT</option>
+                           <option name="isCopy">true</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://na1.ai.dm-us.informaticacloud.com/active-bpel/services/EventImportPortType"
+                                        verb="POST">
+                        <authentication>
+                           <username>apiuser@iics.org</username>
+                           <password/>
+                           <isExpressionInPassword>false</isExpressionInPassword>
+                        </authentication>
+                        <mutualAuth enabled="false">
+                           <keyStore mode="file"/>
+                           <keyStorePassword/>
+                        </mutualAuth>
+                        <httpHeaders>
+                           <header name="SOAPAction">"/Process Definition"</header>
+                        </httpHeaders>
+                        <body xmlns:sconn="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd">&lt;soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+   &lt;soap:Header&gt;
+      &lt;ns:Headers xmlns:ns="urn:Ariba:Sourcing:vrealm_4329"&gt;
+         &lt;ns:variant&gt;{$Headers/variant/text()}&lt;/ns:variant&gt;
+         &lt;ns:partition&gt;{$Headers/partition/text()}&lt;/ns:partition&gt;
+      &lt;/ns:Headers&gt;
+   &lt;/soap:Header&gt;
+   &lt;soap:Body&gt;
+      &lt;ns:EventImportRequest xmlns:ns="urn:Ariba:Sourcing:vrealm_4329"
+                             partition="{$EventImportRequest/partition/text()}"
+                             variant="{$EventImportRequest/variant/text()}"&gt;
+         &lt;ns:WSRFXDocumentInputBean_Item&gt;
+            &lt;ns:item&gt;
+               &lt;ns:Action&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/Action/text()}&lt;/ns:Action&gt;
+               &lt;ns:Attachments&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/Attachments/text()}&lt;/ns:Attachments&gt;
+               &lt;ns:Contents&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/Contents/text()}&lt;/ns:Contents&gt;
+               &lt;ns:DocumentId&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/DocumentId/text()}&lt;/ns:DocumentId&gt;
+               &lt;ns:DocumentName&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/DocumentName/text()}&lt;/ns:DocumentName&gt;
+               &lt;ns:OnBehalfUserId&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/OnBehalfUserId/text()}&lt;/ns:OnBehalfUserId&gt;
+               &lt;ns:OnBehalfUserPasswordAdapter&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/OnBehalfUserPasswordAdapter/text()}&lt;/ns:OnBehalfUserPasswordAdapter&gt;
+               &lt;ns:RFXDocumentHeaderFields&gt;
+                  &lt;ns:BaseLanguage&gt;
+                     &lt;ns:UniqueName&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/RFXDocumentHeaderFields/BaseLanguage/UniqueName/text()}&lt;/ns:UniqueName&gt;
+                  &lt;/ns:BaseLanguage&gt;
+                  &lt;ns:Commodity&gt;
+{
+                                for $item in $EventImportRequest/WSRFXDocumentInputBean_Item/item/RFXDocumentHeaderFields/Commodity/item
+                                    return
+                                        &lt;ns:item&gt;
+                        &lt;ns:Domain&gt;{$item/Domain/text()}&lt;/ns:Domain&gt;
+                        &lt;ns:UniqueName&gt;{$item/UniqueName/text()}&lt;/ns:UniqueName&gt;
+                     &lt;/ns:item&gt;
+                            }
+&lt;/ns:Commodity&gt;
+                  &lt;ns:Currency&gt;
+                     &lt;ns:UniqueName&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/RFXDocumentHeaderFields/Currency/UniqueName/text()}&lt;/ns:UniqueName&gt;
+                  &lt;/ns:Currency&gt;
+                  &lt;ns:Description&gt;
+                     &lt;ns:DefaultStringTranslation&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/RFXDocumentHeaderFields/Description/DefaultStringTranslation/text()}&lt;/ns:DefaultStringTranslation&gt;
+                  &lt;/ns:Description&gt;
+                  &lt;ns:Title&gt;
+                     &lt;ns:DefaultStringTranslation&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/RFXDocumentHeaderFields/Title/DefaultStringTranslation/text()}&lt;/ns:DefaultStringTranslation&gt;
+                  &lt;/ns:Title&gt;
+               &lt;/ns:RFXDocumentHeaderFields&gt;
+               &lt;ns:ReplaceEventContent&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/ReplaceEventContent/text()}&lt;/ns:ReplaceEventContent&gt;
+               &lt;ns:TemplateId&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/TemplateId/text()}&lt;/ns:TemplateId&gt;
+               &lt;ns:WorkspaceId&gt;{$EventImportRequest/WSRFXDocumentInputBean_Item/item/WorkspaceId/text()}&lt;/ns:WorkspaceId&gt;
+            &lt;/ns:item&gt;
+         &lt;/ns:WSRFXDocumentInputBean_Item&gt;
+      &lt;/ns:EventImportRequest&gt;
+   &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field name="EventImportReply" type="reference">
+                        <options>
+                           <option name="referenceTo">EventImportReply_AT</option>
+                           <option name="isCopy">true</option>
+                        </options>
+                        <xquery>{util:simplifyXml(//*[local-name()='EventImportReply'])}</xquery>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="BaseLanguage_AT">
+                  <description/>
+                  <detail>
+                     <field name="UniqueName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Commodity_AT">
+                  <description/>
+                  <detail>
+                     <field name="item" nullable="false" required="false" type="objectlist">
+                        <options>
+                           <option name="referenceTo">Item2_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Currency_AT">
+                  <description/>
+                  <detail>
+                     <field name="UniqueName"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Description_AT">
+                  <description/>
+                  <detail>
+                     <field name="DefaultStringTranslation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="EventImportReply_AT">
+                  <description/>
+                  <detail>
+                     <field name="partition"
+                            nullable="false"
+                            required="false"
+                            type="string"/>
+                     <field name="variant" nullable="false" required="false" type="string"/>
+                     <field name="WSRFXDocumentOutputBean_Item"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">WSRFXDocumentOutputBean_Item_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="EventImportRequest_AT">
+                  <description/>
+                  <detail>
+                     <field name="partition"
+                            nullable="false"
+                            required="false"
+                            type="string"/>
+                     <field name="variant" nullable="false" required="false" type="string"/>
+                     <field name="WSRFXDocumentInputBean_Item"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">WSRFXDocumentInputBean_Item_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Headers_AT">
+                  <description/>
+                  <detail>
+                     <field name="variant" nullable="false" required="false" type="string"/>
+                     <field name="partition"
+                            nullable="false"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Item2_AT">
+                  <description/>
+                  <detail>
+                     <field name="Domain" nullable="true" required="true" type="string"/>
+                     <field name="UniqueName" nullable="true" required="true" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="RFXDocument_WSProjectImport">
+                  <description/>
+                  <detail>
+                     <field name="BaseLanguage"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">BaseLanguage_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Commodity"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Commodity_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Currency"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Currency_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Description"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Description_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="Title" nullable="false" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">Title_AT</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Title_AT">
+                  <description/>
+                  <detail>
+                     <field name="DefaultStringTranslation"
+                            nullable="true"
+                            required="false"
+                            type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="WSRFXDocumentInputBean">
+                  <description/>
+                  <detail>
+                     <field name="Action" nullable="false" required="true" type="string"/>
+                     <field name="Attachments"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="Contents" nullable="false" required="true" type="string"/>
+                     <field name="DocumentId"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="DocumentName"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="OnBehalfUserId"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="OnBehalfUserPasswordAdapter"
+                            nullable="false"
+                            required="false"
+                            type="string"/>
+                     <field name="ReplaceEventContent"
+                            nullable="false"
+                            required="true"
+                            type="boolean"/>
+                     <field name="TemplateId"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="WorkspaceId"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="RFXDocumentHeaderFields"
+                            nullable="false"
+                            required="false"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">RFXDocument_WSProjectImport</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="WSRFXDocumentInputBean_Item_AT">
+                  <description/>
+                  <detail>
+                     <field name="item" nullable="false" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">WSRFXDocumentInputBean</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="WSRFXDocumentOutputBean">
+                  <description/>
+                  <detail>
+                     <field name="Contents" nullable="false" required="true" type="string"/>
+                     <field name="DocumentId"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="ErrorMessage"
+                            nullable="false"
+                            required="true"
+                            type="string"/>
+                     <field name="Status" nullable="false" required="true" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="WSRFXDocumentOutputBean_Item_AT">
+                  <description/>
+                  <detail>
+                     <field name="item" nullable="false" required="false" type="reference">
+                        <options>
+                           <option name="referenceTo">WSRFXDocumentOutputBean</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>kecqtEcnEauhks4Y73PHa8</types1:GUID>
+      <types1:DisplayName>EventImportServiceConnector</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-17T02:17:52.2Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

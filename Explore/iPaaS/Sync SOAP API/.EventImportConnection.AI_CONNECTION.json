@@ -1,0 +1,47 @@
+{
+  "objectInfo" : {
+    "id" : "7dvJRnZ1AXrgAZYxhAmyeV",
+    "name" : "EventImportConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "f6eCUtoVVVVVVVV-gt-126888-2025-03-17T00:07:50.966Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-17T02:17:52.664Z",
+  "objectRefs" : [ {
+    "id" : "kecqtEcnEauhks4Y73PHa8",
+    "name" : "EventImportServiceConnector",
+    "type" : "AI_SERVICE_CONNECTOR",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "fXs3C6LlRkPUEbf-gt-49344-2025-03-16T01:20:47.089Z::svc.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Sync SOAP API"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,107 @@
+{
+  "objectInfo" : {
+    "id" : "5YwX3mG3jaObSp334Lzs0M",
+    "name" : "Customers Sync Ariba Process",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "vmVtFgpKi9zhFty-gt-44713-2025-03-15T19:21:33.349Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-17T02:17:52.664Z",
+  "objectRefs" : [ {
+    "id" : "aM9OxAnkpECkoccr4q57i4",
+    "name" : "CSVWriterConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "HtxGomUhGdwOLIF-gt-44533-2025-03-15T19:59:26.541Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Sync SOAP API"
+  }, {
+    "id" : "7dvJRnZ1AXrgAZYxhAmyeV",
+    "name" : "EventImportConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "f6eCUtoVVVVVVVV-gt-126888-2025-03-17T00:07:50.966Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Sync SOAP API"
+  }, {
+    "id" : "3xkYN2DXDCOkSIASl42j8B",
+    "name" : "CreateZipFile",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wVMZlNaaabdvhxi-gt-61127-2025-03-16T04:22:18.357Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/Sync SOAP API"
+  }, {
+    "id" : "8btWD0tMBJ0fAJfYY0vCG3",
+    "name" : "ABCIncApiServiceConnection",
+    "type" : "AI_CONNECTION",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "CJhtghGZ5i4rswV-gt-1179211-2025-03-06T21:48:25.464Z::conn.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "Connection to ABC Inc Api Rest",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    },
+    "path" : "/Explore/iPaaS/CAI Pagination"
+  } ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

@@ -1,0 +1,73 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>wVMZlNaaabdvhxi-gt-61127-2025-03-16T04:22:18.357Z::pd.xml</types1:EntryId>
+      <types1:Name>CreateZipFile</types1:Name>
+      <types1:ParentFlowIds>vmVtFgpKi9zhFty-gt-44713-2025-03-15T19:21:33.349Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-16T04:22:18Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-16T19:30:15Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-17T02:10:01Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.CreateZipFile/CreateZipFile.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="3xkYN2DXDCOkSIASl42j8B"
+                  displayName="CreateZipFile"
+                  name="CreateZipFile"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="none">
+               <targetLocation>idmc08-latam-carlos-primary.infacloud.eu</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+            </extData>
+            <flow id="m195b941d-7cbf-4ed3-8a87-20b35532e2ed">
+               <start id="d5b2d8cc6-cf31-441b-9ebd-34b2ed19062b">
+                  <link id="ba33fda05-4b94-455a-bde5-be0170b504fb"
+                        targetId="a13xkYN2DXDCOkSIASl42j8B-Service12316ec2-6b9e-440f-ada5-741c75cc64dd"/>
+               </start>
+               <service id="a13xkYN2DXDCOkSIASl42j8B-Service12316ec2-6b9e-440f-ada5-741c75cc64dd">
+                  <title>Run Shell Command To Zip</title>
+                  <serviceName>avShellService</serviceName>
+                  <serviceInput>
+                     <parameter name="command" source="constant">zip -r -j csvFiles.zip /data/angel/csvfiles</parameter>
+                     <parameter name="workingDirPath" source="constant">/data/angel/myscriptdir</parameter>
+                  </serviceInput>
+                  <link id="kbe4eebee-34f9-43b5-994a-a5708b159a00"
+                        targetId="a13xkYN2DXDCOkSIASl42j8B-end-c8c7b40f3-4b33-42d6-bd4f-a3a7064e71c7"/>
+               </service>
+               <end id="a13xkYN2DXDCOkSIASl42j8B-end-c8c7b40f3-4b33-42d6-bd4f-a3a7064e71c7">
+                  <title>End</title>
+               </end>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>3xkYN2DXDCOkSIASl42j8B</types1:GUID>
+      <types1:DisplayName>CreateZipFile</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-17T02:17:52.216Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

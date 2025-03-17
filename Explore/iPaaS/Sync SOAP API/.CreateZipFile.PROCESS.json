@@ -1,0 +1,27 @@
+{
+  "objectInfo" : {
+    "id" : "3xkYN2DXDCOkSIASl42j8B",
+    "name" : "CreateZipFile",
+    "type" : "PROCESS",
+    "metadata" : {
+      "modelVersion" : {
+        "major" : 1,
+        "minor" : 0
+      },
+      "repoInfo" : {
+        "repoHandle" : "wVMZlNaaabdvhxi-gt-61127-2025-03-16T04:22:18.357Z::pd.xml"
+      },
+      "contextAttributes" : null,
+      "additionalInfo" : {
+        "description" : "",
+        "contentType" : "application/json; charset=utf-8",
+        "documentState" : "VALID"
+      }
+    }
+  },
+  "dataFileExtension" : "xml",
+  "updateTime" : "2025-03-17T02:17:52.664Z",
+  "objectRefs" : [ ],
+  "readableFileExtension" : null,
+  "readableFilePresent" : false
+}

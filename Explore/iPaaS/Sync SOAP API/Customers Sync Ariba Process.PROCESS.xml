@@ -1,0 +1,557 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>vmVtFgpKi9zhFty-gt-44713-2025-03-15T19:21:33.349Z::pd.xml</types1:EntryId>
+      <types1:Name>Customers_Sync_Ariba_Process</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-15T19:21:33Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-17T02:09:51Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-17T02:10:01Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.Customers_Sync_Ariba_Process/Customers_Sync_Ariba_Process.pd.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:tfm="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  GUID="5YwX3mG3jaObSp334Lzs0M"
+                  displayName="Customers Sync Ariba Process"
+                  name="Customers_Sync_Ariba_Process"
+                  overrideAPIName="false">
+            <parameterSet xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2021/04/taskflowModel.xsd"/>
+            <appliesTo/>
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description=""
+                          name="offset_InputParam"
+                          required="true"
+                          type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="fetch_InputParam"
+                          required="true"
+                          type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="client_idInputParam"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+               <parameter description=""
+                          name="client_secret_InputParam"
+                          required="true"
+                          type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="This can be 'error' or 'success'"
+                      name="status"
+                      type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="statusCode" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">200</option>
+                  </options>
+               </field>
+               <field description="" name="summary" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="processId" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="tempPagesNumber" type="int">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="initialvalue">1</option>
+                  </options>
+               </field>
+               <field description="" name="tempCurrentCustomer" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempCustomerList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempRecordsCSVList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempFile" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">CSVWriterConnection:SerializeToDelimitedContentTask</option>
+                     <option name="guid">CSVWriterConnection</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="tempEmptyList" type="objectlist">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="required">false</option>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="isCopy">true</option>
+                     <option hide="true" name="multiSelect">true</option>
+                  </options>
+               </field>
+               <field description="" name="currentPage" type="int">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="Attachment to be sent to Ariba"
+                      name="attachment"
+                      type="attachment">
+                  <options>
+                     <option name="required">false</option>
+                     <option hide="true" name="count">1</option>
+                     <option name="maxsize">5242880</option>
+                  </options>
+               </field>
+               <field description="" name="zipBase64" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="eventImportRequest" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">EventImportConnection:EventImportRequest_AT</option>
+                     <option name="guid">7dvJRnZ1AXrgAZYxhAmyeV</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="headers" type="reference">
+                  <options>
+                     <option name="required">false</option>
+                     <option name="referenceTo">EventImportConnection:Headers_AT</option>
+                     <option name="guid">EventImportConnection</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment skipIfRunning="false" suspendOnFault="false" tracingLevel="verbose">
+               <targetLocation>idmc08-latam-carlos-primary.infacloud.eu</targetLocation>
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <extData>
+               <nvpair name="treatEmptyStringAsNotNull">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsArray">true</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyObjectListAsNotArray">false</nvpair>
+               <nvpair name="treatEmptyStringAsNull">true</nvpair>
+            </extData>
+            <flow id="a5bd6e6de-9eed-4e0e-ae50-0ecdf88bdfb6">
+               <start id="ta63a2a7d-eb73-41d2-b120-87d771548f12">
+                  <link id="da7d795c0-07e3-4912-86ae-8597c5289be9"
+                        targetId="a15YwX3mG3jaObSp334Lzs0M-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822"/>
+               </start>
+               <service id="a15YwX3mG3jaObSp334Lzs0M-Service74bbdb69-b0be-4c9c-90f1-6b42ce93c822">
+                  <title>ABC Inc API Token</title>
+                  <serviceName>ABCIncApiServiceConnection:Get Token</serviceName>
+                  <serviceGUID>8btWD0tMBJ0fAJfYY0vCG3</serviceGUID>
+                  <serviceInput>
+                     <parameter name="client_id" source="field">input.client_idInputParam</parameter>
+                     <parameter name="client_secret" source="field">input.client_secret_InputParam</parameter>
+                  </serviceInput>
+                  <link id="u2ad6e0e4-08d8-4c88-9057-43ac140e1bf9"
+                        targetId="a15YwX3mG3jaObSp334Lzs0M-m31mtd0e"/>
+               </service>
+               <service id="a15YwX3mG3jaObSp334Lzs0M-m31mtd0e">
+                  <title>ABC Inc API Get Customers</title>
+                  <serviceName>ABCIncApiServiceConnection:Customers Search</serviceName>
+                  <serviceGUID>8btWD0tMBJ0fAJfYY0vCG3</serviceGUID>
+                  <serviceInput>
+                     <parameter name="offset" source="field">input.offset_InputParam</parameter>
+                     <parameter name="fetch" source="field">input.fetch_InputParam</parameter>
+                     <parameter name="authtoken" source="field">output.responseauthtoken</parameter>
+                  </serviceInput>
+                  <link id="n1237ec5a-be95-455d-8656-e6ddc3f195ef"
+                        targetId="a15YwX3mG3jaObSp334Lzs0M-Assignment52a20790-5430-4722-9914-8359e000c2b4"/>
+               </service>
+               <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignment52a20790-5430-4722-9914-8359e000c2b4">
+                  <title>Get Customer List</title>
+                  <operation source="formula" to="temp.tempCustomerList">
+                     <expression language="XQuery">list:list($output.customersearchresult//pageItems)</expression>
+                  </operation>
+                  <link id="u7a1f4c17-8547-4363-b3fd-1a760f63eac5"
+                        targetId="a15YwX3mG3jaObSp334Lzs0M-m1l0gnf1"/>
+               </assignment>
+               <container id="a15YwX3mG3jaObSp334Lzs0M-m1l0gnf1" type="exclusive">
+                  <title>index Customer</title>
+                  <flow id="e27ddb125-73d5-41d6-bd21-f8b99cd05bc8">
+                     <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignment8fb23921-ae9f-41f5-94e5-286f2a91fc09">
+                        <title>Set CSV Content</title>
+                        <operation source="formula" to="temp.currentPage">
+                           <expression language="XQuery">fn:floor($input.offset_InputParam div $input.fetch_InputParam) + 1</expression>
+                        </operation>
+                        <operation source="formula" to="temp.tempFile">
+                           <expression language="XQuery">&lt;SerializeToDelimitedContentTask&gt; 
+   &lt;fileName&gt;Customer_{$temp.currentPage}.csv&lt;/fileName&gt; 
+   &lt;delimiter&gt;,&lt;/delimiter&gt; 
+   &lt;skipHeaders&gt;false&lt;/skipHeaders&gt;{
+   for $customer in $temp.tempRecordsCSVList
+   return &lt;customObjects&gt; 
+&lt;PARTY_ID&gt;{$customer/party_id/text()}&lt;/PARTY_ID&gt;
+&lt;NAME&gt;{$customer/name/text()}&lt;/NAME&gt;
+&lt;ADDRESS&gt;{$customer/address/text()}&lt;/ADDRESS&gt; 
+&lt;ADDRESS2&gt;{$customer/address2/text()}&lt;/ADDRESS2&gt; 
+&lt;CITY&gt;{$customer/city/text()}&lt;/CITY&gt; 
+&lt;STATE&gt;{$customer/state/text()}&lt;/STATE&gt; 
+&lt;ZIPCODE&gt;{$customer/zipcode/text()}&lt;/ZIPCODE&gt; 
+&lt;COUNTRY&gt;{$customer/country/text()}&lt;/COUNTRY&gt; 
+&lt;PHONE&gt;{$customer/phone/text()}&lt;/PHONE&gt; 
+&lt;EMAIL&gt;{$customer/email/text()}&lt;/EMAIL&gt; 
+&lt;STATUS&gt;{$customer/status/text()}&lt;/STATUS&gt; 
+&lt;TIER&gt;{$customer/tier/text()}&lt;/TIER&gt; 
+&lt;GENDER&gt;{$customer/gender/text()}&lt;/GENDER&gt; 
+&lt;DOB&gt;{$customer/dob/text()}&lt;/DOB&gt; 
+&lt;CC_TYPE&gt;{$customer/cc_type/text()}&lt;/CC_TYPE&gt; 
+&lt;CC_NUM&gt;{$customer/cc_num/text()}&lt;/CC_NUM&gt; 
+&lt;CC_EXP_DT&gt;{$customer/cc_exp_dt/text()}&lt;/CC_EXP_DT&gt; 
+&lt;LAST_UPDT&gt;{$customer/last_updt/text()}&lt;/LAST_UPDT&gt; 
+&lt;CONSUMER&gt;{$customer/consumer/text()}&lt;/CONSUMER&gt; 
+   &lt;/customObjects&gt;
+   }&lt;header&gt;
+       &lt;name&gt;PARTY_ID&lt;/name&gt; 
+       &lt;fieldIndex&gt;1&lt;/fieldIndex&gt; 
+   &lt;/header&gt; 
+   &lt;header&gt; 
+       &lt;name&gt;NAME&lt;/name&gt; 
+       &lt;fieldIndex&gt;2&lt;/fieldIndex&gt; 
+   &lt;/header&gt; 
+   &lt;header&gt; 
+       &lt;name&gt;ADDRESS&lt;/name&gt; 
+       &lt;fieldIndex&gt;3&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;ADDRESS2&lt;/name&gt; 
+       &lt;fieldIndex&gt;4&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CITY&lt;/name&gt; 
+       &lt;fieldIndex&gt;5&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;STATE&lt;/name&gt; 
+       &lt;fieldIndex&gt;6&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;ZIPCODE&lt;/name&gt; 
+       &lt;fieldIndex&gt;7&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;COUNTRY&lt;/name&gt; 
+       &lt;fieldIndex&gt;8&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;PHONE&lt;/name&gt; 
+       &lt;fieldIndex&gt;9&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;EMAIL&lt;/name&gt; 
+       &lt;fieldIndex&gt;10&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;STATUS&lt;/name&gt; 
+       &lt;fieldIndex&gt;11&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;TIER&lt;/name&gt; 
+       &lt;fieldIndex&gt;12&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;GENDER&lt;/name&gt; 
+       &lt;fieldIndex&gt;13&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;DOB&lt;/name&gt; 
+       &lt;fieldIndex&gt;14&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_TYPE&lt;/name&gt; 
+       &lt;fieldIndex&gt;15&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_NUM&lt;/name&gt; 
+       &lt;fieldIndex&gt;16&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CC_EXP_DT&lt;/name&gt; 
+       &lt;fieldIndex&gt;17&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;LAST_UPDT&lt;/name&gt; 
+       &lt;fieldIndex&gt;18&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+   &lt;header&gt; 
+       &lt;name&gt;CONSUMER&lt;/name&gt; 
+       &lt;fieldIndex&gt;19&lt;/fieldIndex&gt; 
+   &lt;/header&gt;
+&lt;/SerializeToDelimitedContentTask&gt;</expression>
+                        </operation>
+                        <link id="v12261c0b-ec32-44b3-a886-dae7225e0975"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-Service7de182bc-d150-454a-84d1-b7b97b1b1fae"/>
+                     </assignment>
+                     <assignment id="a15YwX3mG3jaObSp334Lzs0M-m1l0gnek">
+                        <title>Get Pending pages to process</title>
+                        <operation source="formula" to="temp.tempPagesNumber">
+                           <expression language="XQuery">fn:ceiling( ($output.customersearchresult//totalRecords - $input.offset_InputParam) div $input.fetch_InputParam) - 1</expression>
+                        </operation>
+                        <link id="s2bf0408b-3487-489f-b212-641d7acf6b76"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"/>
+                     </assignment>
+                     <service id="a15YwX3mG3jaObSp334Lzs0M-Service7de182bc-d150-454a-84d1-b7b97b1b1fae">
+                        <title>DelimitedContentWriter</title>
+                        <serviceName>CSVWriterConnection:DelimitedContentWriter</serviceName>
+                        <serviceGUID>aM9OxAnkpECkoccr4q57i4</serviceGUID>
+                        <serviceInput>
+                           <parameter name="serializationTask" source="field">temp.tempFile</parameter>
+                        </serviceInput>
+                        <link id="e2b30ee67-2883-4e21-9cc4-21b0cc50d54f"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-m1l0gnek"/>
+                     </service>
+                     <container id="a15YwX3mG3jaObSp334Lzs0M-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
+                                type="exclusive">
+                        <title>next Page</title>
+                        <flow id="wa3c8f0f5-f33f-42d9-a3de-d472a4188100">
+                           <subflow id="a15YwX3mG3jaObSp334Lzs0M-Subprocess2f8971d5-18a6-484a-b090-3b834aae2fcd">
+                              <title>Create ZIP File</title>
+                              <subflowGUID>3xkYN2DXDCOkSIASl42j8B</subflowGUID>
+                              <subflowPath>CreateZipFile</subflowPath>
+                              <appliesTo/>
+                              <runForEach>false</runForEach>
+                              <input/>
+                              <outputDef/>
+                              <link id="he2664467-371e-49eb-a58e-d12c4d28df55"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-Service2093e146-2988-4dc2-aa23-051d854d5bf8"/>
+                           </subflow>
+                           <service id="a15YwX3mG3jaObSp334Lzs0M-Service2093e146-2988-4dc2-aa23-051d854d5bf8">
+                              <title>Run Shell Command To Get Zip base64</title>
+                              <serviceName>avShellService</serviceName>
+                              <serviceInput>
+                                 <parameter name="command" source="constant">base64 /data/angel/myscriptdir/csvFiles.zip -w 0 2&gt;/dev/null; true</parameter>
+                                 <parameter name="workingDirPath" source="constant">/data/angel/myscriptdir</parameter>
+                              </serviceInput>
+                              <link id="f4b6e99d2-a2d4-4d61-b7af-4952645ea213"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-Assignmentd965bab2-b8bc-4866-95ac-be4bb6808dfb"/>
+                           </service>
+                           <service id="Service6b2db7a0-6660-483c-9fbc-209fa35b28d5">
+                              <title>Sent To Ariba</title>
+                              <serviceName>EventImportConnection:EventImportOperation</serviceName>
+                              <serviceGUID>7dvJRnZ1AXrgAZYxhAmyeV</serviceGUID>
+                              <serviceInput>
+                                 <parameter name="EventImportRequest" source="field">temp.eventImportRequest</parameter>
+                                 <parameter name="Headers" source="field">temp.headers</parameter>
+                              </serviceInput>
+                              <link id="td706e42e-46e5-4cc7-a97b-242d1cae23a4"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-Assignmentdef8bf1c-8312-415d-a371-8dee44cbd5e9"/>
+                           </service>
+                           <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignmentd965bab2-b8bc-4866-95ac-be4bb6808dfb">
+                              <title>Create Attachment</title>
+                              <operation source="field" to="temp.zipBase64">output.outputString</operation>
+                              <operation source="formula" to="temp.attachment">
+                                 <expression language="XQuery">sff:createAttachmentFromBase64('base64', $temp.zipBase64 ,'application/zip')</expression>
+                              </operation>
+                              <operation source="formula" to="temp.eventImportRequest">
+                                 <expression language="XQuery">&lt;EventImportRequest_AT&gt;
+    &lt;partition&gt;partitionA&lt;/partition&gt;
+    &lt;variant&gt;variantA&lt;/variant&gt;
+    &lt;WSRFXDocumentInputBean_Item&gt;
+        &lt;item&gt;
+            &lt;Action&gt;Create&lt;/Action&gt;
+            &lt;Attachments&gt;{$temp.zipBase64}&lt;/Attachments&gt;
+            &lt;Contents&gt;ZIP&lt;/Contents&gt;
+            &lt;DocumentId&gt;&lt;/DocumentId&gt;
+            &lt;DocumentName&gt;csvFiles.zip&lt;/DocumentName&gt;
+            &lt;OnBehalfUserId&gt;joramos&lt;/OnBehalfUserId&gt;
+            &lt;OnBehalfUserPasswordAdapter&gt;&lt;/OnBehalfUserPasswordAdapter&gt;
+            &lt;ReplaceEventContent&gt;true&lt;/ReplaceEventContent&gt;
+            &lt;TemplateId&gt;SYS0107&lt;/TemplateId&gt;
+            &lt;WorkspaceId&gt;WORKID&lt;/WorkspaceId&gt;
+        &lt;/item&gt;
+    &lt;/WSRFXDocumentInputBean_Item&gt;
+&lt;/EventImportRequest_AT&gt;</expression>
+                              </operation>
+                              <operation source="formula" to="temp.headers">
+                                 <expression language="XQuery">&lt;Headers_AT&gt;
+    &lt;variant&gt;variantA&lt;/variant&gt;
+    &lt;partition&gt;partitionA&lt;/partition&gt;
+&lt;/Headers_AT&gt;
+</expression>
+                              </operation>
+                              <link id="v045ac480-dbd7-41d9-808a-fea2ee7dca03"
+                                    targetId="Service6b2db7a0-6660-483c-9fbc-209fa35b28d5"/>
+                           </assignment>
+                           <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignmentdef8bf1c-8312-415d-a371-8dee44cbd5e9">
+                              <title>Set Success Response</title>
+                              <operation source="constant" to="output.status">sucess</operation>
+                              <operation source="constant" to="output.statusCode">200</operation>
+                              <operation source="formula" to="output.summary">
+                                 <expression language="XQuery">fn:data($output.EventImportReply) </expression>
+                              </operation>
+                              <operation source="formula" to="output.processId">
+                                 <expression language="XQuery">util:getProcessId()</expression>
+                              </operation>
+                           </assignment>
+                           <link id="b78a4dae7-fe4b-4388-948b-02177f3854ff"
+                                 targetId="a15YwX3mG3jaObSp334Lzs0M-Decision7f5df5b2-1e1b-4497-a719-b94354df9ad7"
+                                 type="containerLink"/>
+                        </flow>
+                        <flow id="k23e11055-f08b-4a98-919c-b2e855aee3d5">
+                           <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignment29e07b6c-160a-46f9-82bf-172248b99b9c">
+                              <title>Set New Offset</title>
+                              <operation source="formula" to="input.offset_InputParam">
+                                 <expression language="XQuery">$input.offset_InputParam + $input.fetch_InputParam</expression>
+                              </operation>
+                              <link id="r7ebc2080-5494-47cf-94cf-0596254080c7"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad"/>
+                           </assignment>
+                           <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignmentf6e668c6-300c-4fa0-ac8c-6f26bff035ad">
+                              <title>Clear Consumers List</title>
+                              <operation source="field" to="temp.tempRecordsCSVList">temp.tempEmptyList</operation>
+                              <link id="aec35b9c7-2a43-4efe-aa35-1d4db27f75c6"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b"/>
+                           </assignment>
+                           <jumpTo id="a15YwX3mG3jaObSp334Lzs0M-Jump95ab86a0-f8f3-40cd-ac05-15b0d86ea12b">
+                              <link id="r86bf6eff-abc8-4ccb-897a-2d1606fad9d0"
+                                    targetId="a15YwX3mG3jaObSp334Lzs0M-m31mtd0e"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="y3df81142-3462-4e88-9d66-8c01d585ad6d"
+                              targetId="wa3c8f0f5-f33f-42d9-a3de-d472a4188100"
+                              type="containerLink">
+                           <condition source="formula">
+                              <function name="less-or-equals">
+                                 <arg name="left" source="formula">{$temp.tempPagesNumber}</arg>
+                                 <arg name="right">0</arg>
+                              </function>
+                           </condition>
+                        </link>
+                        <link id="oc3386ddb-0463-45c1-9e41-5f903766f84b"
+                              targetId="k23e11055-f08b-4a98-919c-b2e855aee3d5"
+                              type="containerLink"/>
+                        <link id="s0723558a-546f-47d7-af0d-3e31bd04b677"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-End38e0328d-0f3b-4d89-a946-c543ee58eea1"/>
+                     </container>
+                     <end id="a15YwX3mG3jaObSp334Lzs0M-End38e0328d-0f3b-4d89-a946-c543ee58eea1">
+                        <title>End</title>
+                     </end>
+                  </flow>
+                  <flow id="d713afb9f-a426-4e9d-9bf0-928a581e592b">
+                     <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignment22576c0e-ab87-475d-823d-1b75f1ec945f">
+                        <title>Get Current Customer</title>
+                        <operation source="formula" to="temp.tempCurrentCustomer">
+                           <expression language="XQuery">list:head( $temp.tempCustomerList )</expression>
+                        </operation>
+                        <operation source="formula" to="temp.tempCustomerList">
+                           <expression language="XQuery">list:tail( $temp.tempCustomerList )</expression>
+                        </operation>
+                        <link id="c011d5cc8-c6fc-40cd-bb7f-b59205613b77"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-Assignment22a452f7-7154-48c6-9830-1c2f68c78eea"/>
+                     </assignment>
+                     <assignment id="a15YwX3mG3jaObSp334Lzs0M-Assignment22a452f7-7154-48c6-9830-1c2f68c78eea">
+                        <title>Add Record to CSV List</title>
+                        <operation source="formula" to="temp.tempRecordsCSVList">
+                           <expression language="XQuery">list:append( $temp.tempRecordsCSVList , $temp.tempCurrentCustomer )</expression>
+                        </operation>
+                        <link id="y8541c298-a370-4678-865f-641249e9a71c"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-Jumpa571d485-7e47-4480-b2bf-930412c550b7"/>
+                     </assignment>
+                     <jumpTo id="a15YwX3mG3jaObSp334Lzs0M-Jumpa571d485-7e47-4480-b2bf-930412c550b7">
+                        <link id="ed588ad28-852f-4212-81da-c5a02a699801"
+                              targetId="a15YwX3mG3jaObSp334Lzs0M-m1l0gnf1"/>
+                     </jumpTo>
+                  </flow>
+                  <link id="zc7f904cd-ac47-4d5c-aa86-0088a4d502dd"
+                        targetId="e27ddb125-73d5-41d6-bd21-f8b99cd05bc8"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="empty">
+                           <arg name="field">{$temp.tempCustomerList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="s3da9d087-6aaf-476e-8291-9114c3a948cf"
+                        targetId="d713afb9f-a426-4e9d-9bf0-928a581e592b"
+                        type="containerLink">
+                     <condition source="formula">
+                        <function name="not-empty">
+                           <arg name="field">{$temp.tempCustomerList}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+            </flow>
+         </process>
+         <ns1:sample-data-sets xmlns:ns1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/sampleData.xsd">
+            <ns1:SampleData>
+               <ns1:Id>9bfb0a13-2544-4c1f-a2aa-2fd09f33e39c</ns1:Id>
+               <ns1:Name>test</ns1:Name>
+               <ns1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</ns1:CreatedBy>
+               <ns1:CreationDate>2025-03-15T19:21:33Z</ns1:CreationDate>
+               <ns1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</ns1:ModifiedBy>
+               <ns1:ModificationDate>2025-03-16T21:00:13Z</ns1:ModificationDate>
+               <ns1:Data format="json">{
+ "offset_InputParam" : "0",
+ "client_secret_InputParam" : "eGMx19r5I",
+ "fetch_InputParam" : "130",
+ "client_idInputParam" : "ea2TLzBprARkWUaEgNqCqZ"
+}</ns1:Data>
+            </ns1:SampleData>
+         </ns1:sample-data-sets>
+      </types1:Entry>
+      <types1:GUID>5YwX3mG3jaObSp334Lzs0M</types1:GUID>
+      <types1:DisplayName>Customers Sync Ariba Process</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-17T02:17:52.335Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,70 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>HtxGomUhGdwOLIF-gt-44533-2025-03-15T19:59:26.541Z::conn.xml</types1:EntryId>
+      <types1:Name>CSVWriterConnection</types1:Name>
+      <types1:ParentFlowIds>vmVtFgpKi9zhFty-gt-44713-2025-03-15T19:21:33.349Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-15T19:59:27Z</types1:CreationDate>
+      <types1:ModifiedBy>joramos_LATAM_Carlos_tspod_SO</types1:ModifiedBy>
+      <types1:ModificationDate>2025-03-16T01:50:49Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-16T01:50:55Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/CSVWriterConnection/CSVWriterConnection.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="CSVWriterConnection"
+                     label="CSVWriterConnection"
+                     name="CSVWriterConnection">
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <agent>idmc08-latam-carlos-primary.infacloud.eu</agent>
+            <producers>
+               <producer enabled="true"
+                         name="DelimitedContentWriter"
+                         typeName="DelimitedContentWriter">
+                  <description>Use this event target to serialize process objects to delimited content files, such as CSV, and save them to files on a disk.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="directoryName" value="/data/angel/csvfiles"/>
+                     <attribute encrypted="false" name="fileExist" value="Override"/>
+                     <attribute encrypted="false" name="moveExisting" value=""/>
+                     <attribute encrypted="false" name="eagerDeleteTargetFile" value="true"/>
+                     <attribute encrypted="false" name="tempPrefix" value=""/>
+                     <attribute encrypted="false" name="tempFileName" value=""/>
+                     <attribute encrypted="false" name="forceWrites" value="true"/>
+                     <attribute encrypted="false" name="bufferSize" value=""/>
+                     <attribute encrypted="false" name="charset" value=""/>
+                     <attribute encrypted="false" name="delimiter" value=","/>
+                     <attribute encrypted="false" name="textQualifier" value="&#34;"/>
+                     <attribute encrypted="false" name="skipHeaders" value="false"/>
+                     <attribute encrypted="false" name="lineEnding" value="Unix"/>
+                  </attributes>
+               </producer>
+            </producers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           cloudOnly="false"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           supportsPublishSkipMetadataRefresh="false"
+                           type="File"
+                           uuid="ac000300-d9fe-11e4-8830-0800200c9a66">
+               <description>Provides connections to file monitoring brokers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>aM9OxAnkpECkoccr4q57i4</types1:GUID>
+      <types1:DisplayName>CSVWriterConnection</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-17T02:17:52.229Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

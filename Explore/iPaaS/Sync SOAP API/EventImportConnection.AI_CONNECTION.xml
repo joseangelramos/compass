@@ -1,0 +1,44 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>f6eCUtoVVVVVVVV-gt-126888-2025-03-17T00:07:50.966Z::conn.xml</types1:EntryId>
+      <types1:Name>EventImportConnection</types1:Name>
+      <types1:ParentFlowIds>vmVtFgpKi9zhFty-gt-44713-2025-03-15T19:21:33.349Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>joramos_LATAM_Carlos_tspod_SO</types1:CreatedBy>
+      <types1:CreationDate>2025-03-17T00:07:51Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>joramos_LATAM_Carlos_tspod_SO</types1:PublishedBy>
+      <types1:PublicationDate>2025-03-17T01:34:58Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/EventImportConnection/EventImportConnection.conn.xml</types1:PublishedContributionId>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="EventImportConnection"
+                     label="EventImportConnection"
+                     name="EventImportConnection">
+            <description/>
+            <tags>.agent:idmc08-latam-carlos-primary.infacloud.eu</tags>
+            <agent>idmc08-latam-carlos-primary.infacloud.eu</agent>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/EventImportServiceConnector/EventImportServiceConnector_svcDef.xml"
+                               guid="kecqtEcnEauhks4Y73PHa8"
+                               name="EventImportServiceConnector"
+                               supportsConnectionTest="false"
+                               uuid="4bfdf984-db17-422c-bbbf-3cb7f39be978">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>7dvJRnZ1AXrgAZYxhAmyeV</types1:GUID>
+      <types1:DisplayName>EventImportConnection</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2025-03-17T02:17:52.284Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
